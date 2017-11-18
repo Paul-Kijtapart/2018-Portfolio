@@ -110,6 +110,9 @@ module.exports = {
             inject: true, // ensure all js get added to template above
             hash: true, // ensure browser detects change from webpack
             cache: true // try to emit the file only if it was changed
-        })
+        }),
+
+
+        new ExtractTextPlugin("[name].style.css"), // !IMPORTANT! required for extractTextPlugin to works
     ]
 };
