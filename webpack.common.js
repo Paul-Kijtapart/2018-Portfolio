@@ -99,8 +99,11 @@ module.exports = {
         }
     },
     plugins: [
-        // Clear
-        new CleanWebpackPlugin(pathsToClean), // pass array of path to be clear,
+        /**
+         *  Clean output folder first
+         *  So that only used files will be generated.
+         */
+        new CleanWebpackPlugin(pathsToClean),
 
         // auto-inject scripts
         new HtmlWebpackPlugin({
@@ -113,6 +116,12 @@ module.exports = {
         }),
 
 
-        new ExtractTextPlugin("[name].style.css"), // !IMPORTANT! required for extractTextPlugin to works
+        /**
+         * IMPORTANT!
+         * ExtractTextPlugin generates a file per entry,
+         * so you must use [name], [id] or [contenthash]
+         * when using Multiple entries.
+         */
+        new ExtractTextPlugin("[name].style.css"),
     ]
 };
