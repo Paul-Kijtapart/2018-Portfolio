@@ -2,20 +2,22 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 // Constants
 const SRC = path.join(__dirname, 'src');
 const DIST = path.join(__dirname, 'dist');
 let pathsToClean = [DIST];
 
-
-modules.export = {
-    entry: 'index.js',
+module.exports = {
+    entry: {
+        app: path.join(__dirname, 'index.js')
+    },
     output: {
         path: DIST,
-        filename: 'build.js' // one single build file for whole app
+        filename: '[name].js' // one single build file for whole app
     },
-    modules: {
+    module: {
         rules: [ // The final loader is expected to return JavaScript.
             {
                 test: /\.css$/,
@@ -72,6 +74,8 @@ modules.export = {
         new CleanWebpackPlugin(pathsToClean), // pass array of path to be clear,
 
         // auto-inject scripts
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            title: 'Paul Nawat'
+        })
     ]
 };

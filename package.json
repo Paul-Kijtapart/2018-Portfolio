@@ -1,10 +1,11 @@
 {
-  "name": "portfolio with vuejs",
+  "name": "portfolio-with-vuejs",
   "version": "1.0.0",
   "description": "play with vuejs ui",
   "main": "index.js",
   "scripts": {
-    "dw": "",
+    "dw": "webpack --watch --config ./webpack.dev.js",
+    "startServer": "webpack-dev-server --config ./webpack.dev.js",
     "build": "",
     "unit": "",
     "e2e": ""
