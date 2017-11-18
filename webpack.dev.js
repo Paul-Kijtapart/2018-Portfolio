@@ -13,7 +13,6 @@ const baseConfig = require('./webpack.common');
 module.exports = merge(baseConfig, {
     devtool: 'inline-source-map',
 
-
     // Hot re-loading
     devServer: {
         historyApiFallback: true, // use index.html for 404 responses
@@ -24,8 +23,8 @@ module.exports = merge(baseConfig, {
         noInfo: true, // only want to see errors and warnings from log
         port: 9000
     },
-
     plugins: [
+        new webpack.NamedModulesPlugin(), // see which dependencies are being patched
         new webpack.HotModuleReplacementPlugin() // !IMPORTANT => need to for HMR to re-load properly
     ],
 });
