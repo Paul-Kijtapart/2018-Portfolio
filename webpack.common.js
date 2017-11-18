@@ -11,7 +11,7 @@ let pathsToClean = [DIST];
 
 module.exports = {
     entry: {
-        app: path.join(__dirname, 'index.js')
+        app: path.join(__dirname, 'src/index.js')
     },
     output: {
         path: DIST,
@@ -19,6 +19,32 @@ module.exports = {
     },
     module: {
         rules: [ // The final loader is expected to return JavaScript.
+            //VUE
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+                        // the "scss" and "sass" values for the lang attribute to the right configs here.
+                        // other preprocessors should work out of the box, no loader config like this necessary.
+                        'scss': ExtractTextPlugin.extract({
+                            fallback: 'vue-style-loader',
+                            use: ['css-loader', 'postcss-loader', 'sass-loader'], //order run from Right -> Left
+                        }),
+                        'sass': ExtractTextPlugin.extract({
+                            fallback: 'vue-style-loader',
+                            use: ['css-loader', 'postcss-loader', 'sass-loader?indentedSyntax']
+                        }),
+
+
+                        // Vue internationalization
+                        i18n: '@kazupon/vue-i18n-loader'
+                    }
+                    // other vue-loader options go here
+                }
+            },
+            // CSS
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
@@ -32,10 +58,12 @@ module.exports = {
                     ]
                 })
             },
+            // SVG
             {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
                 use: ['file-loader']
             },
+            // PNG/JPG
             {
                 test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
                 use: [{
@@ -45,6 +73,7 @@ module.exports = {
                     }
                 }]
             },
+            // SCSS
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
@@ -75,7 +104,12 @@ module.exports = {
 
         // auto-inject scripts
         new HtmlWebpackPlugin({
-            title: 'Paul Nawat'
+            title: 'Paul Nawat',
+            filename: './index.html', // file to write the HTML to
+            template: path.resolve(__dirname, "index.html"),
+            inject: true, // ensure all js get added to template above
+            hash: true, // ensure browser detects change from webpack
+            cache: true // try to emit the file only if it was changed
         })
     ]
 };
