@@ -4,7 +4,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-// Root actions and getters
+// TODO: Root actions and getters
 import * as actions from './actions';
 import * as getters from './getters';
 

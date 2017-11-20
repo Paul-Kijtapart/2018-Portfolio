@@ -21,7 +21,7 @@ Vue.use(VueI18n);
 
 // Set up internationalization
 const i18n = new VueI18n({
-    locale: 'en', // default locale
+    locale: 'th', // default locale
     messages: require('./internationalization/translation.message.json') // translation file
 });
 
