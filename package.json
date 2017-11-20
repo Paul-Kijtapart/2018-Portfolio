@@ -35,10 +35,13 @@
   },
   "dependencies": {
     "element-ui": "^2.0.5",
+    "highcharts": "^6.0.3",
     "lodash": "^4.17.4",
     "susy": "^3.0.1",
     "vue": "^2.5.5",
+    "vue-highcharts": "0.0.10",
     "vue-i18n": "^7.3.2",
+    "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   }
 }
