@@ -13,8 +13,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 // State
 import store from '@/store';
 
-// App's Components
-import Hello from './Components/Hello.vue';
+// App's components
+
+// App's Views
+import Home from './views/Home.vue';
 
 // Register plugins to Vue globally
 Vue.use(VueI18n);
@@ -25,9 +27,12 @@ const i18n = new VueI18n({
     messages: require('./internationalization/translation.message.json') // translation file
 });
 
+// Add Global styles (Enable using breakpoint in nested view/component)
+import 'normalize.css';
+
 new Vue({
     el: '#app',
     store, // Register store at the root to access it anywhere
     i18n, // make internationalization to be available to all childs
-    render: h => h(Hello)
+    render: h => h(Home)
 });
