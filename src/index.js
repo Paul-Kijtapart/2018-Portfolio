@@ -1,6 +1,6 @@
 // ROOT
 
-// Cross-browser Compatibility
+// Enable Cross-browser Compatibility
 import 'babel-polyfill';
 
 // Required Libraries

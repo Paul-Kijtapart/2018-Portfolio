@@ -3,6 +3,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
 
 // Constants
 const SRC = path.join(__dirname, 'src');
@@ -99,6 +100,12 @@ module.exports = {
         }
     },
     plugins: [
+        /**
+         * Scope Hoisting: small size improvement, JS will load faster in the browser
+         * Pre-condition: webpack version 3.10
+         */
+        new webpack.optimize.ModuleConcatenationPlugin(),
+
         /**
          *  Clean output folder first
          *  So that only used files will be generated.
