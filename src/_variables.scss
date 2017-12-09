@@ -1,0 +1,16 @@
+$red: #555;
+
+// Breakpoint (to use with min-width of breakpoint)
+$xs: screen max-width 600px; // small to large handset
+$sm: screen 600px 960px; // small to medium tablet
+$md: screen 960px 1264px; // large tablet to laptop
+$lg: screen 1264px 1904px; // desktop
+$xl: screen 1904px; // 4k and ultra-wides
+
+$xs-down: screen max-width 600px;
+
+$sm-down: screen max-width 960px;
+$sm-up: screen 600px; // Priority on z-index
+
+$md-up: screen 960px;
+$lg-up: screen 1264px;
