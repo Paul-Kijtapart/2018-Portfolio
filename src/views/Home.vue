@@ -12,9 +12,7 @@
 </script>
 
 <style lang="scss">
-    @import "../style";
-
     .home-page {
-        background-color: red;
+        background-color: $red;
     }
 </style>

@@ -26,21 +26,18 @@ module.exports = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        'scss': [
-                            'vue-style-loader',
-                            'css-loader',
-                            'sass-loader'
-                        ],
-                        'sass': [
-                            'vue-style-loader',
-                            'css-loader',
-                            'sass-loader?indentedSyntax'
-                        ],
+                        scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
+                            loader: 'sass-resources-loader',
+                            options: {
+                                resources: path.join(SRC, '_variables.scss')
+                            }
+                        }],
+                        sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax!sass-resources-loader', // <style lang="sass">
 
 
                         // Vue internationalization
                         i18n: '@kazupon/vue-i18n-loader'
-                    }
+                    },
                     // other vue-loader options go here
                 }
             },

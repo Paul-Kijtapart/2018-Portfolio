@@ -27,9 +27,6 @@ const i18n = new VueI18n({
     messages: require('./internationalization/translation.message.json') // translation file
 });
 
-// Add Global styles (Enable using breakpoint in nested view/component)
-import 'normalize.css';
-
 new Vue({
     el: '#app',
     store, // Register store at the root to access it anywhere
