@@ -11,7 +11,7 @@ const DIST = path.join(__dirname, 'dist');
 const baseConfig = require('./webpack.common');
 
 module.exports = merge(baseConfig, {
-    devtool: 'inline-source-map',
+    devtool: '#eval-source-map',
 
     // Hot re-loading
     devServer: {

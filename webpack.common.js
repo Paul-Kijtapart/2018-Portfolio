@@ -26,17 +26,16 @@ module.exports = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-                        // the "scss" and "sass" values for the lang attribute to the right configs here.
-                        // other preprocessors should work out of the box, no loader config like this necessary.
-                        'scss': ExtractTextPlugin.extract({
-                            fallback: 'vue-style-loader',
-                            use: ['css-loader', 'postcss-loader', 'sass-loader'], //order run from Right -> Left
-                        }),
-                        'sass': ExtractTextPlugin.extract({
-                            fallback: 'vue-style-loader',
-                            use: ['css-loader', 'postcss-loader', 'sass-loader?indentedSyntax']
-                        }),
+                        'scss': [
+                            'vue-style-loader',
+                            'css-loader',
+                            'sass-loader'
+                        ],
+                        'sass': [
+                            'vue-style-loader',
+                            'css-loader',
+                            'sass-loader?indentedSyntax'
+                        ],
 
 
                         // Vue internationalization
@@ -48,16 +47,7 @@ module.exports = {
             // CSS
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader", // should be in the fallback only OR ERROR
-                    use: [ // order run from Right to Left which is Bottom-up in this case
-                        {
-                            loader: "css-loader" // translates CSS into CommonJS
-                        }, {
-                            loader: 'postcss-loader' // autoprefixer
-                        }
-                    ]
-                })
+                use: ['style-loader', 'postcss-loader']
             },
             // SVG
             {
@@ -77,18 +67,13 @@ module.exports = {
             // SCSS
             {
                 test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader", // should be in the fallback only OR ERROR
-                    use: [ // Order is Bottom-up
-                        {
-                            loader: "css-loader" // translates CSS into CommonJS
-                        }, {
-                            loader: 'postcss-loader' // autoprefixer
-                        }, {
-                            loader: "sass-loader" // compiles Sass to CSS
-                        }
-                    ]
-                })
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "sass-loader" // compiles Sass to CSS
+                }]
             }
         ]
     },
@@ -100,12 +85,6 @@ module.exports = {
         }
     },
     plugins: [
-        /**
-         * Scope Hoisting: small size improvement, JS will load faster in the browser
-         * Pre-condition: webpack version 3.10
-         */
-        new webpack.optimize.ModuleConcatenationPlugin(),
-
         /**
          *  Clean output folder first
          *  So that only used files will be generated.
@@ -121,14 +100,5 @@ module.exports = {
             hash: true, // ensure browser detects change from webpack
             cache: true // try to emit the file only if it was changed
         }),
-
-
-        /**
-         * IMPORTANT!
-         * ExtractTextPlugin generates a file per entry,
-         * so you must use [name], [id] or [contenthash]
-         * when using Multiple entries.
-         */
-        new ExtractTextPlugin("[name].style.css"),
     ]
 };
