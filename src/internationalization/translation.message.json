@@ -1,6 +1,10 @@
 {
   "en": {
-    "hello": "hello"
+    "hello": "hello",
+    "About": "About",
+    "Resume": "Resume",
+    "Github": "Github",
+    "Contact": "Contact"
   },
   "th": {
     "hello": "สวัสดี"

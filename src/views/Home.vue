@@ -10,10 +10,30 @@
                 </div>
 
                 <ul class="nav-menu">
-                    <li class="nav-option"> {{ $t('About') }} </li>
-                    <li class="nav-option"> {{ $t('Resume') }} </li>
-                    <li class="nav-option"> {{ $t('Github') }} </li>
-                    <li class="nav-option"> {{ $t('Contact') }} </li>
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn">
+                            {{ $t('About') }}
+                        </el-button>
+                    </li>
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn">
+                            {{ $t('Resume') }}
+                        </el-button>
+                    </li>
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn">
+                            {{ $t('Github') }}
+                        </el-button>
+                    </li>
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn">
+                            {{ $t('Contact') }}
+                        </el-button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -27,8 +47,11 @@
 </template>
 
 <script type="text/babel">
+    import ElButton from "../../node_modules/element-ui/packages/button/src/button";
+
     //    import './style.scss';
     export default {
+        components: {ElButton},
         name: 'home-page'
     };
 </script>
@@ -43,7 +66,7 @@
             width: span(1 wide at 1);
             height: 100%;
 
-            background: lightcoral;
+            background: $navbar-bg-color;
 
             // Navigation content
             .nav-content {
@@ -63,7 +86,15 @@
                     .nav-option {
                         width: 100%;
 
-
+                        // Nav-btn to activate
+                        .nav-option-btn {
+                            width: 100%;
+                            background-color: $navbar-btn-bg-color;
+                            font: {
+                                family: $title-font-family;
+                                size: 1.4em;
+                            }
+                        }
                     }
                 }
             }
@@ -75,8 +106,6 @@
 
             width: span(12 at 2);
             height: 100%;
-
-            background: lightblue;
 
             // Content header
             #content-header {

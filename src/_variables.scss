@@ -1,4 +1,5 @@
-$red: #555;
+// Libraries
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 // Breakpoint (to use with min-width of breakpoint)
 $xs: screen max-width 600px; // small to large handset
@@ -14,3 +15,22 @@ $sm-up: screen 600px; // Priority on z-index
 
 $md-up: screen 960px;
 $lg-up: screen 1264px;
+
+// Font config
+$title-font-family: 'Lobster', cursive;
+
+// Color config
+$black0: #E6E9EC;
+$black1: #D0D3D6;
+$black2: #B6B9BC;
+$black3: #A0A3A6;
+$black4: #86898C;
+$black5: #737679;
+$black6: #595C5F;
+$black7: #434649;
+$black8: #303336;
+
+// Navigation config
+$navbar-bg-color: $black0;
+$navbar-btn-bg-color: $black3;
+
