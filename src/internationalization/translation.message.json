@@ -4,9 +4,15 @@
     "About": "About",
     "Resume": "Resume",
     "Github": "Github",
-    "Contact": "Contact"
+    "Contact": "Contact",
+    "th":"th"
   },
   "th": {
-    "hello": "สวัสดี"
+    "hello": "สวัสดี",
+    "About": "เกี่ยวกับ",
+    "Resume": "ประวัติย่อ",
+    "Github": "Github",
+    "Contact": "ติดต่อ",
+    "th": "ไทย"
   }
 }
