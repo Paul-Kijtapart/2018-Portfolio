@@ -3,7 +3,18 @@
         <!-- Navigation bar -->
         <div id="left-nav-bar">
 
+            <!-- Navigation Content -->
             <div class="nav-content">
+                <div class="profile-img">
+                    My Image here
+                </div>
+
+                <ul class="nav-menu">
+                    <li class="nav-option"> {{ $t('About') }} </li>
+                    <li class="nav-option"> {{ $t('Resume') }} </li>
+                    <li class="nav-option"> {{ $t('Github') }} </li>
+                    <li class="nav-option"> {{ $t('Contact') }} </li>
+                </ul>
             </div>
         </div>
 
@@ -28,28 +39,58 @@
         #left-nav-bar {
             position: fixed;
             float: left;
-            height: 100vh;
+
             width: span(1 wide at 1);
+            height: 100%;
 
             background: lightcoral;
+
+            // Navigation content
+            .nav-content {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+
+                width: 100%;
+
+                text-align: center;
+
+                .nav-menu {
+                    width: 100%;
+
+                    text-decoration: none;
+
+                    .nav-option {
+                        width: 100%;
+
+
+                    }
+                }
+            }
         }
 
         // Content
         #main-content {
-            background: lightblue;
-            width: span(12 at 2);
             float: right;
+
+            width: span(12 at 2);
+            height: 100%;
+
+            background: lightblue;
 
             // Content header
             #content-header {
-                background: lightgreen;
                 width: span(13);
+
+                background: lightgreen;
             }
 
             // Content header
             #content-body {
-                background: lightyellow;
                 width: span(13);
+                height: 90%;
+
+                background: lightyellow;
             }
         }
     }
