@@ -40,19 +40,58 @@
 
         <!-- Content -->
         <div id="main-content">
-            <div id="content-header"> Header </div>
-            <div id="content-body"></div>
+            <div id="content-header">
+                Header
+                <div class="right-actions">
+                    <el-select :value="language"
+                               class="lang-change-btn"
+                               @change="setLanguage($event)">
+                        <el-option v-for="langOption in languageOptions"
+                                   :key="langOption.value"
+                                   :label="langOption.label"
+                                   :value="langOption.value">
+                        </el-option>
+                    </el-select>
+                </div>
+            </div>
+            <div id="content-body">
+                Body
+            </div>
         </div>
     </div>
 </template>
 
 <script type="text/babel">
-    import ElButton from "../../node_modules/element-ui/packages/button/src/button";
+    // Vuex
+    import {
+        mapMutations,
+        mapState
+    } from 'vuex';
 
     //    import './style.scss';
     export default {
-        components: {ElButton},
-        name: 'home-page'
+        name: 'home-page',
+        data: function () {
+            return {}
+        },
+        computed: {
+            ...mapState({
+                language: state => state.language.language,
+                languageOptions: state => state.language.languageOptions
+            })
+        },
+        watch: {
+
+            // IMPORTANT: update vue-i18n language globally
+            language(newLanguage) {
+                this.$i18n.locale = newLanguage;
+            }
+        },
+        methods: {
+            ...mapMutations([
+                'setLanguage'
+            ])
+        }
     };
 </script>
 
@@ -63,7 +102,7 @@
             position: fixed;
             float: left;
 
-            width: span(1 wide at 1);
+            width: span(1 at 1);
             height: 100%;
 
             background: $navbar-bg-color;
@@ -89,11 +128,9 @@
                         // Nav-btn to activate
                         .nav-option-btn {
                             width: 100%;
+
                             background-color: $navbar-btn-bg-color;
-                            font: {
-                                family: $title-font-family;
-                                size: 1.4em;
-                            }
+                            @include nav-font;
                         }
                     }
                 }
@@ -105,21 +142,38 @@
             float: right;
 
             width: span(12 at 2);
+
             height: 100%;
 
             // Content header
             #content-header {
-                width: span(13);
+                width: span(12, $main-content-layout); // Starting here, main-content-layout is Susy config
 
-                background: lightgreen;
+                background-color: $content-header-bg-color;
+
+                @include clearfix;
+
+                .right-actions {
+                    float: right;
+
+                    .lang-change-btn {
+                        @include nav-font;
+
+                        background: $lang-change-btn-bgcolor;
+                    }
+                }
             }
 
             // Content header
             #content-body {
-                width: span(13);
+                width: span(12, $main-content-layout); // Starting here, main-content-layout is Susy config
                 height: 90%;
 
                 background: lightyellow;
+
+                #content-body {
+
+                }
             }
         }
     }
