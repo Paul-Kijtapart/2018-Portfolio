@@ -25,55 +25,114 @@ module.exports = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
-                            loader: 'sass-resources-loader',
-                            options: {
-                                resources: path.join(SRC, 'style.scss')
-                            }
-                        }],
-                        sass: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax', {
-                            loader: 'sass-resources-loader',
-                            options: {
-                                resources: path.join(SRC, 'style.scss')
-                            }
-                        }],
+                        scss: [
+                            {
+                                loader: 'vue-style-loader',
+                                options: {sourceMap: true}
 
+                            },
+                            {
+                                loader: 'css-loader',
+                                options: {sourceMap: true}
+
+                            },
+                            {
+                                loader: 'postcss-loader',
+                                options: {sourceMap: true}
+
+                            },
+                            {
+                                loader: 'sass-loader',
+                                options: {sourceMap: true}
+                            }, {
+                                loader: 'sass-resources-loader',
+                                options: {
+                                    // SCSS to be auto-inject into all vue components' style
+                                    resources: path.join(SRC, 'style.scss')
+                                }
+                            }],
+                        sass: ['vue-style-loader', 'css-loader', 'postcss-loader',
+                            {
+                                loader: 'sass-loader',
+                                options: {sourceMap: true}
+                            },
+                            {
+                                loader: 'sass-resources-loader',
+                                options: {
+                                    // SCSS to be auto-inject into all vue components' style
+                                    resources: path.join(SRC, 'style.scss')
+                                }
+                            }],
 
                         // Vue internationalization
                         i18n: '@kazupon/vue-i18n-loader'
                     },
+
                     // other vue-loader options go here
+                }
+            },
+            // JS (Ensure all JS is compiled by babel => allow es6 syntax)
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader'
                 }
             },
             // CSS
             {
                 test: /\.css$/,
-                use: ['style-loader', 'postcss-loader']
-            },
-            // SVG
-            {
-                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-                use: ['file-loader']
-            },
-            // PNG/JPG
-            {
-                test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
-                use: [{
-                    loader: 'file-loader',
-                    query: {
-                        name: '[name].[ext]?[hash]'
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {sourceMap: true}
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {sourceMap: true, importLoaders: 1}
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {sourceMap: true}
                     }
-                }]
+                ]
             },
             // SCSS
             {
                 test: /\.scss$/,
+                use: [
+                    {
+                        loader: "style-loader", // creates style nodes from JS strings
+                        options: {sourceMap: true}
+                    }, {
+                        loader: "css-loader", // translates CSS into CommonJS
+                        options: {sourceMap: true}
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {sourceMap: true}
+                    },
+                    {
+                        loader: "sass-loader", // compiles Sass to CSS
+                        options: {sourceMap: true}
+                    }]
+            },
+            // PNG
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]?[hash]'
+                }
+            },
+            // Font
+            {
+                test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
                 use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "sass-loader" // compiles Sass to CSS
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000
+                    }
                 }]
             }
         ]

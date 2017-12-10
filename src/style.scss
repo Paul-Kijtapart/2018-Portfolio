@@ -6,7 +6,6 @@
 // Susy
 @import "~susy/sass/susy";
 @import "~susy/sass/plugins/svg-grid";
-
 $susy: (// Default Susy Setting
         'columns': 240px susy-repeat(12), // total # of columns = 24 (Symmetrical - no at)
         'gutters': 0.25, // fluid: gutter size in respect to a column's size
@@ -17,9 +16,17 @@ $susy: (// Default Susy Setting
   // Default = 'narrow' - Put gutters between the columns ( 1 less gutters than column)
         'container-spread': 'narrow',
 );
+$main-content-layout: (
+        'columns': susy-repeat(12), // total # of columns = 24 (Symmetrical - no at)
+        'gutters': 0.25, // fluid: gutter size in respect to a column's size
+        'spread': 'narrow',
+        'container-spread': 'narrow',
+);
 
-// CONSTANTS
+// App
 @import "variables";
+@import "mixins";
+
 // Global styles
 * {
   // This would au-remove padding from p

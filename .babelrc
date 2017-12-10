@@ -1,9 +1,15 @@
 {
-  "presents": [
-    "env"
+  "presets": [
+    [
+      "latest"
+    ],
+    [
+      "stage-2"
+    ]
   ],
   "plugins": [
     [
+      "transform-runtime",
       "component",
       [
         {

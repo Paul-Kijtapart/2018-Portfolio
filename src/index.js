@@ -5,15 +5,22 @@ import 'babel-polyfill';
 
 // Required Libraries
 import Vue from 'vue';
-import VueI18n from 'vue-i18n'
+import VueI18n from 'vue-i18n';
 
-// Required stylesheets
-import 'element-ui/lib/theme-chalk/index.css';
+// Set up Element UI, Register Component globally
+import './element-variables.scss';
+import {
+    Select,
+    Button,
+    Option
+} from "element-ui";
+
+Vue.use(Select);
+Vue.use(Button);
+Vue.use(Option);
 
 // State
 import store from '@/store';
-
-// App's components
 
 // App's Views
 import Home from './views/Home.vue';
@@ -22,10 +29,25 @@ import Home from './views/Home.vue';
 Vue.use(VueI18n);
 
 // Set up internationalization
+import enLocale from 'element-ui/lib/locale/lang/en';
+import thLocale from 'element-ui/lib/locale/lang/th';
+import ElementLocale from 'element-ui/lib/locale'
+const translationMessages = require('./internationalization/translation.message.json');
+const messages = {
+    en: {
+        ...translationMessages.en,
+        ...enLocale
+    },
+    th: {
+        ...translationMessages.th,
+        ...thLocale
+    }
+};
 const i18n = new VueI18n({
-    locale: 'en', // default locale
-    messages: require('./internationalization/translation.message.json') // translation file
+    locale: store.state.language.language, // default locale
+    messages: messages
 });
+ElementLocale.i18n((key, value) => i18n.t(key, value));
 
 new Vue({
     el: '#app',
