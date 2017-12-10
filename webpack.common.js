@@ -2,7 +2,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
 
 // Constants
@@ -29,10 +28,15 @@ module.exports = {
                         scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
                             loader: 'sass-resources-loader',
                             options: {
-                                resources: path.join(SRC, '_variables.scss')
+                                resources: path.join(SRC, 'style.scss')
                             }
                         }],
-                        sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax!sass-resources-loader', // <style lang="sass">
+                        sass: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax', {
+                            loader: 'sass-resources-loader',
+                            options: {
+                                resources: path.join(SRC, 'style.scss')
+                            }
+                        }],
 
 
                         // Vue internationalization

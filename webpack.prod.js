@@ -63,6 +63,12 @@ module.exports = merge(baseConfig, {
         ]
     },
     plugins: [
+        // short-circuits all Vue.js warning code
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        }),
 
         // Tree shaking (Remove unused codes from production)
         new webpack.optimize.UglifyJsPlugin({

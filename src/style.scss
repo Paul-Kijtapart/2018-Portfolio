@@ -2,7 +2,33 @@
 // This file will be auto-injected into each .vue file (Check corresponding vue-loader in webpack.common.js)
 // Libraries
 @import "~normalize.css";
-@import "~susy/sass/susy";
 @import "~breakpoint-sass";
-// Apps
+// Susy
+@import "~susy/sass/susy";
+@import "~susy/sass/plugins/svg-grid";
+
+$susy: (// Default Susy Setting
+        'columns': 240px susy-repeat(12), // total # of columns = 24 (Symmetrical - no at)
+        'gutters': 0.25, // fluid: gutter size in respect to a column's size
+  // Default = 'narrow'
+  // this is span option
+        'spread': 'narrow',
+  // describes how a grid-parent/container handles available gutters
+  // Default = 'narrow' - Put gutters between the columns ( 1 less gutters than column)
+        'container-spread': 'narrow',
+);
+
+// CONSTANTS
 @import "variables";
+// Global styles
+* {
+  // This would au-remove padding from p
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; // with of a dom = width + padding + border
+}
+
+body {
+  min-height: 100vh;
+  background: susy-svg-grid() no-repeat scroll;
+}
