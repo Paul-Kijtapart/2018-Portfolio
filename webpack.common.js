@@ -19,58 +19,6 @@ module.exports = {
     },
     module: {
         rules: [ // The final loader is expected to return JavaScript.
-            //VUE
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        scss: [
-                            {
-                                loader: 'vue-style-loader',
-                                options: {sourceMap: true}
-
-                            },
-                            {
-                                loader: 'css-loader',
-                                options: {sourceMap: true}
-
-                            },
-                            {
-                                loader: 'postcss-loader',
-                                options: {sourceMap: true}
-
-                            },
-                            {
-                                loader: 'sass-loader',
-                                options: {sourceMap: true}
-                            }, {
-                                loader: 'sass-resources-loader',
-                                options: {
-                                    // SCSS to be auto-inject into all vue components' style
-                                    resources: path.join(SRC, 'style.scss')
-                                }
-                            }],
-                        sass: ['vue-style-loader', 'css-loader', 'postcss-loader',
-                            {
-                                loader: 'sass-loader',
-                                options: {sourceMap: true}
-                            },
-                            {
-                                loader: 'sass-resources-loader',
-                                options: {
-                                    // SCSS to be auto-inject into all vue components' style
-                                    resources: path.join(SRC, 'style.scss')
-                                }
-                            }],
-
-                        // Vue internationalization
-                        i18n: '@kazupon/vue-i18n-loader'
-                    },
-
-                    // other vue-loader options go here
-                }
-            },
             // JS (Ensure all JS is compiled by babel => allow es6 syntax)
             {
                 test: /\.js$/,
@@ -78,44 +26,6 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
-            },
-            // CSS
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader',
-                        options: {sourceMap: true}
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {sourceMap: true, importLoaders: 1}
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {sourceMap: true}
-                    }
-                ]
-            },
-            // SCSS
-            {
-                test: /\.scss$/,
-                use: [
-                    {
-                        loader: "style-loader", // creates style nodes from JS strings
-                        options: {sourceMap: true}
-                    }, {
-                        loader: "css-loader", // translates CSS into CommonJS
-                        options: {sourceMap: true}
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {sourceMap: true}
-                    },
-                    {
-                        loader: "sass-loader", // compiles Sass to CSS
-                        options: {sourceMap: true}
-                    }]
             },
             // PNG
             {

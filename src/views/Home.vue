@@ -123,6 +123,11 @@
                     text-decoration: none;
 
                     .nav-option {
+                        display: flex;
+                        flex-flow: row wrap;
+                        align-items: center;
+                        justify-content: center;
+
                         width: 100%;
 
                         // Nav-btn to activate

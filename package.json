@@ -6,7 +6,7 @@
   "scripts": {
     "dw": "webpack --watch --config ./webpack.dev.js",
     "startServer": "webpack-dev-server --config ./webpack.dev.js",
-    "build": "",
+    "build": "webpack --config ./webpack.prod.js",
     "unit": "",
     "e2e": ""
   },
@@ -42,7 +42,6 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "breakpoint-sass": "^2.7.1",
     "element-ui": "^2.0.7",
     "highcharts": "^6.0.3",
     "lodash": "^4.17.4",

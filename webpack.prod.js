@@ -1,10 +1,11 @@
 // Libraries
 const webpack = require('webpack');
-
-const baseConfig = require('/webpack.common');
+const merge = require('webpack-merge');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const baseConfig = require('./webpack.common');
 
 module.exports = merge(baseConfig, {
-    models: {
+    module: {
         rules: [
             // Vue
             {
@@ -37,11 +38,14 @@ module.exports = merge(baseConfig, {
                     fallback: "style-loader", // should be in the fallback only OR ERROR
                     use: [ // Order is Bottom-up
                         {
-                            loader: "css-loader" // translates CSS into CommonJS
+                            loader: "css-loader", // translates CSS into CommonJS
+                            options: {sourceMap: true}
                         }, {
-                            loader: 'postcss-loader' // autoprefixer
+                            loader: 'postcss-loader', // autoprefixer
+                            options: {sourceMap: true}
                         }, {
-                            loader: "sass-loader" // compiles Sass to CSS
+                            loader: "sass-loader", // compiles Sass to CSS
+                            options: {sourceMap: true}
                         }
                     ]
                 })

@@ -22,6 +22,9 @@ Vue.use(Option);
 // State
 import store from '@/store';
 
+// Vue-router
+import router from './router';
+
 // App's Views
 import Home from './views/Home.vue';
 
@@ -52,6 +55,8 @@ ElementLocale.i18n((key, value) => i18n.t(key, value));
 new Vue({
     el: '#app',
     store, // Register store at the root to access it anywhere
+    router,
     i18n, // make internationalization to be available to all childs
-    render: h => h(Home)
+    template: '<Home></Home>',
+    components: {Home}
 });
