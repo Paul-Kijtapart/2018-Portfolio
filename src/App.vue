@@ -13,13 +13,13 @@
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn">
-                            {{ $t('About') }}
+                            <router-link to="/about"> {{ $t('About') }}</router-link>
                         </el-button>
                     </li>
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn">
-                            {{ $t('Resume') }}
+                            <router-link to="/resume"> {{ $t('Resume') }}</router-link>
                         </el-button>
                     </li>
                     <li class="nav-option">
@@ -31,7 +31,7 @@
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn">
-                            {{ $t('Contact') }}
+                            <router-link to="/contact"> {{ $t('Contact') }} </router-link>
                         </el-button>
                     </li>
                 </ul>
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div id="content-body">
-                Body
+                <router-view></router-view>
             </div>
         </div>
     </div>

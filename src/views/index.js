@@ -1,3 +1,5 @@
-import Home from './Home.vue';
+import ResumeView from './ResumeView';
+import AboutView from './AboutView';
+import ContactView from './ContactView';
 
-export default Home;
+export {ResumeView, AboutView, ContactView};

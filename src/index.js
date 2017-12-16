@@ -26,7 +26,7 @@ import store from '@/store';
 import router from './router';
 
 // App's Views
-import Home from './views/Home.vue';
+import Home from './App.vue';
 
 // Register plugins to Vue globally
 Vue.use(VueI18n);

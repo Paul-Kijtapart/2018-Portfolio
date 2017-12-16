@@ -3,7 +3,9 @@ import Router from 'vue-router'
 
 // Views
 import {
-    Home,
+    ResumeView,
+    AboutView,
+    ContactView
 } from '@/views';
 
 // Register router globally
@@ -14,17 +16,22 @@ export default new Router({
         {
             path: '/',
             name: 'Home',
-            component: Home
+            component: AboutView
         },
         {
-            path: '/About',
+            path: '/about',
             name: 'about',
-            component: Home
+            component: AboutView
         },
         {
-            path: '/Resume',
+            path: '/resume',
             name: 'resume',
-            component: Home
+            component: ResumeView
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: ContactView
         },
     ]
 });
