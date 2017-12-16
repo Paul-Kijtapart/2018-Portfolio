@@ -42,6 +42,7 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "breakpoint-sass": "^2.7.1",
     "element-ui": "^2.0.7",
     "highcharts": "^6.0.3",
     "lodash": "^4.17.4",
