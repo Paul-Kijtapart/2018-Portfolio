@@ -102,7 +102,7 @@
             position: fixed;
             float: left;
 
-            width: span(1 at 1);
+            width: span(1 at 1, $main-content-layout);
             height: 100%;
 
             background: $navbar-bg-color;
@@ -146,13 +146,13 @@
         #main-content {
             float: right;
 
-            width: span(12 at 2);
+            width: span(12 at 2, $main-content-layout);
 
             height: 100%;
 
             // Content header
             #content-header {
-                width: span(12, $main-content-layout); // Starting here, main-content-layout is Susy config
+                width: span(12); // Starting here, main-content-layout is Susy config
 
                 background-color: $content-header-bg-color;
 
@@ -169,16 +169,12 @@
                 }
             }
 
-            // Content header
+            // Content header (hold views)
             #content-body {
-                width: span(12, $main-content-layout); // Starting here, main-content-layout is Susy config
+                width: span(12); // Starting here, main-content-layout is Susy config
                 height: 90%;
 
                 background: lightyellow;
-
-                #content-body {
-
-                }
             }
         }
     }

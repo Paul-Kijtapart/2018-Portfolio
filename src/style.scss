@@ -6,8 +6,9 @@
 // Susy
 @import "~susy/sass/susy";
 @import "~susy/sass/plugins/svg-grid";
+
 $susy: (// Default Susy Setting
-        'columns': 240px susy-repeat(12), // total # of columns = 24 (Symmetrical - no at)
+        'columns': susy-repeat(12), // total # of columns = 24 (Symmetrical - no at)
         'gutters': 0.25, // fluid: gutter size in respect to a column's size
   // Default = 'narrow'
   // this is span option
@@ -17,7 +18,7 @@ $susy: (// Default Susy Setting
         'container-spread': 'narrow',
 );
 $main-content-layout: (
-        'columns': susy-repeat(12), // total # of columns = 24 (Symmetrical - no at)
+        'columns': 240px susy-repeat(12), // total # of columns = 24 (Symmetrical - no at)
         'gutters': 0.25, // fluid: gutter size in respect to a column's size
         'spread': 'narrow',
         'container-spread': 'narrow',
@@ -37,5 +38,4 @@ $main-content-layout: (
 
 body {
   min-height: 100vh;
-  background: susy-svg-grid() no-repeat scroll;
 }

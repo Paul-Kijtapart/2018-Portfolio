@@ -1,0 +1,254 @@
+[
+  {
+    "name": "MapViz",
+    "start": 1513053711,
+    "collaborators": [],
+    "end": 1513053711,
+    "languages": [
+      {
+        "name": "Python"
+      },
+      {
+        "name": "Django"
+      },
+      {
+        "name": "ReactJS"
+      },
+      {
+        "name": "Sass"
+      },
+      {
+        "name": "PostgreSQL"
+      },
+      {
+        "name": "LeafletJS"
+      }
+    ],
+    "eventType": "hackathon",
+    "roles": [
+      {
+        "description": "Won 2nd place at Open Data Hack-a-thon #HackOurCity."
+      },
+      {
+        "description": "Contributed to aggregating dataset, parsing dataset, creating corresponding models and loading those data to a PostgreSQL database."
+      },
+      {
+        "description": "Wrote queries to associate Foreign and Primary Keys between tables."
+      },
+      {
+        "description": "Used LeafletJS to render a Choropleth map based on scoring function."
+      }
+    ],
+    "images": [
+      {
+        "name": "",
+        "url": "mapViz2.experience.png"
+      }
+    ],
+    "type": "web",
+    "url": "https://github.com/napon/MapViz",
+    "timezone": "America/Vancouver"
+  },
+  {
+    "name": "Shopping Web",
+    "start": 1513053711,
+    "collaborators": [],
+    "end": 1513053711,
+    "languages": [
+      {
+        "name": "NodeJS"
+      },
+      {
+        "name": "ExpressJS"
+      },
+      {
+        "name": "ReactJS"
+      },
+      {
+        "name": "Sass"
+      },
+      {
+        "name": "MongoDB"
+      }
+    ],
+    "eventType": "personal",
+    "roles": [
+      {
+        "description": "Built a web app that users can purchase listed items and store orders in MongoDB"
+      },
+      {
+        "description": "Established session between client and server using express-session module."
+      },
+      {
+        "description": "Implemented server-side authentication using passport and bCrypt modules."
+      }
+    ],
+    "images": [
+      {
+        "name": "",
+        "url": "shopping5.experience.png"
+      }
+    ],
+    "type": "web",
+    "url": "https://github.com/Paul-Kijtapart/Shopping",
+    "timezone": "America/Vancouver"
+  },
+  {
+    "name": "GoTron",
+    "start": 1513053711,
+    "collaborators": [],
+    "end": 1513053711,
+    "languages": [
+      {
+        "name": "Go"
+      },
+      {
+        "name": "Python"
+      }
+    ],
+    "eventType": "academic",
+    "roles": [
+      {
+        "description": "Developed & maintained match making server using Go Language."
+      },
+      {
+        "description": "Established connection between server and clients with RPC protocol."
+      },
+      {
+        "description": "Marshaled and Un-marshaled JSON to communicate between server and clients."
+      },
+      {
+        "description": "Handled concurrent client's connection and client's disconnection during GoTron games."
+      }
+    ],
+    "images": [
+      {
+        "name": "",
+        "url": "goTronShiviz.experience.png"
+      }
+    ],
+    "type": "web",
+    "url": "https://github.com/napon/GoTron",
+    "timezone": "America/Vancouver"
+  },
+  {
+    "name": "Vibernate 2",
+    "start": 1513053711,
+    "collaborators": [],
+    "end": 1513053711,
+    "languages": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Android"
+      }
+    ],
+    "eventType": "volunteer",
+    "roles": [
+      {
+        "description": "Built a page displaying all created Vibernate event in list format."
+      },
+      {
+        "description": "Created the Front-end based on the designed's requirements."
+      },
+      {
+        "description": "Ensured that all user's actions on the list-view page reflect on the models immediately"
+      }
+    ],
+    "images": [
+      {
+        "name": "",
+        "url": "vibernate5.experience.png"
+      }
+    ],
+    "type": "android",
+    "url": "https://vivid-torch-5902.firebaseapp.com",
+    "timezone": "America/Vancouver"
+  },
+  {
+    "name": "Where's the Food?",
+    "start": 1513053711,
+    "collaborators": [],
+    "end": 1513053711,
+    "languages": [
+      {
+        "name": "JavaScript"
+      },
+      {
+        "name": "BackboneJS"
+      },
+      {
+        "name": "FirebaseAPI"
+      },
+      {
+        "name": "Karma_Jasmine"
+      },
+      {
+        "name": "Bootstrap"
+      }
+    ],
+    "eventType": "academic",
+    "roles": [
+      {
+        "description": "Adopted Agile software development approach."
+      },
+      {
+        "description": "Contributed to writing Front-end client using Backbone.js and Bootstrap.css."
+      },
+      {
+        "description": "Contributed to creating Firebase server which stores Vancouver food truck NoSQL data."
+      },
+      {
+        "description": "Used Google Places API to retrieve food truck's hours of operation."
+      },
+      {
+        "description": "Established social interaction between users by using Instagram API."
+      }
+    ],
+    "images": [
+      {
+        "name": "",
+        "url": "WTFood5.experience.png"
+      }
+    ],
+    "type": "web",
+    "url": "https://vivid-torch-5902.firebaseapp.com",
+    "timezone": "America/Vancouver"
+  },
+  {
+    "name": "AFKPU Android Keyboard",
+    "start": 1513053711,
+    "collaborators": [],
+    "end": 1513053711,
+    "languages": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "JUnit"
+      },
+      {
+        "name": "Android"
+      }
+    ],
+    "eventType": "work",
+    "roles": [
+      {
+        "description": "Adopted Agile software development approach."
+      },
+      {
+        "description": "Contributed to writing event handler for keyboard inputs."
+      },
+      {
+        "description": "Contributed to drawing UML diagram, and translating the UML diagram to classes."
+      },
+      {
+        "description": "Synchronized the UI of the keyboard with its current mode."
+      }
+    ],
+    "type": "android",
+    "url": "",
+    "timezone": "America/Vancouver"
+  }
+]

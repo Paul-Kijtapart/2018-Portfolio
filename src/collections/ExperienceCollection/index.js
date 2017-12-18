@@ -29,13 +29,13 @@ export class Experience {
         this.id = uuidv1();
         this.name = exp.name;
         this.eventType = exp.eventType;
-        this.startDate = exp.startDate;
-        this.endDate = exp.endDate;
+        this.start = exp.start;
+        this.end = exp.end;
         this.timezone = exp.timezone;
         this.images = exp.images;
         this.collaborators = exp.collaborators;
-        this.language = exp.language;
-        this.responsibilities = exp.responsibilities;
+        this.languages = exp.languages;
+        this.roles = exp.roles;
     }
 
     getId() {
@@ -85,6 +85,10 @@ export class ExperienceCollections {
         for (let exp of experiences) {
             this.addExperience(ExperienceAdapter.createExperience(exp));
         }
+    }
+
+    getExpList() {
+        return this.experienceList;
     }
 
     addExperience(exp) {

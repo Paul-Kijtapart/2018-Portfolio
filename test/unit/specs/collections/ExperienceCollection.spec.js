@@ -23,8 +23,8 @@ describe('Experience', function () {
             name: "MapViz",
             type: "web",
             eventType: "hackathon",
-            startDate: 1513053711,
-            endDate: 1513485019,
+            start: 1513053711,
+            end: 1513485019,
             timezone: "US/PACIFIC",
             url: "",
             // list of image URL to fetch (GET)
@@ -46,7 +46,7 @@ describe('Experience', function () {
                 }
             ],
             // list of languages to fetch (GET)
-            language: [
+            languages: [
                 {pk: 1, name: "Python",},
                 {pk: 2, name: "Django"},
                 {pk: 3, name: "ReactJs"},
@@ -55,7 +55,7 @@ describe('Experience', function () {
                 {pk: 6, name: "LeafletJS"},
             ],
             // list of responsibilites to fetch (GET)
-            responsibilities: [
+            roles: [
                 {pk: 1, description: "Won 2nd place at Open Data Hack-a-thon #HackOurCity."},
                 {
                     pk: 2,
@@ -70,8 +70,8 @@ describe('Experience', function () {
             name: "Shopping Web",
             type: "web",
             eventType: "personal",
-            startDate: 1513053711,
-            endDate: 1513485019,
+            start: 1513053711,
+            end: 1513485019,
             timezone: "",
             url: "",
             // list of image URL to fetch (GET)
@@ -85,7 +85,7 @@ describe('Experience', function () {
             // list of collaborator to fetch (GET)
             collaborators: [],
             // list of languages to fetch (GET)
-            language: [
+            languages: [
                 {pk: 8, name: "NodeJS",},
                 {pk: 9, name: "ExpressJS",},
                 {pk: 3, name: "ReactJS",},
@@ -93,7 +93,7 @@ describe('Experience', function () {
                 {pk: 10, name: "MongoDB"},
             ],
             // list of responsibilites to fetch (GET)
-            responsibilities: [
+            roles: [
                 {
                     pk: 5,
                     description: "Built a web app that users can purchase listed items and store orders in MongoDB"
@@ -107,8 +107,8 @@ describe('Experience', function () {
             name: "Vibernate 2",
             type: "android",
             eventType: "volunteer",
-            startDate: 1513053711,
-            endDate: 1513485019,
+            start: 1513053711,
+            end: 1513485019,
             timezone: "",
             url: "https://vivid-torch-5902.firebaseapp.com",
             // list of image URL to fetch (GET)
@@ -133,12 +133,12 @@ describe('Experience', function () {
                 }
             ],
             // list of languages to fetch (GET)
-            language: [
+            languages: [
                 {pk: 11, name: "java"},
                 {pk: 12, name: "android"}
             ],
             // list of responsibilites to fetch (GET)
-            responsibilities: [
+            roles: [
                 {pk: 8, description: "Built a page displaying all created Vibernate event in list format."},
                 {pk: 9, description: "Created the Front-end based on the designed's requirements."},
                 {
@@ -191,13 +191,13 @@ describe('Experience', function () {
         expect(w1.pk).to.equal(this.hackathonWebExp.pk);
         expect(w1.name).to.equal(this.hackathonWebExp.name);
         expect(w1.eventType).to.equal(this.hackathonWebExp.eventType);
-        expect(w1.startDate).to.equal(this.hackathonWebExp.startDate);
-        expect(w1.endDate).to.equal(this.hackathonWebExp.endDate);
+        expect(w1.start).to.equal(this.hackathonWebExp.start);
+        expect(w1.end).to.equal(this.hackathonWebExp.end);
         expect(w1.timezone).to.equal(this.hackathonWebExp.timezone);
         expect(w1.images).to.equal(this.hackathonWebExp.images);
         expect(w1.collaborators).to.equal(this.hackathonWebExp.collaborators);
-        expect(w1.language).to.equal(this.hackathonWebExp.language);
-        expect(w1.responsibilities).to.equal(this.hackathonWebExp.responsibilities);
+        expect(w1.languages).to.equal(this.hackathonWebExp.languages);
+        expect(w1.roles).to.equal(this.hackathonWebExp.roles);
     });
 
     it('test if instances of AndroidExperience have default fields', function () {
@@ -206,13 +206,13 @@ describe('Experience', function () {
         expect(a1.pk).to.equal(this.androidExp.pk);
         expect(a1.name).to.equal(this.androidExp.name);
         expect(a1.eventType).to.equal(this.androidExp.eventType);
-        expect(a1.startDate).to.equal(this.androidExp.startDate);
-        expect(a1.endDate).to.equal(this.androidExp.endDate);
+        expect(a1.start).to.equal(this.androidExp.start);
+        expect(a1.end).to.equal(this.androidExp.end);
         expect(a1.timezone).to.equal(this.androidExp.timezone);
         expect(a1.images).to.equal(this.androidExp.images);
         expect(a1.collaborators).to.equal(this.androidExp.collaborators);
-        expect(a1.language).to.equal(this.androidExp.language);
-        expect(a1.responsibilities).to.equal(this.androidExp.responsibilities);
+        expect(a1.languages).to.equal(this.androidExp.languages);
+        expect(a1.roles).to.equal(this.androidExp.roles);
     });
 
     it('test toString of all Experience subclasses', function () {
