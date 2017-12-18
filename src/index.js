@@ -12,12 +12,18 @@ import './element-variables.scss';
 import {
     Select,
     Button,
-    Option
+    Option,
+    Tag,
+    Carousel,
+    CarouselItem,
 } from "element-ui";
 
 Vue.use(Select);
 Vue.use(Button);
 Vue.use(Option);
+Vue.use(Tag);
+Vue.use(Carousel);
+Vue.use(CarouselItem);
 
 // State
 import store from '@/store';

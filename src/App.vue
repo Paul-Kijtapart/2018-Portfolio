@@ -12,25 +12,29 @@
                 <ul class="nav-menu">
                     <li class="nav-option">
                         <el-button type="info"
-                                   class="nav-option-btn">
+                                   class="nav-option-btn"
+                                   round>
                             <router-link to="/about"> {{ $t('About') }}</router-link>
                         </el-button>
                     </li>
                     <li class="nav-option">
                         <el-button type="info"
-                                   class="nav-option-btn">
+                                   class="nav-option-btn"
+                                   round>
                             <router-link to="/resume"> {{ $t('Resume') }}</router-link>
                         </el-button>
                     </li>
                     <li class="nav-option">
                         <el-button type="info"
-                                   class="nav-option-btn">
+                                   class="nav-option-btn"
+                                   round>
                             {{ $t('Github') }}
                         </el-button>
                     </li>
                     <li class="nav-option">
                         <el-button type="info"
-                                   class="nav-option-btn">
+                                   class="nav-option-btn"
+                                   round>
                             <router-link to="/contact"> {{ $t('Contact') }} </router-link>
                         </el-button>
                     </li>
@@ -132,10 +136,15 @@
 
                         // Nav-btn to activate
                         .nav-option-btn {
+                            margin: 0 10px 10px 10px;
                             width: 100%;
 
                             background-color: $navbar-btn-bg-color;
-                            @include nav-font;
+
+                            // global nested styles
+                            * {
+                                @include nav-font;
+                            }
                         }
                     }
                 }
@@ -173,8 +182,6 @@
             #content-body {
                 width: span(12); // Starting here, main-content-layout is Susy config
                 height: 90%;
-
-                background: lightyellow;
             }
         }
     }

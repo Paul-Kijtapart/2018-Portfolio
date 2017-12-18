@@ -6,9 +6,24 @@
   }
 }
 
+// Fonts
+@mixin base-font {
+  font: {
+    family: "Arial";
+    size: 1.0em;
+  }
+}
+
 @mixin nav-font {
   font: {
     family: $title-font-family;
+    size: 1.4em;
+  }
+}
+
+@mixin experience-title-font {
+  font: {
+    family: "Times New Roman";
     size: 1.4em;
   }
 }
