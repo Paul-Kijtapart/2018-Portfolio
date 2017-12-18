@@ -1,11 +1,7 @@
 {
   "presets": [
-    [
-      "latest"
-    ],
-    [
-      "stage-2"
-    ]
+    ["env"],
+    ["stage-2"]
   ],
   "plugins": [
     [
