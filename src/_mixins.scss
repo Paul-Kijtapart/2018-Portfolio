@@ -7,13 +7,6 @@
 }
 
 // Fonts
-@mixin base-font {
-  font: {
-    family: "Arial";
-    size: 1.0em;
-  }
-}
-
 @mixin nav-font {
   font: {
     family: $title-font-family;
@@ -27,3 +20,20 @@
     size: 1.4em;
   }
 }
+
+// UI components
+@mixin card {
+  padding: 20px 10px;
+  margin: 0 10px 20px 10px;
+
+  background-color: white;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+  transition-property: color, background-color, box-shadow, transform;
+  transition-duration: .15s;
+
+  &:hover {
+    box-shadow: 0 18px 35px rgba(50, 50, 93, .1), 0 8px 15px rgba(0, 0, 0, .07);
+    transform: translateY(-2px);
+  }
+}
+

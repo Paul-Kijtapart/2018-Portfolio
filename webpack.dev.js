@@ -5,6 +5,7 @@ const webpack = require('webpack');
 
 
 // Constants
+const ASSETS = path.join(__dirname, 'assets');
 const SRC = path.join(__dirname, 'src');
 const DIST = path.join(__dirname, 'dist');
 
@@ -112,7 +113,7 @@ module.exports = merge(baseConfig, {
     // Hot re-loading
     devServer: {
         historyApiFallback: true, // use index.html for 404 responses
-        contentBase: DIST, // Necessary to server Static files
+        // contentBase: [], // Necessary to server Static files
         open: true, // open new window on server start
         compress: true, // enable gzip compression for everything served
         hot: true, // IMPORTANT! enable HOT-reloading => allows modules to be updated at runtime without full refresh
