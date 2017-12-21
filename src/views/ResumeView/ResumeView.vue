@@ -2,7 +2,6 @@
     <div class="resume-view">
         <div class="skills-section">
             <div class="skills">
-                skills
             </div>
         </div>
 
@@ -10,8 +9,8 @@
         <div class="experience-section">
             <!-- invidual exp -->
             <section v-for="exp in expCollection.getExpList()"
-                 :key="exp.name"
-                 class="experience">
+                     :key="exp.name"
+                     class="experience">
                 <!-- illustration -->
                 <div v-if="exp.images && exp.images.length > 0"
                      class="showcases">
@@ -72,18 +71,27 @@
 <script type="text/babel">
     // Server exps
     import experiences from '@/assets/paul-experience.json';
+    import skills from '@/assets/paul-skills.json';
+
+    // Components
+    import SkillGraph from '@/components/SkillGraph';
 
     // managers
     import {
         ExperienceAdapter,
-        ExperienceCollections
+        ExperienceCollection
     } from '@/collections/ExperienceCollection';
+    import SkillGraph from "../../components/SkillGraph/SkillGraph";
 
     export default {
+        components: {SkillGraph},
         name: 'ResumeView',
+        component: {
+            SkillGraph
+        },
         data: function () {
             return {
-                expCollection: new ExperienceCollections(experiences)
+                expCollection: new ExperienceCollection(experiences)
             };
         },
         methods: {}

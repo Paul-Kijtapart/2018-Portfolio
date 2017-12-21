@@ -9,7 +9,7 @@ import {
     AndroidExperience,
     ExperienceAdapter,
     ExperienceError,
-    ExperienceCollections
+    ExperienceCollection
 } from '../../../../src/collections/ExperienceCollection';
 
 describe('Experience', function () {
@@ -227,8 +227,8 @@ describe('Experience', function () {
             .to.be.an.instanceof(AndroidExperience);
     });
 
-    it('ExperienceCollections', function () {
-        let experiences = new ExperienceCollections(
+    it('ExperienceCollection', function () {
+        let experiences = new ExperienceCollection(
             [
                 this.hackathonWebExp,
                 this.persoanlWebExp,

@@ -25,7 +25,7 @@ export class Experience {
         }
 
 
-        this.pk = exp.pk === undefined ? '' : exp.pk;
+        this.pk = !exp.pk ? '' : exp.pk;
         this.id = uuidv1();
         this.name = exp.name;
         this.eventType = exp.eventType;
@@ -72,7 +72,7 @@ export class ExperienceAdapter {
 }
 
 /* Experience Collection */
-export class ExperienceCollections {
+export class ExperienceCollection {
     /**
      *
      * @param experiences {Object}

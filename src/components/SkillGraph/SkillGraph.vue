@@ -1,5 +1,7 @@
 <template>
     <div class="skill-graph">
+        <svg>
+        </svg>
     </div>
 </template>
 
