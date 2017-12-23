@@ -15,7 +15,7 @@ const getters = {
 const actions = {};
 
 // mutations
-const MUTATIONS = {
+const mutations = {
     [types.INCREMENT](state) {
         state.count += 1;
     },
@@ -28,5 +28,5 @@ export default {
     state,
     getters,
     actions,
-    MUTATIONS
+    mutations
 };

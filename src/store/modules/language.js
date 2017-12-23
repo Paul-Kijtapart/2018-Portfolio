@@ -1,6 +1,6 @@
 // initial states
 const state = {
-    language: 'th',
+    language: 'en',
     languageOptions: {
         th: {
             label: 'Th',
@@ -11,8 +11,6 @@ const state = {
             value: 'en'
         }
     }
-
-
 };
 
 // getters

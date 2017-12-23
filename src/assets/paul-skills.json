@@ -2,12 +2,12 @@
   {
     "name": "JavaScript",
     "description": "",
-    "value": 0,
+    "value": 90,
     "children": [
       {
         "name": "flavors",
         "description": "",
-        "value": 0,
+        "value": 100,
         "children": [
           {
             "name": "ES6",
@@ -32,7 +32,7 @@
       {
         "name": "front-end",
         "description": "",
-        "value": 0,
+        "value": 100,
         "children": [
           {
             "name": "Vue",
@@ -63,7 +63,7 @@
       {
         "name": "back-end",
         "description": "",
-        "value": 0,
+        "value": 100,
         "children": [
           {
             "name": "Express",
@@ -76,7 +76,7 @@
       {
         "name": "state-management",
         "description": "",
-        "value": 0,
+        "value": 100,
         "children": [
           {
             "name": "REST API",
@@ -95,7 +95,7 @@
       {
         "name": "testing",
         "description": "",
-        "value": 0,
+        "value": 100,
         "children": [
           {
             "name": "Mocha",
@@ -120,7 +120,7 @@
       {
         "name": "css",
         "description": "",
-        "value": 0,
+        "value": 100,
         "children": [
           {
             "name": "Bootstrap",
@@ -145,7 +145,7 @@
       {
         "name": "mobile-framework",
         "description": "",
-        "value": 0,
+        "value": 100,
         "children": [
           {
             "name": "ionic",
@@ -156,5 +156,23 @@
         ]
       }
     ]
+  },
+  {
+    "name": "Java",
+    "description": "",
+    "value": 80,
+    "children": []
+  },
+  {
+    "name": "Python",
+    "description": "",
+    "value": 80,
+    "children": []
+  },
+  {
+    "name": "Database",
+    "description": "",
+    "value": 75,
+    "children": []
   }
 ]

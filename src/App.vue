@@ -2,13 +2,12 @@
     <div class="home-page">
         <!-- Navigation bar -->
         <div id="left-nav-bar">
+            <div class="nav-title">
+                PN
+            </div>
 
             <!-- Navigation Content -->
             <div class="nav-content">
-                <div class="profile-img">
-                    My Image here
-                </div>
-
                 <ul class="nav-menu">
                     <li class="nav-option">
                         <el-button type="info"
@@ -28,7 +27,7 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            {{ $t('Github') }}
+                            <a href="https://github.com/Paul-Kijtapart" target="_blank">{{ $t('Github') }}</a>
                         </el-button>
                     </li>
                     <li class="nav-option">
@@ -45,7 +44,6 @@
         <!-- Content -->
         <div id="main-content">
             <div id="content-header">
-                Header
                 <div class="right-actions">
                     <el-select :value="language"
                                class="lang-change-btn"
@@ -106,6 +104,11 @@
             position: fixed;
             float: left;
 
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+
             width: span(1 at 1, $main-content-layout);
             height: 100%;
 
@@ -113,10 +116,6 @@
 
             // Navigation content
             .nav-content {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-
                 width: 100%;
 
                 text-align: center;

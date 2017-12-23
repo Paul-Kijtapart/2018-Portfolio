@@ -1,7 +1,43 @@
 <template>
     <div class="resume-view">
         <div class="skills-section">
-            <div class="skills">
+            <div class="skill-title">
+                {{ $t('Skills') }}
+            </div>
+            <div class="skill-body">
+                <ul class="skills">
+                    <li>
+                        <span class="icon-javascript">
+                        </span>
+                        <strong> JavaScript </strong>
+                        Vue, React, Redux, JQuery, Cordova
+                    </li>
+
+                    <li>
+                         <span class="icon-python">
+                        </span>
+                        <strong> Python </strong>
+                        Django, Django REST framework
+                    </li>
+                    <li>
+                         <span class="icon-java">
+                        </span>
+                        <strong> Java </strong>
+                        Spring, JUnit, Socket, Thread
+                    </li>
+                    <li>
+                         <span class="icon-database">
+                        </span>
+                        <strong> Database </strong>
+                        MySQL, PostgreSQL, MongoDB
+                    </li>
+                    <li>
+                         <span class="icon-javascript">
+                        </span>
+                        <strong> Web Development </strong>
+                        Azure, Webpack, Babel, HTML5/CSS3, SASS/SCSS
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -20,7 +56,8 @@
                                           :key="img.name"
                                           class="slide">
                             <img :src="'./assets/experiences/' + img.url"
-                                 :alt="img.name">
+                                 :alt="img.name"
+                                 class="showcase-img">
                         </el-carousel-item>
                     </el-carousel>
                 </div>
@@ -69,32 +106,58 @@
 </template>
 
 <script type="text/babel">
-    // Server exps
+    // Experiences
     import experiences from '@/assets/paul-experience.json';
-    import skills from '@/assets/paul-skills.json';
-
-    // Components
-    import SkillGraph from '@/components/SkillGraph';
-
-    // managers
     import {
         ExperienceAdapter,
         ExperienceCollection
     } from '@/collections/ExperienceCollection';
-    import SkillGraph from "../../components/SkillGraph/SkillGraph";
+
+    // Skills
+    import skills from '@/assets/paul-skills.json';
+    import SkillGraph from '@/components/SkillGraph';
+
+    // Vuex state management
+    import {
+        mapGetters,
+        mapMutations,
+        mapActions
+    } from 'vuex'
 
     export default {
-        components: {SkillGraph},
         name: 'ResumeView',
-        component: {
-            SkillGraph
-        },
+        components: {SkillGraph},
         data: function () {
             return {
-                expCollection: new ExperienceCollection(experiences)
+                expCollection: new ExperienceCollection(experiences),
             };
         },
-        methods: {}
+        computed: {
+            ...mapGetters([
+                'getSkillList'
+            ])
+        },
+        created: function () {
+            this.loadSkills(skills);
+        },
+        /**
+         * When vm.$destory() is called,
+         * Teardown watchers, child components and event listeners
+         */
+        beforeDestroy: function () {
+            this.clearSkills();
+        },
+        methods: {
+            // Synchronous
+            ...mapMutations([
+                'clearSkills'
+            ]),
+
+            // Async
+            ...mapActions([
+                'loadSkills'
+            ])
+        }
     };
 </script>
 
@@ -110,9 +173,37 @@
 
         .skills-section {
             @extend .section;
+            @include card;
 
-            .skills {
-                @include card;
+            .skill-title {
+
+            }
+
+            .skill-body {
+                .skills {
+                    list-style: none;
+
+                    .icon {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    .icon-javascript {
+                        @extend .icon;
+                    }
+
+                    .icon-python {
+                        @extend .icon;
+                    }
+
+                    .icon-java {
+                        @extend .icon;
+                    }
+
+                    .icon-database {
+                        @extend .icon;
+                    }
+                }
             }
         }
 
@@ -152,6 +243,10 @@
                     // slide
                     .slide {
                         text-align: center;
+                    }
+
+                    .showcase-img {
+                        height: 100%;
                     }
                 }
 

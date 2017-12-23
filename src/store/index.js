@@ -11,6 +11,9 @@ import Vuex from 'vuex';
 // Modules
 import test from './modules/test';
 import language from './modules/language';
+import skill from './modules/skill';
+
+console.log(skill);
 
 // Vuex's helpers
 const debug = process.env.NODE_ENV !== 'production';
@@ -21,7 +24,8 @@ Vue.use(Vuex); // register vuex as plugins globally for the first time
 export default new Vuex.Store({
     modules: {
         test,
-        language
+        language,
+        skill
     },
     strict: debug,
     plugins: debug ? [createLogger()] : []
