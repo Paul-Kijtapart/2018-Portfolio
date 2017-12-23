@@ -2,7 +2,8 @@
     <div class="about-view">
         <div class="about-section">
             <div class="img-display">
-                <svg class="img-wrapper" width="400px" height="400px"
+                <svg class="img-wrapper"
+                     width="400px" height="400px"
                      key="img-display">
                     <image x="0%" y="0%"
                            width="400" height="400"
@@ -15,25 +16,19 @@
                 <!-- General info -->
                 <dl class="general-info">
                     <dt> Name </dt>
-                    <dd> Kijtapart Nawattranakul</dd>
+                    <dd class="value"> Kijtapart Nawattranakul</dd>
 
 
                     <dt> Location </dt>
-                    <dd> Vancouver</dd>
+                    <dd class="value"> Vancouver</dd>
 
 
                     <dt> Occupation </dt>
-                    <dd> Software Developer/ Web designer </dd>
+                    <dd class="value"> Software Developer/ Web designer </dd>
 
 
                     <dt> Status </dt>
-                    <dd> Working as a full-stack developer. </dd>
-
-                    <dt> Interests </dt>
-                    <dd> VueJS, ReactJS </dd>
-                    <dd> SASS/SCSS,SVG </dd>
-                    <dd> Python, Django </dd>
-                    <dd> Webpack, Git </dd>
+                    <dd class="value"> Working as a full-stack developer. </dd>
                 </dl>
 
                 <!-- Social contact -->
@@ -41,10 +36,10 @@
                     <dt class="social-title">
                         Profiles
                     </dt>
-                    <dd class="link">
+                    <dd class="social-link">
                         <a href="https://github.com/Paul-Kijtapart" target="_blank"> Github </a>
                     </dd>
-                    <dd class="link">
+                    <dd class="social-link">
                         <a href="https://www.linkedin.com/in/aornawattranakul/" target="_blank"> Linkedin </a>
                     </dd>
                 </dl>
@@ -67,6 +62,7 @@
 
         .section {
             @include card;
+            @include base-font;
         }
 
         .about-section {
@@ -84,6 +80,17 @@
 
             .info {
                 .info-section {
+                    dt {
+                        font: {
+                            size: 1.0em;
+                        }
+                    }
+                    dd {
+                        font: {
+                            family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif";
+                            size: 1.2em;
+                        }
+                    }
                     dd {
                         margin-left: 40px;
                     }
@@ -107,8 +114,12 @@
                 .social-info {
                     @extend .info-section;
 
-                    .social-links {
-                        list-style: none;
+                    .social-link {
+                        font-weight: bold;
+
+                        a {
+                            text-decoration: none;
+                        }
                     }
                 }
             }

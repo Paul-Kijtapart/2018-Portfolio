@@ -1,5 +1,15 @@
 <template>
     <div class="resume-view">
+        <!-- Objective -->
+        <div class="objectives-section">
+            <div class="objectives-title">
+                {{ $t('Objectives') }}
+            </div>
+            <div class="objectives-body">
+            </div>
+        </div>
+
+        <!-- Skills -->
         <div class="skills-section">
             <div class="skill-title">
                 {{ $t('Skills') }}
@@ -43,6 +53,10 @@
 
         <!-- Experience section -->
         <div class="experience-section">
+            <div class="experience-title">
+                {{ $t('Experience') }}
+            </div>
+
             <!-- invidual exp -->
             <section v-for="exp in expCollection.getExpList()"
                      :key="exp.name"
@@ -92,14 +106,12 @@
 
         <!-- Education section -->
         <div class="education-section">
-            <div class="education">
-                <div class="education-title">
-                    {{ $t("2016 Computer Science University Of British Columbia") }}
-                </div>
-                <div class="education-body">
-                </div>
-                <div class="education-footer">
-                </div>
+            <div class="education-title">
+                {{ $t("2016 Computer Science University Of British Columbia") }}
+            </div>
+            <div class="education-body">
+            </div>
+            <div class="education-footer">
             </div>
         </div>
     </div>
@@ -166,22 +178,29 @@
         height: 100%;
         width: 100%;
 
-        // Resume section
+        // section styles to be shared
         .section {
-            /*margin: 10px;*/
+            @include card;
+        }
+
+        .objectives-section {
+            @extend .section;
+            .objectives-title {
+                @include card-title;
+            }
         }
 
         .skills-section {
             @extend .section;
-            @include card;
 
             .skill-title {
-
+                @include card-title;
             }
 
             .skill-body {
                 .skills {
                     list-style: none;
+                    line-height: 1.5;
 
                     .icon {
                         width: 20px;
@@ -207,18 +226,25 @@
             }
         }
 
-        // List of experiences
         .experience-section {
             /*background: susy-svg-grid() no-repeat scroll;*/
             @extend .section;
 
+            .experience-title {
+                @include card-title;
+            }
+
             // individual experience
             .experience {
-                @include card;
-
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: center;
+
+                &:not(:last-child) {
+                    margin-bottom: 40px;
+                    padding-bottom: 40px;
+                    border-bottom: 1px solid $black1;
+                }
 
                 // illustration
                 .showcases {
@@ -228,7 +254,7 @@
                     // Overwrite element ui
                     .el-carousel__item h3 {
                         color: #475669;
-                        font-size: 14px;
+                        font-size: 16px;
                         opacity: 0.75;
                         line-height: 150px;
                         margin: 0;
@@ -260,11 +286,7 @@
                     margin: 10px;
                     width: 45%;
 
-                    font: {
-                        family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif";
-                        size: 1.2em;
-                    }
-
+                    // shared style for experience title, body, and footer
                     .sub-section {
                         width: 100%;
                         margin-bottom: 10px;
@@ -272,14 +294,14 @@
 
                     .experience-title {
                         @extend .sub-section;
-                        @include experience-title-font;
 
                         margin-bottom: 20px;
-
                         text-align: center;
                     }
                     .experience-body {
                         @extend .sub-section;
+
+                        line-height: 1.5;
 
                         // list of roles
                         .roles {
@@ -296,7 +318,7 @@
                         .exp-languages {
                             .exp-lang {
                                 font: {
-                                    family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif";
+                                    family: $base-font-family;
                                     size: 1.0em;
                                 }
 
@@ -310,9 +332,8 @@
         .education-section {
             @extend .section;
 
-            .education {
-                @include card;
-
+            .education-title {
+                @include card-title;
             }
         }
     }

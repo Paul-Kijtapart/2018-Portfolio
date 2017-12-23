@@ -135,13 +135,14 @@
 
                         // Nav-btn to activate
                         .nav-option-btn {
+
                             margin: 0 10px 10px 10px;
                             width: 100%;
 
                             background-color: $navbar-btn-bg-color;
 
-                            // global nested styles
-                            * {
+                            a {
+                                text-decoration: none;
                                 @include nav-font;
                             }
                         }

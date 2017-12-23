@@ -8,16 +8,17 @@
 
 // Fonts
 @mixin nav-font {
+  color: $black8;
   font: {
     family: $title-font-family;
-    size: 1.4em;
+    size: 28px;
   }
 }
 
-@mixin experience-title-font {
+@mixin base-font {
   font: {
-    family: "Times New Roman";
-    size: 1.4em;
+    family: $base-font-family;
+    size: 16px;
   }
 }
 
@@ -31,9 +32,22 @@
   transition-property: color, background-color, box-shadow, transform;
   transition-duration: .15s;
 
+  font: {
+    family: $base-font-family;
+    size: 19px;
+  }
+
   //&:hover {
   //  box-shadow: 0 18px 35px rgba(50, 50, 93, .1), 0 8px 15px rgba(0, 0, 0, .07);
   //  transform: translateY(-2px);
   //}
+}
+
+@mixin card-title {
+  font: {
+    family: $section-title-font-family;
+    size: 24px;
+  }
+  margin-bottom: 20px;
 }
 

@@ -1,5 +1,6 @@
-// Libraries
+// Special fonts load
 @import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 // Breakpoint (to use with min-width of breakpoint)
 $xs: screen max-width 600px; // small to large handset
@@ -18,6 +19,10 @@ $lg-up: screen 1264px;
 
 // Font config
 $title-font-family: 'Lobster', cursive;
+$section-title-font-family: "Roboto", sans-serif;
+
+// Base font
+$base-font-family: 'Georgia, serif';
 $base-font-size: '14px';
 
 // Color config
