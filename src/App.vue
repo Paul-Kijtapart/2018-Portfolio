@@ -13,52 +13,48 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <router-link to="/about"> {{ $t('About') }}</router-link>
+                            <router-link to="/about"> <i class="far fa-user"></i> {{ $t('About') }}</router-link>
                         </el-button>
                     </li>
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <router-link to="/resume"> {{ $t('Resume') }}</router-link>
+                            <router-link to="/resume"><i class="far fa-file-alt"></i> {{ $t('Resume') }}</router-link>
                         </el-button>
                     </li>
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a href="https://github.com/Paul-Kijtapart" target="_blank">{{ $t('Github') }}</a>
+                            <a href="https://github.com/Paul-Kijtapart" target="_blank"><i class="fab fa-github-square"></i> {{ $t('Github') }}</a>
                         </el-button>
                     </li>
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <router-link to="/contact"> {{ $t('Contact') }} </router-link>
+                            <router-link to="/contact"><i class="far fa-envelope"></i> {{ $t('Contact') }} </router-link>
                         </el-button>
                     </li>
                 </ul>
             </div>
+
+            <!-- lang edit -->
+            <el-select :value="language"
+                       class="lang-change-btn"
+                       @change="setLanguage($event)">
+                <el-option v-for="langOption in languageOptions"
+                           :key="langOption.value"
+                           :label="langOption.label"
+                           :value="langOption.value">
+                </el-option>
+            </el-select>
         </div>
 
         <!-- Content -->
         <div id="main-content">
-            <div id="content-header">
-                <div class="right-actions">
-                    <el-select :value="language"
-                               class="lang-change-btn"
-                               @change="setLanguage($event)">
-                        <el-option v-for="langOption in languageOptions"
-                                   :key="langOption.value"
-                                   :label="langOption.label"
-                                   :value="langOption.value">
-                        </el-option>
-                    </el-select>
-                </div>
-            </div>
-            <div id="content-body">
-                <router-view></router-view>
-            </div>
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -116,12 +112,13 @@
 
             // Navigation content
             .nav-content {
-                width: 100%;
+                width: span(12);
 
                 text-align: center;
 
+                // Navigation menu
                 .nav-menu {
-                    width: 100%;
+                    width: span(12);
 
                     text-decoration: none;
 
@@ -131,58 +128,38 @@
                         align-items: center;
                         justify-content: center;
 
-                        width: 100%;
+                        width: span(12);
 
                         // Nav-btn to activate
                         .nav-option-btn {
+                            margin: 0 gutter(of 4) gutter(of 4) gutter(of 4);
+                            width: span(12);
 
-                            margin: 0 10px 10px 10px;
-                            width: 100%;
+                            text-align: left;
 
                             background-color: $navbar-btn-bg-color;
 
                             a {
                                 text-decoration: none;
                                 @include nav-font;
+
+                                margin-left: span(2);
                             }
                         }
                     }
                 }
+            }
+
+            // language change
+            .lang-change-btn {
             }
         }
 
         // Content
         #main-content {
             float: right;
-
             width: span(12 at 2, $main-content-layout);
-
             height: 100%;
-
-            // Content header
-            #content-header {
-                width: span(12); // Starting here, main-content-layout is Susy config
-
-                background-color: $content-header-bg-color;
-
-                @include clearfix;
-
-                .right-actions {
-                    float: right;
-
-                    .lang-change-btn {
-                        @include nav-font;
-
-                        background: $lang-change-btn-bgcolor;
-                    }
-                }
-            }
-
-            // Content header (hold views)
-            #content-body {
-                width: span(12); // Starting here, main-content-layout is Susy config
-                height: 90%;
-            }
         }
     }
 </style>

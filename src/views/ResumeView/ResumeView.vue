@@ -3,7 +3,7 @@
         <!-- Objective -->
         <div class="objectives-section">
             <div class="objectives-title">
-                {{ $t('Objectives') }}
+                <i class="fas fa-key"></i> {{ $t('Objectives') }}
             </div>
             <div class="objectives-body">
             </div>
@@ -12,7 +12,7 @@
         <!-- Skills -->
         <div class="skills-section">
             <div class="skill-title">
-                {{ $t('Skills') }}
+                <i class="fas fa-gem"></i> {{ $t('Skills') }}
             </div>
             <div class="skill-body">
                 <ul class="skills">
@@ -22,7 +22,6 @@
                         <strong> JavaScript </strong>
                         Vue, React, Redux, JQuery, Cordova
                     </li>
-
                     <li>
                          <span class="icon-python">
                         </span>
@@ -54,7 +53,7 @@
         <!-- Experience section -->
         <div class="experience-section">
             <div class="experience-title">
-                {{ $t('Experience') }}
+                <i class="fas fa-briefcase"></i> {{ $t('Experience') }}
             </div>
 
             <!-- invidual exp -->
@@ -106,18 +105,32 @@
 
         <!-- Education section -->
         <div class="education-section">
-            <div class="education-title">
-                {{ $t("2016 Computer Science University Of British Columbia") }}
+            <div class="education-section-title">
+                <i class="fas fa-graduation-cap"></i> {{ $t("Education") }}
             </div>
-            <div class="education-body">
-            </div>
-            <div class="education-footer">
+
+            <!-- Each education -->
+            <div v-for="edu in educations"
+                 :key="edu.name"
+                 class="education">
+                <div class="education-title">
+                    {{ $t(edu.description) }}
+                </div>
+                <div class="education-body">
+                    <svg class="course-display">
+                        <radarchart :stats="edu.courses">
+                        </radarchart>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script type="text/babel">
+    // Components
+    import Radarchart from '@/components/Radarchart';
+
     // Experiences
     import experiences from '@/assets/paul-experience.json';
     import {
@@ -127,7 +140,9 @@
 
     // Skills
     import skills from '@/assets/paul-skills.json';
-    import SkillGraph from '@/components/SkillGraph';
+
+    // Education
+    import educations from '@/assets/paul-educations.json';
 
     // Vuex state management
     import {
@@ -138,10 +153,11 @@
 
     export default {
         name: 'ResumeView',
-        components: {SkillGraph},
+        components: {Radarchart},
         data: function () {
             return {
                 expCollection: new ExperienceCollection(experiences),
+                educations: educations
             };
         },
         computed: {
@@ -185,6 +201,8 @@
 
         .objectives-section {
             @extend .section;
+
+            // Section title
             .objectives-title {
                 @include card-title;
             }
@@ -193,6 +211,7 @@
         .skills-section {
             @extend .section;
 
+            // Section title
             .skill-title {
                 @include card-title;
             }
@@ -332,8 +351,27 @@
         .education-section {
             @extend .section;
 
-            .education-title {
+            // Section title
+            .education-section-title {
                 @include card-title;
+            }
+
+            // Each school
+            .education {
+                .education-title {
+                }
+
+                // Where we display performance in graph
+                .education-body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .course-display {
+                        width: 900px; // todo: check this on responsive
+                        height: 600px;
+                    }
+                }
             }
         }
     }

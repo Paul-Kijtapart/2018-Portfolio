@@ -1,9 +1,11 @@
 <template>
-    <text :x="point.x" :y="point.y"
-          @click.stop.prevent="handleLabelClick"
-          class="skill-label">
-        {{stat.name}}
-    </text>
+    <g>
+        <text :x="point.x" :y="point.y"
+              @click.stop.prevent="handleLabelClick"
+              class="skill-label">
+            {{stat.name}}
+        </text>
+    </g>
 </template>
 
 <script type="text/babel">
@@ -28,9 +30,10 @@
         computed: {
             point: function () {
                 return valueToPoint(
-                    +this.stat.value + 10,
+                    +this.stat.value + 20,
                     this.index,
-                    this.total
+                    this.total,
+                    350, 200
                 )
             }
         },

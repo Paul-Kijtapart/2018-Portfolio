@@ -5,7 +5,7 @@
  * @param nums {Number} - the total number of nodes to displayed
  * @returns {{x: number, y: number}}
  */
-export function valueToPoint(value, index, nums) {
+export function valueToPoint(value, index, nums, xOffset, yOffset) {
     let x = 0;
     let y = -value * 0.8;
     let angle = Math.PI * 2 / nums * index;
@@ -14,8 +14,8 @@ export function valueToPoint(value, index, nums) {
     let tx = x * cos - y * sin + 100;
     let ty = x * sin + y * cos + 100;
     return {
-        x: tx,
-        y: ty
+        x: tx + xOffset,
+        y: ty + yOffset
     }
 }
 

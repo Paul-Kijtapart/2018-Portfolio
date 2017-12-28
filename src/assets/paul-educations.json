@@ -1,0 +1,47 @@
+[
+  {
+    "school": "University Of British Columbia",
+    "description": "2016 Computer Science University Of British Columbia (UBC)",
+    "alias": [
+      "UBC"
+    ],
+    "courses": [
+      {
+        "name": "Advanced Relational Database",
+        "type": "cpsc",
+        "value": 92,
+        "icon": ""
+      },
+      {
+        "name": "Machine Learning and Data Mining",
+        "type": "cpsc",
+        "value": 74,
+        "icon": ""
+      },
+      {
+        "name": "Introduction to Artificial Intelligence",
+        "type": "cpsc",
+        "value": 83,
+        "icon": ""
+      },
+      {
+        "name": "Distributed Systems",
+        "type": "cpsc",
+        "value": 85,
+        "icon": ""
+      },
+      {
+        "name": "Intermediate Microeconomic Analysis I",
+        "type": "econ",
+        "value": 75,
+        "icon": ""
+      },
+      {
+        "name": "Matrix Algebra",
+        "type": "math",
+        "value": 84,
+        "icon": ""
+      }
+    ]
+  }
+]

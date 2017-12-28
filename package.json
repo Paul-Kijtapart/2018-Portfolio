@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dw": "webpack --watch --config ./webpack.dev.js",
-    "startServer": "webpack-dev-server --config ./webpack.dev.js",
+    "startServer": "webpack-dev-server -d --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.prod.js",
     "unit": "mocha --require babel-core/register test/unit/specs --recursive",
     "e2e": ""

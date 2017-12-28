@@ -34,13 +34,13 @@
                 <!-- Social contact -->
                 <dl class="social-info">
                     <dt class="social-title">
-                        Profiles
+                        {{ $t("Profiles") }}
                     </dt>
                     <dd class="social-link">
-                        <a href="https://github.com/Paul-Kijtapart" target="_blank"> Github </a>
+                        <a href="https://github.com/Paul-Kijtapart" target="_blank"> <i class="fab fa-github-square"></i> {{ $t("Github") }} </a>
                     </dd>
                     <dd class="social-link">
-                        <a href="https://www.linkedin.com/in/aornawattranakul/" target="_blank"> Linkedin </a>
+                        <a href="https://www.linkedin.com/in/aornawattranakul/" target="_blank"><i class="fab fa-linkedin"></i> {{ $t("Linkedin") }} </a>
                     </dd>
                 </dl>
             </div>

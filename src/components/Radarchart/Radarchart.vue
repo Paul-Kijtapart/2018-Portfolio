@@ -1,7 +1,7 @@
 <template>
-    <g transform="scale(3)"class="skill-graph">
+    <g class="skill-graph">
         <polygon :points="points"></polygon>
-        <circle cx="100" cy="100" r="80"></circle>
+        <circle cx="450" cy="300" r="80"></circle>
         <axis-label v-for="(stat, index) in stats"
                     :key="stat.name"
                     :stat="stat"
@@ -21,7 +21,7 @@
     import AxisLabel from './components/AxisLabel';
 
     export default {
-        name: 'skill-graph',
+        name: 'radar-chart',
         components: {
             AxisLabel,
         },
@@ -35,7 +35,7 @@
             points: function () {
                 const total = this.stats.length;
                 return this.stats.map(function (stat, i) {
-                    let point = valueToPoint(stat.value, i, total);
+                    let point = valueToPoint(stat.value, i, total, 350, 200);
                     return point.x + ',' + point.y
                 }).join(' ')
             }
@@ -49,6 +49,7 @@
         fill: #42b983;
         opacity: .75;
     }
+
     circle {
         fill: transparent;
         stroke: #999;
