@@ -14,6 +14,14 @@
     size: 28px;
   }
 }
+@mixin nav-input {
+  color: $black8;
+  background-color: $black2;
+  font: {
+    family: $title-font-family;
+    size: 20px;
+  }
+}
 
 @mixin base-font {
   font: {
@@ -44,10 +52,21 @@
 }
 
 @mixin card-title {
+  position: relative;
+  margin-bottom: 20px;
   font: {
     family: $section-title-font-family;
     size: 24px;
   }
-  margin-bottom: 20px;
+
+  .card-name {
+    font: {
+      family: $section-title-font-family;
+      size: 24px;
+    }
+
+    color: $blue3;
+    text-decoration: none;
+  }
 }
 

@@ -36,9 +36,22 @@ $black6: #595C5F;
 $black7: #434649;
 $black8: #303336;
 
+$blue0: #CFEDFB;
+$blue1: #9BDAF3;
+$blue2: #68C7EC;
+$blue3: #34B3E4;
+$blue4: #00A0DC;
+$blue5: #008CC9;
+$blue6: #0077B5;
+$blue7: #005E93;
+$blue8: #004471;
+
+// Base
+$base-bg-color: $black0;
+
 // Navigation config
-$navbar-bg-color: $black0;
-$navbar-btn-bg-color: $black2;
+$navbar-bg-color: $black8;
+$navbar-btn-bg-color: $black3;
 
 /* Content */
 // Content Header

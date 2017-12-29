@@ -15,11 +15,6 @@ const state = {
 
 // getters
 const getters = {
-
-    getSkillList(state) {
-        return state.skillList;
-    },
-
     /**
      * Return the skill with the given id
      * @param state {Object}
@@ -28,6 +23,54 @@ const getters = {
      */
     getSkillById: (state) => (id) => {
         return state.skillMap[id];
+    },
+
+    skillInFocusHighchart: state => {
+        let skillInFocus = state.skillInFocus;
+
+        return {
+            chart: {
+                polar: true,
+                type: 'line'
+            },
+            title: {
+                text: skillInFocus.name,
+            },
+            pane: {
+                size: '80%'
+            },
+            xAxis: {
+                categories: skillInFocus.children.map(skill => {
+                    return skill.name;
+                }),
+                tickmarkPlacement: 'on',
+                lineWidth: 0
+            },
+            yAxis: {
+                gridLineInterpolation: 'polygon',
+                lineWidth: 0,
+                min: 0
+            },
+            tooltip: {
+                shared: true,
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}%</b><br/>'
+            },
+            legend: {
+                visible: false,
+                align: 'right',
+                verticalAlign: 'top',
+                y: 70,
+                layout: 'vertical'
+            },
+            series: [{
+                showInLegend: false,
+                name: 'Grade',
+                data: skillInFocus.children.map(skill => {
+                    return skill.value
+                }),
+                pointPlacement: 'on'
+            }]
+        };
     }
 };
 
@@ -64,6 +107,15 @@ const mutations = {
     clearSkills(state) {
         state.skillList = [];
         state.skillMap = {};
+    },
+
+    /**
+     * Set the given skill as focus
+     * @param state
+     * @param skill
+     */
+    focusSkill(state, skill) {
+        state.skillInFocus = skill;
     }
 };
 

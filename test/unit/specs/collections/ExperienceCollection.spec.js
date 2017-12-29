@@ -172,59 +172,7 @@ describe('Experience', function () {
         }
     });
 
-    it('create subclasses of Experience should pass.', function (done) {
-        try {
-            let w1 = new WebExperience(this.hackathonWebExp);
-            let w2 = new WebExperience(this.persoanlWebExp);
-            let a1 = new AndroidExperience(this.androidExp);
-
-            done();
-        }
-        catch (err) {
-            done(err);
-        }
-    });
-
-    it('test if instances of WebExperience have default fields', function () {
-        let w1 = new WebExperience(this.hackathonWebExp);
-
-        expect(w1.pk).to.equal(this.hackathonWebExp.pk);
-        expect(w1.name).to.equal(this.hackathonWebExp.name);
-        expect(w1.eventType).to.equal(this.hackathonWebExp.eventType);
-        expect(w1.start).to.equal(this.hackathonWebExp.start);
-        expect(w1.end).to.equal(this.hackathonWebExp.end);
-        expect(w1.timezone).to.equal(this.hackathonWebExp.timezone);
-        expect(w1.images).to.equal(this.hackathonWebExp.images);
-        expect(w1.collaborators).to.equal(this.hackathonWebExp.collaborators);
-        expect(w1.languages).to.equal(this.hackathonWebExp.languages);
-        expect(w1.roles).to.equal(this.hackathonWebExp.roles);
-    });
-
-    it('test if instances of AndroidExperience have default fields', function () {
-        let a1 = new WebExperience(this.androidExp);
-
-        expect(a1.pk).to.equal(this.androidExp.pk);
-        expect(a1.name).to.equal(this.androidExp.name);
-        expect(a1.eventType).to.equal(this.androidExp.eventType);
-        expect(a1.start).to.equal(this.androidExp.start);
-        expect(a1.end).to.equal(this.androidExp.end);
-        expect(a1.timezone).to.equal(this.androidExp.timezone);
-        expect(a1.images).to.equal(this.androidExp.images);
-        expect(a1.collaborators).to.equal(this.androidExp.collaborators);
-        expect(a1.languages).to.equal(this.androidExp.languages);
-        expect(a1.roles).to.equal(this.androidExp.roles);
-    });
-
     it('test toString of all Experience subclasses', function () {
-    });
-
-    it('ExperienceAdapter', function () {
-        expect(ExperienceAdapter.createExperience(this.hackathonWebExp))
-            .to.be.an.instanceof(WebExperience);
-        expect(ExperienceAdapter.createExperience(this.persoanlWebExp))
-            .to.be.an.instanceof(WebExperience);
-        expect(ExperienceAdapter.createExperience(this.androidExp))
-            .to.be.an.instanceof(AndroidExperience);
     });
 
     it('ExperienceCollection', function () {

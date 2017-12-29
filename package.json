@@ -48,6 +48,7 @@
     "element-ui": "^2.0.7",
     "highcharts": "^6.0.3",
     "lodash": "^4.17.4",
+    "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
     "normalize.css": "^7.0.0",
     "susy": "^3.0.1",

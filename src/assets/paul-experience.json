@@ -1,5 +1,99 @@
 [
   {
+    "type": "full-stack",
+    "languages": [
+    ],
+    "url": "http://www.panevo.com/",
+    "collaborators": [],
+    "end": -1,
+    "name": "Panevo",
+    "roles": [
+      {
+        "description": "Designed and implemented dashboard page. Added extended mode on different mode: presentation, default, and report"
+      },
+      {
+        "description": "Integrated 3rd Chart library to display line, bar, gauge, and pie charts."
+      },
+      {
+        "description": "Wrote Python scripts to automate editing CSV files."
+      },
+      {
+        "description": "Store ange Get data from a FTP server."
+      },
+      {
+        "description": "Integrated 3rd Text editor library."
+      },
+      {
+        "description": "Improved responsives with breakpoint."
+      },
+      {
+        "description": "Designed and implemented table that loads on user's scroll. Enable server-querying."
+      },
+      {
+        "description": "Integrated 3rd party grid layout library to allow users to create a custom dashboard page."
+      },
+      {
+        "description": "Configured Webpack to work n the application."
+      },
+      {
+        "description": "Integrated Babel to enable using ES6 JavaScript."
+      },
+      {
+        "description": "Designed and implemented schematic editor. From both server and client."
+      },
+      {
+        "description": "Used Git extensively to work with teammates."
+      }
+    ],
+    "timezone": "America/Vancouver",
+    "eventType": "work",
+    "start": 1513053711,
+    "images": []
+  },
+  {
+    "name": "EyesOT",
+    "languages": [
+      {
+        "name": "ReactJS"
+      },
+      {
+        "name": "Webpack"
+      },
+      {
+        "name": "Sass"
+      },
+      {
+        "name": "Android"
+      },
+      {
+        "name": "NodeJS"
+      }
+    ],
+    "url": "http://eyesofthethings.herokuapp.com/",
+    "collaborators": [],
+    "start": -1,
+    "end": -1,
+    "timezone": "America/Vancouver",
+    "type": "web",
+    "eventType": "hackathon",
+    "images": [],
+    "roles": [
+      {
+        "icon": "fas fa-trophy",
+        "description": "Won 1st place at SAP Early Talent Hackathon."
+      },
+      {
+        "description": "Set up the server to receive data from IoT devices and transfer them to clients."
+      },
+      {
+        "description": "Used LeafletJS to render a map with a list of markers and their associated pop-ups."
+      },
+      {
+        "description": "Established socket between client and server to push real time updates across all clients."
+      }
+    ]
+  },
+  {
     "type": "web",
     "languages": [
       {
@@ -27,15 +121,19 @@
     "name": "MapViz",
     "roles": [
       {
+        "icon": "fas fa-trophy",
         "description": "Won 2nd place at Open Data Hack-a-thon #HackOurCity."
       },
       {
+        "icon": "",
         "description": "Contributed to aggregating dataset, parsing dataset, creating corresponding models and loading those data to a PostgreSQL database."
       },
       {
+        "icon": "",
         "description": "Wrote queries to associate Foreign and Primary Keys between tables."
       },
       {
+        "icon": "",
         "description": "Used LeafletJS to render a Choropleth map based on scoring function."
       }
     ],

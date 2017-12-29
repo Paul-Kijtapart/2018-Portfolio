@@ -6,6 +6,13 @@
                 <i class="fas fa-key"></i> {{ $t('Objectives') }}
             </div>
             <div class="objectives-body">
+                <ul class="objectives">
+                    <li class="objtive">
+                        I am currently working as a <strong> full-stack developer </strong> at
+                        <a style="text-decoration: none;" href="http://www.panevo.com/" target="_blank">Panevo </a>.
+                    </li>
+                    <li class="objtive"><strong>3+ years </strong> of developing Scalable Web applications.</li>
+                </ul>
             </div>
         </div>
 
@@ -15,38 +22,45 @@
                 <i class="fas fa-gem"></i> {{ $t('Skills') }}
             </div>
             <div class="skill-body">
-                <ul class="skills">
-                    <li>
-                        <span class="icon-javascript">
-                        </span>
-                        <strong> JavaScript </strong>
-                        Vue, React, Redux, JQuery, Cordova
-                    </li>
-                    <li>
-                         <span class="icon-python">
-                        </span>
-                        <strong> Python </strong>
-                        Django, Django REST framework
-                    </li>
-                    <li>
-                         <span class="icon-java">
-                        </span>
-                        <strong> Java </strong>
-                        Spring, JUnit, Socket, Thread
-                    </li>
-                    <li>
-                         <span class="icon-database">
-                        </span>
-                        <strong> Database </strong>
-                        MySQL, PostgreSQL, MongoDB
-                    </li>
-                    <li>
-                         <span class="icon-javascript">
-                        </span>
-                        <strong> Web Development </strong>
-                        Azure, Webpack, Babel, HTML5/CSS3, SASS/SCSS
-                    </li>
-                </ul>
+                <div class="skill-info">
+                    <ul class="skills">
+                        <li>
+                            <i class="icon-javascript fab fa-js-square"></i>
+                            <strong> JavaScript </strong>
+                            Vue, React, Redux, JQuery, Cordova
+                        </li>
+                        <li>
+                            <i class="icon-python fab fa-python"></i>
+                            <strong> Python </strong>
+                            Django, Django REST framework
+                        </li>
+                        <li>
+                            <img class="icon-java"
+                                 src="/assets/skills/icon/java.svg"/>
+                            <strong> Java </strong>
+                            Spring, JUnit, Socket, Thread
+                        </li>
+                        <li>
+                            <i class="icon-database fas fa-database"></i>
+                            <strong> Database </strong>
+                            MySQL, PostgreSQL, MongoDB
+                        </li>
+                        <li>
+                            <i class="icon-web-dev fab fa-html5"></i>
+                            <strong> Web Development </strong>
+                            Azure, Webpack, Babel, HTML5/CSS3, SASS/SCSS
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Compare skills -->
+                <div v-if="skillInFocus"
+                     class="focus-skill">
+                    <highcharts style=" width: 100%; height: 100%;"
+                                ref="focus-skill-chart"
+                                :options="skillInFocusHighchart">
+                    </highcharts>
+                </div>
             </div>
         </div>
 
@@ -65,6 +79,7 @@
                      class="showcases">
                     <el-carousel :autoplay="false"
                                  trigger="click">
+                        trigger="click">
                         <el-carousel-item v-for="img in exp.images"
                                           :key="img.name"
                                           class="slide">
@@ -78,13 +93,26 @@
                 <!-- Description -->
                 <div class="description">
                     <div class="experience-title">
-                        {{ exp.name}}
+                        <a class="card-name"
+                           :href="exp.url"
+                           target="_blank">
+                            {{ exp.name}}
+                        </a>
+
+                        <!-- Timeline -->
+                        <el-tag class="datetime-display">
+                            <i class="far fa-calendar-alt"></i> {{ exp.getTimeframe() }}
+                        </el-tag>
                     </div>
                     <div class="experience-body">
                         <ul class="roles">
                             <li v-for="(role, index) in exp.roles"
                                 :key="index"
                                 class="role">
+                                <i v-if="role.icon" :class="['role-icon', role.icon]"></i>
+                                <i class="role-icon fas fa-caret-right"
+                                   v-else>
+                                </i>
                                 {{ role.description }}
                             </li>
                         </ul>
@@ -110,26 +138,29 @@
             </div>
 
             <!-- Each education -->
-            <div v-for="edu in educations"
+            <div v-for="edu in spiderWebEducation"
                  :key="edu.name"
                  class="education">
-                <div class="education-title">
-                    {{ $t(edu.description) }}
-                </div>
+                <!--<div class="education-title">-->
+                <!--{{ $t(edu.description) }}-->
+                <!--</div>-->
                 <div class="education-body">
-                    <svg class="course-display">
-                        <radarchart :stats="edu.courses">
-                        </radarchart>
-                    </svg>
+                    <highcharts :options="edu.highchart" ref="education-chart">
+                    </highcharts>
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-<script type="text/babel">
+<script>
+
     // Components
     import Radarchart from '@/components/Radarchart';
+
+    // Skills
+    import skills from '@/assets/paul-skills.json';
+    console.log(skills);
 
     // Experiences
     import experiences from '@/assets/paul-experience.json';
@@ -138,14 +169,12 @@
         ExperienceCollection
     } from '@/collections/ExperienceCollection';
 
-    // Skills
-    import skills from '@/assets/paul-skills.json';
-
     // Education
     import educations from '@/assets/paul-educations.json';
 
     // Vuex state management
     import {
+        mapState,
         mapGetters,
         mapMutations,
         mapActions
@@ -157,16 +186,82 @@
         data: function () {
             return {
                 expCollection: new ExperienceCollection(experiences),
-                educations: educations
+                educations: educations,
+
+                // test
+                options: {
+                    chart: {
+                        polar: true,
+                        type: 'line'
+                    },
+
+                    title: {
+                        text: 'Budget vs spending',
+                        x: -80
+                    },
+
+                    pane: {
+                        size: '100%'
+                    },
+
+                    xAxis: {
+                        categories: ['Sales', 'Marketing', 'Development', 'Customer Support',
+                            'Information Technology', 'Administration'],
+                        tickmarkPlacement: 'on',
+                        lineWidth: 0
+                    },
+
+                    yAxis: {
+                        gridLineInterpolation: 'polygon',
+                        lineWidth: 0,
+                        min: 0
+                    },
+
+                    tooltip: {
+                        shared: true,
+                        pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+                    },
+
+                    legend: {
+                        align: 'right',
+                        verticalAlign: 'top',
+                        y: 70,
+                        layout: 'vertical'
+                    },
+
+                    series: [{
+                        name: 'Allocated Budget',
+                        data: [43000, 19000, 60000, 35000, 17000, 10000],
+                        pointPlacement: 'on'
+                    }, {
+                        name: 'Actual Spending',
+                        data: [50000, 39000, 42000, 31000, 26000, 14000],
+                        pointPlacement: 'on'
+                    }]
+
+                }
             };
         },
         computed: {
+            ...mapState({
+                'skillInFocus': state => state.skill.skillInFocus,
+                'skillList': state => state.skill.skillList,
+            }),
+
             ...mapGetters([
-                'getSkillList'
+                'getSkillById',
+                'spiderWebEducation',
+                'skillInFocusHighchart'
             ])
         },
         created: function () {
+            // Set up skills
             this.loadSkills(skills);
+            let skillList = this.skillList;
+            this.focusSkill(skillList[0]);
+
+            // Set up education
+            this.loadEducation(educations);
         },
         /**
          * When vm.$destory() is called,
@@ -174,16 +269,20 @@
          */
         beforeDestroy: function () {
             this.clearSkills();
+            this.clearEducation();
         },
         methods: {
             // Synchronous
             ...mapMutations([
-                'clearSkills'
+                'clearSkills',
+                'clearEducation',
+                'focusSkill'
             ]),
 
             // Async
             ...mapActions([
-                'loadSkills'
+                'loadSkills',
+                'loadEducation'
             ])
         }
     };
@@ -206,9 +305,16 @@
             .objectives-title {
                 @include card-title;
             }
+
+            .objectives-body {
+                ul.objectives {
+                    margin-left: 20px;
+                }
+            }
         }
 
         .skills-section {
+            @include clearfix;
             @extend .section;
 
             // Section title
@@ -217,30 +323,49 @@
             }
 
             .skill-body {
-                .skills {
-                    list-style: none;
-                    line-height: 1.5;
+                display: flex;
 
-                    .icon {
-                        width: 20px;
-                        height: 20px;
-                    }
+                .skill-info {
+                    width: 50%;
 
-                    .icon-javascript {
-                        @extend .icon;
-                    }
+                    display: flex;
+                    align-items: center;
 
-                    .icon-python {
-                        @extend .icon;
-                    }
+                    .skills {
+                        list-style: none;
+                        line-height: 1.5;
+                        width: 100%;
 
-                    .icon-java {
-                        @extend .icon;
-                    }
+                        .icon {
+                            width: 20px;
+                            height: 20px;
+                        }
 
-                    .icon-database {
-                        @extend .icon;
+                        .icon-javascript {
+                            @extend .icon;
+                        }
+
+                        .icon-python {
+                            @extend .icon;
+                        }
+
+                        .icon-java {
+                            @extend .icon;
+                        }
+
+                        .icon-database {
+                            @extend .icon;
+                        }
+
+                        .icon-web-dev {
+                            @extend .icon;
+                        }
                     }
+                }
+
+                .focus-skill {
+                    width: 50%;
+                    min-height: 400px;
                 }
             }
         }
@@ -251,6 +376,17 @@
 
             .experience-title {
                 @include card-title;
+
+                .datetime-display {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+
+                    font: {
+                        family: $base-font-family;
+                        size: 18px
+                    }
+                }
             }
 
             // individual experience
@@ -326,7 +462,14 @@
                         .roles {
                             margin-left: 20px;
 
+                            list-style: none;
+
+                            // Role
                             .role {
+                                .role-icon {
+                                    width: 20px;
+                                    height: 20px;
+                                }
                             }
                         }
                     }
@@ -335,6 +478,8 @@
 
                         // list of languages used in this experience
                         .exp-languages {
+                            margin-left: 40px;
+
                             .exp-lang {
                                 font: {
                                     family: $base-font-family;

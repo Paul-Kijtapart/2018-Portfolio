@@ -1,7 +1,7 @@
 <template>
     <g class="skill-graph">
         <polygon :points="points"></polygon>
-        <circle cx="450" cy="300" r="80"></circle>
+        <circle cx="50%" cy="50%" r="80"></circle>
         <axis-label v-for="(stat, index) in stats"
                     :key="stat.name"
                     :stat="stat"

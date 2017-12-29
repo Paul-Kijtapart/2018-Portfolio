@@ -13,7 +13,7 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <router-link to="/about"> <i class="far fa-user"></i> {{ $t('About') }}</router-link>
+                            <router-link to="/about"><i class="far fa-user"></i> {{ $t('About') }}</router-link>
                         </el-button>
                     </li>
                     <li class="nav-option">
@@ -23,18 +23,42 @@
                             <router-link to="/resume"><i class="far fa-file-alt"></i> {{ $t('Resume') }}</router-link>
                         </el-button>
                     </li>
+                    <!-- Confirmation -->
                     <li class="nav-option">
+                        <el-popover ref="nav-github-confirm"
+                                    placement="right"
+                                    width="160"
+                                    v-model="showNavGitConfirm">
+                            <p> Go to github page? </p>
+                            <div style="text-align: right; margin: 0">
+                                <el-button size="mini" type="text"
+                                           @click="showNavGitConfirm = false">
+                                    cancel
+                                </el-button>
+                                <el-button type="primary"
+                                           size="mini"
+                                           @click="handleGithubBtn">
+                                    confirm
+                                </el-button>
+                            </div>
+                        </el-popover>
                         <el-button type="info"
+                                   v-popover:nav-github-confirm
                                    class="nav-option-btn"
+                                   @click.stop.prevent="showNavGitConfirm = true"
                                    round>
-                            <a href="https://github.com/Paul-Kijtapart" target="_blank"><i class="fab fa-github-square"></i> {{ $t('Github') }}</a>
+                            <a href="https://github.com/Paul-Kijtapart" target="_blank">
+                                <i class="fab fa-github-square"></i> {{ $t('Github') }}
+                            </a>
                         </el-button>
                     </li>
+                    <!-- Btn -->
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <router-link to="/contact"><i class="far fa-envelope"></i> {{ $t('Contact') }} </router-link>
+                            <router-link to="/contact"><i class="far fa-envelope"></i> {{ $t('Contact') }}
+                            </router-link>
                         </el-button>
                     </li>
                 </ul>
@@ -43,8 +67,10 @@
             <!-- lang edit -->
             <el-select :value="language"
                        class="lang-change-btn"
+                       popper-class="language-options"
                        @change="setLanguage($event)">
-                <el-option v-for="langOption in languageOptions"
+                <el-option class="option"
+                           v-for="langOption in languageOptions"
                            :key="langOption.value"
                            :label="langOption.label"
                            :value="langOption.value">
@@ -70,7 +96,10 @@
     export default {
         name: 'home-page',
         data: function () {
-            return {}
+            return {
+                // toggle states
+                showNavGitConfirm: false,
+            }
         },
         computed: {
             ...mapState({
@@ -85,10 +114,16 @@
                 this.$i18n.locale = newLanguage;
             }
         },
+        created: function () {
+        },
         methods: {
             ...mapMutations([
                 'setLanguage'
-            ])
+            ]),
+
+            handleGithubBtn: function () {
+                window.open("https://github.com/Paul-Kijtapart");
+            }
         }
     };
 </script>
@@ -152,6 +187,18 @@
 
             // language change
             .lang-change-btn {
+                margin: 0 gutter(of 4) gutter(of 4) gutter(of 4);
+                width: span(4);
+
+                i {
+                    color: $black8;
+                }
+
+                // overwrite
+                .el-input__inner {
+                    @include nav-input;
+                    border: transparent;
+                }
             }
         }
 
@@ -160,6 +207,15 @@
             float: right;
             width: span(12 at 2, $main-content-layout);
             height: 100%;
+        }
+    }
+
+    // Overwrite element ui
+    .language-options {
+        background-color: $black2;
+
+        .option {
+            @include nav-input;
         }
     }
 </style>

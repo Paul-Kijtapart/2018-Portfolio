@@ -9,38 +9,32 @@
       {
         "name": "Advanced Relational Database",
         "type": "cpsc",
-        "value": 92,
-        "icon": ""
+        "value": 92
       },
       {
         "name": "Machine Learning and Data Mining",
         "type": "cpsc",
-        "value": 74,
-        "icon": ""
+        "value": 74
       },
       {
         "name": "Introduction to Artificial Intelligence",
         "type": "cpsc",
-        "value": 83,
-        "icon": ""
+        "value": 83
       },
       {
         "name": "Distributed Systems",
         "type": "cpsc",
-        "value": 85,
-        "icon": ""
+        "value": 85
       },
       {
         "name": "Intermediate Microeconomic Analysis I",
         "type": "econ",
-        "value": 75,
-        "icon": ""
+        "value": 75
       },
       {
         "name": "Matrix Algebra",
         "type": "math",
-        "value": 84,
-        "icon": ""
+        "value": 84
       }
     ]
   }

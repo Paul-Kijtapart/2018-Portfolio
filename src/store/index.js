@@ -12,6 +12,7 @@ import Vuex from 'vuex';
 import test from './modules/test';
 import language from './modules/language';
 import skill from './modules/skill';
+import education from './modules/education';
 
 console.log(skill);
 
@@ -25,7 +26,8 @@ export default new Vuex.Store({
     modules: {
         test,
         language,
-        skill
+        skill,
+        education
     },
     strict: debug,
     plugins: debug ? [createLogger()] : []

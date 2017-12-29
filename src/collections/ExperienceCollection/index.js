@@ -20,11 +20,6 @@ export class Experience {
     // This should work as abstract class
 
     constructor(exp) {
-        if (new.target === Experience) {
-            throw new ExperienceError('Cannot construct Experience instance directly');
-        }
-
-
         this.pk = !exp.pk ? '' : exp.pk;
         this.id = uuidv1();
         this.name = exp.name;
@@ -36,6 +31,7 @@ export class Experience {
         this.collaborators = exp.collaborators;
         this.languages = exp.languages;
         this.roles = exp.roles;
+        this.url = exp.url;
     }
 
     getId() {
@@ -45,29 +41,16 @@ export class Experience {
     toString() {
         return JSON.stringify(this);
     }
-}
-export class WebExperience extends Experience {
-    constructor(exp) {
-        super(exp);
-    }
-}
-export class AndroidExperience extends Experience {
-    constructor(exp) {
-        super(exp);
+
+    getTimeframe(pattern="MMM-YYYY") {
+        return moment.tz(this.start, this.timezone).format(pattern) + ' to ' + moment(this.end).format(pattern);
     }
 }
 
 /* Experience Adapter */
 export class ExperienceAdapter {
     static createExperience(exp) {
-        switch (exp.type) {
-            case 'web':
-                return new WebExperience(exp);
-            case 'android':
-                return new AndroidExperience(exp);
-            default:
-                throw new ExperienceError('Invalid experience type at creation' + exp.type);
-        }
+        return new Experience(exp);
     }
 }
 

@@ -11,6 +11,7 @@ import VueI18n from 'vue-i18n';
 import './element-variables.scss';
 import {
     Select,
+    Popover,
     Button,
     Option,
     Tag,
@@ -18,12 +19,20 @@ import {
     CarouselItem,
 } from "element-ui";
 
+Vue.use(Popover);
 Vue.use(Select);
 Vue.use(Button);
 Vue.use(Option);
 Vue.use(Tag);
 Vue.use(Carousel);
 Vue.use(CarouselItem);
+
+// Chart Library
+import VueHighcharts from 'vue-highcharts';
+import Highcharts from 'highcharts';
+import loadHighchartsMore from 'highcharts/highcharts-more';
+loadHighchartsMore(Highcharts);
+Vue.use(VueHighcharts, {Highcharts});
 
 // State
 import store from '@/store';
