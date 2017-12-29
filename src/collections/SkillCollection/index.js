@@ -25,10 +25,15 @@ export class Skill {
         this.description = skill.description;
         this.value = skill.value;
         this.children = skill.children;
+        this.icon = skill.icon;
     }
 
     getId() {
         return this.id;
+    }
+
+    getChildNames() {
+        return this.children.map(child => child.name).join(', ');
     }
 }
 

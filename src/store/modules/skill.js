@@ -25,52 +25,8 @@ const getters = {
         return state.skillMap[id];
     },
 
-    skillInFocusHighchart: state => {
-        let skillInFocus = state.skillInFocus;
-
-        return {
-            chart: {
-                polar: true,
-                type: 'line'
-            },
-            title: {
-                text: skillInFocus.name,
-            },
-            pane: {
-                size: '80%'
-            },
-            xAxis: {
-                categories: skillInFocus.children.map(skill => {
-                    return skill.name;
-                }),
-                tickmarkPlacement: 'on',
-                lineWidth: 0
-            },
-            yAxis: {
-                gridLineInterpolation: 'polygon',
-                lineWidth: 0,
-                min: 0
-            },
-            tooltip: {
-                shared: true,
-                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}%</b><br/>'
-            },
-            legend: {
-                visible: false,
-                align: 'right',
-                verticalAlign: 'top',
-                y: 70,
-                layout: 'vertical'
-            },
-            series: [{
-                showInLegend: false,
-                name: 'Grade',
-                data: skillInFocus.children.map(skill => {
-                    return skill.value
-                }),
-                pointPlacement: 'on'
-            }]
-        };
+    getSkillByName: (state) => (name) => {
+        return state.skillList.find(skill => skill.name === name);
     }
 };
 

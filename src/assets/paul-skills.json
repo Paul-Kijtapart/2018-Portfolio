@@ -1,178 +1,234 @@
 [
   {
     "name": "JavaScript",
+    "icon": "icon-javascript fab fa-js-square",
     "description": "",
     "value": 90,
     "children": [
       {
-        "name": "flavors",
+        "name": "Vue",
         "description": "",
-        "value": 100,
-        "children": [
-          {
-            "name": "ES6",
-            "description": "",
-            "value": 90,
-            "children": []
-          },
-          {
-            "name": "Plain",
-            "description": "",
-            "value": 80,
-            "children": []
-          },
-          {
-            "name": "TypeScript",
-            "description": "",
-            "value": 60,
-            "children": []
-          }
-        ]
+        "value": 90,
+        "children": []
       },
       {
-        "name": "front-end",
+        "name": "React",
         "description": "",
-        "value": 100,
-        "children": [
-          {
-            "name": "Vue",
-            "description": "",
-            "value": 90,
-            "children": []
-          },
-          {
-            "name": "React",
-            "description": "",
-            "value": 85,
-            "children": []
-          },
-          {
-            "name": "Backbone",
-            "description": "",
-            "value": 80,
-            "children": []
-          },
-          {
-            "name": "Angular",
-            "description": "",
-            "value": 70,
-            "children": []
-          }
-        ]
+        "value": 85,
+        "children": []
       },
       {
-        "name": "back-end",
+        "name": "Redux",
         "description": "",
-        "value": 100,
-        "children": [
-          {
-            "name": "Express",
-            "description": "",
-            "value": 70,
-            "children": []
-          }
-        ]
+        "value": 80,
+        "children": []
       },
       {
-        "name": "state-management",
+        "name": "Backbone",
         "description": "",
-        "value": 100,
-        "children": [
-          {
-            "name": "REST API",
-            "description": "",
-            "value": 85,
-            "children": []
-          },
-          {
-            "name": "Redux",
-            "description": "",
-            "value": 75,
-            "children": []
-          }
-        ]
+        "value": 70,
+        "children": []
       },
       {
-        "name": "testing",
+        "name": "Angular",
         "description": "",
-        "value": 100,
-        "children": [
-          {
-            "name": "Mocha",
-            "description": "",
-            "value": 70,
-            "children": []
-          },
-          {
-            "name": "Jasmine",
-            "description": "",
-            "value": 70,
-            "children": []
-          },
-          {
-            "name": "NightwatchJS",
-            "description": "",
-            "value": 70,
-            "children": []
-          }
-        ]
+        "value": 70,
+        "children": []
       },
       {
-        "name": "css",
+        "name": "Node.js",
         "description": "",
-        "value": 100,
-        "children": [
-          {
-            "name": "Bootstrap",
-            "description": "",
-            "value": 70,
-            "children": []
-          },
-          {
-            "name": "Plain CSS",
-            "description": "",
-            "value": 70,
-            "children": []
-          },
-          {
-            "name": "SASS/SCSS",
-            "description": "",
-            "value": 80,
-            "children": []
-          }
-        ]
+        "value": 80,
+        "children": []
       },
       {
-        "name": "mobile-framework",
+        "name": "Express.js",
         "description": "",
-        "value": 100,
-        "children": [
-          {
-            "name": "ionic",
-            "description": "",
-            "value": 60,
-            "children": []
-          }
-        ]
+        "value": 80,
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "CSS & Styling",
+    "icon": "icon fas fa-paint-brush",
+    "description": "",
+    "value": 80,
+    "children": [
+      {
+        "name": "Bootstrap",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "Plain CSS",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "SASS/SCSS",
+        "description": "",
+        "value": 80,
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "Mobile framework",
+    "icon": "icon fas fa-mobile-alt",
+    "description": "",
+    "value": 70,
+    "children": [
+      {
+        "name": "Cordova",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "Ionic framework",
+        "description": "",
+        "value": 70,
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "Testing",
+    "icon": "icon fas fa-wrench",
+    "description": "",
+    "value": 70,
+    "children": [
+      {
+        "name": "Mocha",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "Jasmine",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "NightwatchJS",
+        "description": "",
+        "value": 70,
+        "children": []
       }
     ]
   },
   {
     "name": "Java",
+    "icon": "icon-python icon-java",
     "description": "",
     "value": 80,
-    "children": []
+    "children": [
+      {
+        "name": "Spring",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "JUnit",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "Socket",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "Thread",
+        "description": "",
+        "value": 70,
+        "children": []
+      }
+    ]
   },
   {
     "name": "Python",
+    "icon": "icon-python fab fa-python",
     "description": "",
     "value": 80,
-    "children": []
+    "children": [
+      {
+        "name": "Django",
+        "description": "",
+        "value": 70,
+        "children": []
+      },
+      {
+        "name": "Django REST framework",
+        "description": "",
+        "value": 70,
+        "children": []
+      }
+    ]
   },
   {
     "name": "Database",
+    "icon": "icon-database fas fa-database",
     "description": "",
     "value": 75,
-    "children": []
+    "children": [
+      {
+        "name": "MySQL",
+        "description": "",
+        "value": 90,
+        "children": []
+      },
+      {
+        "name": "PostgreSQL",
+        "description": "",
+        "value": 80,
+        "children": []
+      },
+      {
+        "name": "MongoDB",
+        "description": "",
+        "value": 80,
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "Build tools",
+    "icon": "icon far fa-building",
+    "description": "",
+    "value": 75,
+    "children": [
+      {
+        "name": "Webpack",
+        "description": "Interact with it daily.",
+        "value": 80,
+        "children": []
+      },
+      {
+        "name": "NPM",
+        "description": "",
+        "value": 80,
+        "children": []
+      },
+      {
+        "name": "Grunt",
+        "description": "",
+        "value": 80,
+        "children": []
+      },
+      {
+        "name": "Gulp",
+        "description": "",
+        "value": 80,
+        "children": []
+      }
+    ]
   }
 ]

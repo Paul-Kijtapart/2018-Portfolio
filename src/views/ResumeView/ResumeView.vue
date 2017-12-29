@@ -24,31 +24,23 @@
             <div class="skill-body">
                 <div class="skill-info">
                     <ul class="skills">
-                        <li>
-                            <i class="icon-javascript fab fa-js-square"></i>
-                            <strong> JavaScript </strong>
-                            Vue, React, Redux, JQuery, Cordova
-                        </li>
-                        <li>
-                            <i class="icon-python fab fa-python"></i>
-                            <strong> Python </strong>
-                            Django, Django REST framework
-                        </li>
-                        <li>
-                            <img class="icon-java"
-                                 src="/assets/skills/icon/java.svg"/>
-                            <strong> Java </strong>
-                            Spring, JUnit, Socket, Thread
-                        </li>
-                        <li>
-                            <i class="icon-database fas fa-database"></i>
-                            <strong> Database </strong>
-                            MySQL, PostgreSQL, MongoDB
-                        </li>
-                        <li>
-                            <i class="icon-web-dev fab fa-html5"></i>
-                            <strong> Web Development </strong>
-                            Azure, Webpack, Babel, HTML5/CSS3, SASS/SCSS
+                        <li v-for="skill in skillList"
+                            :key="skill.name"
+                            class="skill">
+
+                            <el-tag class="name"
+                                    type="info"
+                                    @click.native.stop.prevent="focusSkill(skill)">
+                                <!-- icon -->
+                                <div class="content">
+                                    <img v-if="skill.name === 'Java'"
+                                         class="icon-python icon-java"
+                                         src="/assets/skills/icon/java.svg"/>
+                                    <i :class="skill.icon" v-else></i>
+                                    {{ skill.name }}
+                                </div>
+                            </el-tag>
+                            {{ skill.getChildNames() }}
                         </li>
                     </ul>
                 </div>
@@ -250,9 +242,74 @@
 
             ...mapGetters([
                 'getSkillById',
-                'spiderWebEducation',
-                'skillInFocusHighchart'
-            ])
+                'getSkillByName',
+                'spiderWebEducation'
+            ]),
+
+            skillInFocusHighchart: function () {
+                let vm = this;
+
+                let skillInFocus = this.skillInFocus;
+
+                return {
+                    chart: {
+                        polar: true,
+                        type: 'line'
+                    },
+                    title: {
+                        text: skillInFocus.name,
+                    },
+                    pane: {
+                        size: '80%'
+                    },
+                    xAxis: {
+                        categories: skillInFocus.children.map(skill => {
+                            return skill.name;
+                        }),
+                        events: {},
+                        tickmarkPlacement: 'on',
+                        lineWidth: 0
+                    },
+                    yAxis: {
+                        gridLineInterpolation: 'polygon',
+                        lineWidth: 0,
+                        min: 0,
+                        max: 100
+                    },
+                    tooltip: {
+                        shared: true,
+                        pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}%</b><br/>'
+                    },
+                    legend: {
+                        visible: false,
+                        align: 'right',
+                        verticalAlign: 'top',
+                        y: 70,
+                        layout: 'vertical'
+                    },
+                    series: [{
+                        showInLegend: false,
+                        name: skillInFocus.name,
+                        data: skillInFocus.children.map(skill => {
+                            return skill.value
+                        }),
+                        pointPlacement: 'on',
+                        events: {
+                            click: function (event) {
+                                console.log('focus', event);
+//                                let clickedCategory = event.point.category;
+//                                let targetSkill =
+//                                    vm.skillInFocus.children.find(skill => skill.name === clickedCategory);
+
+                                // if found skill with clickedCategory
+//                                if (targetSkill) {
+//                                    vm.focusSkill(targetSkill);
+//                                }
+                            }
+                        }
+                    }]
+                };
+            }
         },
         created: function () {
             // Set up skills
@@ -283,7 +340,12 @@
             ...mapActions([
                 'loadSkills',
                 'loadEducation'
-            ])
+            ]),
+
+            handleSkillNameClick: function (skill) {
+                console.log('handleSkillNameClick ', skill);
+
+            }
         }
     };
 </script>
@@ -360,12 +422,25 @@
                         .icon-web-dev {
                             @extend .icon;
                         }
+
+                        // Invidual skill
+                        .skill {
+                            .name {
+                                cursor: pointer;
+                                font-size: 1em;
+                                width: 200px;
+
+                                .content {
+                                    text-align: center;
+                                }
+                            }
+                        }
                     }
                 }
 
                 .focus-skill {
                     width: 50%;
-                    min-height: 400px;
+                    height: 450px;
                 }
             }
         }
