@@ -32,6 +32,7 @@ export class Experience {
         this.languages = exp.languages;
         this.roles = exp.roles;
         this.url = exp.url;
+        this.timeinfo = exp.timeinfo ? exp.timeinfo : "";
     }
 
     getId() {
@@ -42,8 +43,11 @@ export class Experience {
         return JSON.stringify(this);
     }
 
-    getTimeframe(pattern="MMM-YYYY") {
-        return moment.tz(this.start, this.timezone).format(pattern) + ' to ' + moment(this.end).format(pattern);
+    getTimeframe(pattern = "MMM-YYYY") {
+        if (this.timeinfo) {
+            return this.timeinfo;
+        }
+        return moment.tz(this.start * 1000, this.timezone).format(pattern) + ' to ' + moment(this.end * 1000).format(pattern);
     }
 }
 

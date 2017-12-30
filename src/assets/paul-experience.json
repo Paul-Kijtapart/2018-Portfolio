@@ -46,8 +46,9 @@
       }
     ],
     "timezone": "America/Vancouver",
+    "timeinfo": "May 2017 - Present",
     "eventType": "work",
-    "start": 1513053711,
+    "start": 1493622000,
     "images": []
   },
   {
@@ -71,9 +72,10 @@
     ],
     "url": "http://eyesofthethings.herokuapp.com/",
     "collaborators": [],
-    "start": -1,
-    "end": -1,
+    "start": 1491030000,
+    "end": 1491030000,
     "timezone": "America/Vancouver",
+    "timeinfo": "April 2017",
     "type": "web",
     "eventType": "hackathon",
     "images": [],
@@ -117,7 +119,7 @@
     ],
     "url": "https://github.com/napon/MapViz",
     "collaborators": [],
-    "end": 1513053711,
+    "end": 1485936000,
     "name": "MapViz",
     "roles": [
       {
@@ -138,8 +140,9 @@
       }
     ],
     "timezone": "America/Vancouver",
+    "timeinfo": "February 2017",
     "eventType": "hackathon",
-    "start": 1513053711,
+    "start": 1485936000,
     "images": [
       {
         "name": "",
@@ -172,7 +175,7 @@
     ],
     "url": "https://github.com/Paul-Kijtapart/Shopping",
     "collaborators": [],
-    "end": 1513053711,
+    "end": 1480579200,
     "name": "Shopping Web",
     "roles": [
       {
@@ -186,8 +189,9 @@
       }
     ],
     "timezone": "America/Vancouver",
+    "timeinfo": "November - December 2016",
     "eventType": "personal",
-    "start": 1513053711,
+    "start": 1477983600,
     "images": [
       {
         "name": "",
@@ -242,6 +246,7 @@
     "timezone": "America/Vancouver",
     "eventType": "academic",
     "start": 1513053711,
+    "timeinfo": "January - April 2016",
     "images": [
       {
         "name": "",
@@ -293,6 +298,7 @@
     "timezone": "America/Vancouver",
     "eventType": "volunteer",
     "start": 1513053711,
+    "timeinfo": "January - April 2015",
     "images": [
       {
         "name": "",
@@ -359,6 +365,7 @@
     "timezone": "America/Vancouver",
     "eventType": "academic",
     "start": 1513053711,
+    "timeinfo": "September - December 2014",
     "images": [
       {
         "name": "",
@@ -387,6 +394,7 @@
     ]
   },
   {
+    "name": "AFKPU Android Keyboard",
     "type": "android",
     "languages": [
       {
@@ -401,8 +409,7 @@
     ],
     "url": "",
     "collaborators": [],
-    "end": 1513053711,
-    "name": "AFKPU Android Keyboard",
+    "end": 1480579200,
     "roles": [
       {
         "description": "Adopted Agile software development approach."
@@ -419,7 +426,8 @@
     ],
     "timezone": "America/Vancouver",
     "eventType": "work",
-    "start": 1513053711,
+    "start": 1477983600,
+    "timeinfo": "Summer 2015",
     "images": []
   }
 ]

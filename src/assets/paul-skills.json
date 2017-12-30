@@ -2,7 +2,7 @@
   {
     "name": "JavaScript",
     "icon": "icon-javascript fab fa-js-square",
-    "description": "",
+    "description": "Use daily.",
     "value": 90,
     "children": [
       {
@@ -52,25 +52,31 @@
   {
     "name": "CSS & Styling",
     "icon": "icon fas fa-paint-brush",
-    "description": "",
+    "description": "Use daily.",
     "value": 80,
     "children": [
       {
         "name": "Bootstrap",
         "description": "",
-        "value": 70,
+        "value": 80,
+        "children": []
+      },
+      {
+        "name": "SemanticUI",
+        "description": "",
+        "value": 80,
         "children": []
       },
       {
         "name": "Plain CSS",
         "description": "",
-        "value": 70,
+        "value": 80,
         "children": []
       },
       {
         "name": "SASS/SCSS",
         "description": "",
-        "value": 80,
+        "value": 90,
         "children": []
       }
     ]
@@ -78,8 +84,8 @@
   {
     "name": "Mobile framework",
     "icon": "icon fas fa-mobile-alt",
-    "description": "",
-    "value": 70,
+    "description": "Completed 4th year Computer Science project with Ionic framework.",
+    "value": 68,
     "children": [
       {
         "name": "Cordova",
@@ -98,25 +104,25 @@
   {
     "name": "Testing",
     "icon": "icon fas fa-wrench",
-    "description": "",
+    "description": "Use daily.",
     "value": 70,
     "children": [
       {
         "name": "Mocha",
         "description": "",
-        "value": 70,
+        "value": 80,
         "children": []
       },
       {
         "name": "Jasmine",
         "description": "",
-        "value": 70,
+        "value": 80,
         "children": []
       },
       {
         "name": "NightwatchJS",
         "description": "",
-        "value": 70,
+        "value": 80,
         "children": []
       }
     ]
@@ -124,31 +130,31 @@
   {
     "name": "Java",
     "icon": "icon-python icon-java",
-    "description": "",
+    "description": "3+ years experience.",
     "value": 80,
     "children": [
       {
         "name": "Spring",
         "description": "",
-        "value": 70,
+        "value": 60,
         "children": []
       },
       {
         "name": "JUnit",
         "description": "",
-        "value": 70,
+        "value": 80,
         "children": []
       },
       {
         "name": "Socket",
         "description": "",
-        "value": 70,
+        "value": 80,
         "children": []
       },
       {
         "name": "Thread",
         "description": "",
-        "value": 70,
+        "value": 80,
         "children": []
       }
     ]
@@ -156,7 +162,7 @@
   {
     "name": "Python",
     "icon": "icon-python fab fa-python",
-    "description": "",
+    "description": "Use daily.",
     "value": 80,
     "children": [
       {
@@ -170,13 +176,19 @@
         "description": "",
         "value": 70,
         "children": []
+      },
+      {
+        "name": "Pandas",
+        "description": "",
+        "value": 60,
+        "children": []
       }
     ]
   },
   {
     "name": "Database",
     "icon": "icon-database fas fa-database",
-    "description": "",
+    "description": "Designed/Implemented database.",
     "value": 75,
     "children": [
       {
@@ -202,31 +214,31 @@
   {
     "name": "Build tools",
     "icon": "icon far fa-building",
-    "description": "",
+    "description": "Interact with NPM and webpack mostly.",
     "value": 75,
     "children": [
       {
         "name": "Webpack",
-        "description": "Interact with it daily.",
-        "value": 80,
+        "description": "Set up multiple projects with webpack. Keep up with webpack plugins.",
+        "value": 90,
         "children": []
       },
       {
         "name": "NPM",
-        "description": "",
+        "description": "Set up multiple projects with NPM.",
         "value": 80,
         "children": []
       },
       {
         "name": "Grunt",
-        "description": "",
-        "value": 80,
+        "description": "Used grunt to create e-portfolio 2017.",
+        "value": 70,
         "children": []
       },
       {
         "name": "Gulp",
-        "description": "",
-        "value": 80,
+        "description": "Used grunt to create e-portfolio 2017.",
+        "value": 70,
         "children": []
       }
     ]

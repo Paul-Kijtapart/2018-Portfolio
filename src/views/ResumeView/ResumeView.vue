@@ -26,21 +26,23 @@
                     <ul class="skills">
                         <li v-for="skill in skillList"
                             :key="skill.name"
-                            class="skill">
+                            class="skill"
+                            @click.stop.prevent="focusSkill(skill)">
 
-                            <el-tag class="name"
-                                    type="info"
-                                    @click.native.stop.prevent="focusSkill(skill)">
-                                <!-- icon -->
-                                <div class="content">
+                            <div :class="['content', skillInFocus.name === skill.name? 'active-skill': '']">
+                                <span class="title">
                                     <img v-if="skill.name === 'Java'"
                                          class="icon-python icon-java"
                                          src="/assets/skills/icon/java.svg"/>
                                     <i :class="skill.icon" v-else></i>
                                     {{ skill.name }}
-                                </div>
-                            </el-tag>
-                            {{ skill.getChildNames() }}
+                                </span>
+                            </div>
+                            <highcharts :options="skill.toHighchartProgressbar()"
+                                        :key="skill.name"
+                                        ref="skill-info"
+                                        style="height: 60px">
+                            </highcharts>
                         </li>
                     </ul>
                 </div>
@@ -49,6 +51,7 @@
                 <div v-if="skillInFocus"
                      class="focus-skill">
                     <highcharts style=" width: 100%; height: 100%;"
+                                key="focus-skill"
                                 ref="focus-skill-chart"
                                 :options="skillInFocusHighchart">
                     </highcharts>
@@ -256,9 +259,7 @@
                         polar: true,
                         type: 'line'
                     },
-                    title: {
-                        text: skillInFocus.name,
-                    },
+                    title: false,
                     pane: {
                         size: '80%'
                     },
@@ -425,13 +426,29 @@
 
                         // Invidual skill
                         .skill {
-                            .name {
-                                cursor: pointer;
-                                font-size: 1em;
-                                width: 200px;
+                            cursor: pointer;
 
-                                .content {
-                                    text-align: center;
+                            .content {
+                                margin-left: 15px;
+                                .title {
+                                    padding: 5px 0px 5px 10px;
+                                }
+                            }
+
+                            .active-skill {
+
+                                .title {
+                                    color: $black0;
+                                    border-radius: 25px;
+                                    background-color: $green4;
+                                    box-shadow: inset 0 0 7px 4px rgba(255, 255, 255, .5);
+                                }
+
+                                .title:after {
+                                    content: 'Active';
+                                    border-radius: 25px;
+                                    background-color: $green7;
+                                    padding: 5px;
                                 }
                             }
                         }
@@ -440,7 +457,6 @@
 
                 .focus-skill {
                     width: 50%;
-                    height: 450px;
                 }
             }
         }
