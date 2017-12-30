@@ -267,6 +267,11 @@
                         categories: skillInFocus.children.map(skill => {
                             return skill.name;
                         }),
+                        labels: {
+                            style: {
+                                fontSize: "16px"
+                            }
+                        },
                         events: {},
                         tickmarkPlacement: 'on',
                         lineWidth: 0
@@ -609,6 +614,13 @@
                     }
                 }
             }
+        }
+    }
+
+    // highchart
+    .skill-label {
+        font: {
+            size: 20px;
         }
     }
 </style>
