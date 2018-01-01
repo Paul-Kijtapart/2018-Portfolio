@@ -1,5 +1,53 @@
 <template>
     <div class="resume-view">
+        <!-- About section -->
+        <div class="about-section">
+            <div class="img-display">
+                <svg class="img-wrapper"
+                     width="400px" height="400px"
+                     key="img-display">
+                    <image x="0%" y="0%"
+                           width="400" height="400"
+                           href="/assets/about/profilePic.introduction.jpg">
+                    </image>
+                </svg>
+            </div>
+            <div class="info">
+                <!-- General info -->
+                <dl class="general-info">
+                    <dt> Name </dt>
+                    <dd class="value"> Kijtapart Nawattranakul</dd>
+
+
+                    <dt> Location </dt>
+                    <dd class="value"> Vancouver</dd>
+
+
+                    <dt> Occupation </dt>
+                    <dd class="value"> Software Developer/ Web designer </dd>
+
+
+                    <dt> Status </dt>
+                    <dd class="value"> Working as a full-stack developer. </dd>
+                </dl>
+
+                <!-- Social contact -->
+                <dl class="social-info">
+                    <dt class="social-title">
+                        {{ $t("Profiles") }}
+                    </dt>
+                    <dd class="social-link">
+                        <a href="https://github.com/Paul-Kijtapart" target="_blank"> <i
+                                class="fab fa-github-square"></i> {{ $t("Github") }} </a>
+                    </dd>
+                    <dd class="social-link">
+                        <a href="https://www.linkedin.com/in/aornawattranakul/" target="_blank"><i
+                                class="fab fa-linkedin"></i> {{ $t("Linkedin") }} </a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
         <!-- Objective -->
         <div class="objectives-section">
             <div class="objectives-title">
@@ -29,7 +77,7 @@
                             class="skill"
                             @click.stop.prevent="focusSkill(skill)">
 
-                            <div :class="['content', skillInFocus.name === skill.name? 'active-skill': '']">
+                            <div :class="[skillInFocus.name === skill.name? 'active-skill': 'content']">
                                 <span class="title">
                                     <img v-if="skill.name === 'Java'"
                                          class="icon-python icon-java"
@@ -85,6 +133,11 @@
                     </el-carousel>
                 </div>
 
+                <!-- Timeline -->
+                <el-tag class="datetime-display">
+                    <i class="far fa-calendar-alt"></i> {{ exp.getTimeframe() }}
+                </el-tag>
+
                 <!-- Description -->
                 <div class="description">
                     <div class="experience-title">
@@ -93,18 +146,13 @@
                            target="_blank">
                             {{ exp.name}}
                         </a>
-
-                        <!-- Timeline -->
-                        <el-tag class="datetime-display">
-                            <i class="far fa-calendar-alt"></i> {{ exp.getTimeframe() }}
-                        </el-tag>
                     </div>
                     <div class="experience-body">
                         <ul class="roles">
                             <li v-for="(role, index) in exp.roles"
                                 :key="index"
                                 class="role">
-                                <i v-if="role.icon" :class="['role-icon', role.icon]"></i>
+                                <i v-if="role.icon" :class="['role-icon', role.icon]" :style="role.iconStyle"></i>
                                 <i class="role-icon fas fa-caret-right"
                                    v-else>
                                 </i>
@@ -366,6 +414,67 @@
             @include card;
         }
 
+        .about-section {
+            @extend .section;
+
+            display: flex;
+            flex-flow: row-reverse wrap;
+            justify-content: center;
+            align-items: center;
+
+            .img-display {
+                .img-wrapper {
+                }
+            }
+
+            .info {
+                .info-section {
+                    dt {
+                        font: {
+                            size: 1.0em;
+                        }
+                    }
+                    dd {
+                        font: {
+                            family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif";
+                            size: 1.2em;
+                        }
+                    }
+                    dd {
+                        margin-left: 40px;
+                    }
+
+                    font: {
+                        size: medium;
+                    }
+                }
+
+                .general-info {
+                    @extend .info-section;
+
+                    width: 400px;
+                    max-width: 100%;
+
+                    .value {
+                        font-weight: bold;
+                    }
+                }
+
+                .social-info {
+                    @extend .info-section;
+
+                    .social-link {
+                        font-weight: bold;
+
+                        a {
+                            text-decoration: none;
+                            color: $black8;
+                        }
+                    }
+                }
+            }
+        }
+
         .objectives-section {
             @extend .section;
 
@@ -437,15 +546,29 @@
                                 margin-left: 15px;
                                 .title {
                                     padding: 5px 0px 5px 10px;
+
+                                    &:hover {
+
+                                        &:after {
+                                            content: "Click to focus this skill.";
+                                            color: $blue8;
+                                            background-color: $blue1;
+                                            border-radius: 25px;
+                                            box-shadow: inset 0 0 7px 4px rgba(255, 255, 255, .5);
+                                        }
+                                    }
                                 }
                             }
 
                             .active-skill {
+                                margin-left: 15px;
 
                                 .title {
+                                    padding: 5px 0px 5px 10px;
+
                                     color: $black0;
                                     border-radius: 25px;
-                                    background-color: $green4;
+                                    background-color: $green3;
                                     box-shadow: inset 0 0 7px 4px rgba(255, 255, 255, .5);
                                 }
 
@@ -454,6 +577,7 @@
                                     border-radius: 25px;
                                     background-color: $green7;
                                     padding: 5px;
+                                    z-index: 2;
                                 }
                             }
                         }
@@ -472,17 +596,6 @@
 
             .experience-title {
                 @include card-title;
-
-                .datetime-display {
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-
-                    font: {
-                        family: $base-font-family;
-                        size: 18px
-                    }
-                }
             }
 
             // individual experience
@@ -490,6 +603,8 @@
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: center;
+
+                position: relative;
 
                 &:not(:last-child) {
                     margin-bottom: 40px;
@@ -524,6 +639,18 @@
 
                     .showcase-img {
                         height: 100%;
+                    }
+                }
+
+                // Timeline
+                .datetime-display {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    font: {
+                        family: $base-font-family;
+                        size: 18px
                     }
                 }
 

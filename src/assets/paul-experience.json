@@ -2,6 +2,21 @@
   {
     "type": "full-stack",
     "languages": [
+      {
+        "name": "Webpack"
+      },
+      {
+        "name": "Vue"
+      },
+      {
+        "name": "Django"
+      },
+      {
+        "name": "Mocha"
+      },
+      {
+        "name": "Selenium/Nightwatch"
+      }
     ],
     "url": "http://www.panevo.com/",
     "collaborators": [],
@@ -9,40 +24,37 @@
     "name": "Panevo",
     "roles": [
       {
-        "description": "Designed and implemented dashboard page. Added extended mode on different mode: presentation, default, and report"
+        "description": "Full-stack web development with Python(Django, REST framework), JavaScript(Vue, JQuery), MySQL, Sass."
       },
       {
-        "description": "Integrated 3rd Chart library to display line, bar, gauge, and pie charts."
+        "description": "Write JavaScript unit tests (Mocha) and end-to-end tests (Selenium/Nightwatch); write Django unit tests."
       },
       {
-        "description": "Wrote Python scripts to automate editing CSV files."
+        "description": "Create Webpack scripts for development, testing, and production; utilize Babel/Webpack plugins to enable using ES6 features, better cross-browser compatibility, faster compile, and smaller bundle."
       },
       {
-        "description": "Store ange Get data from a FTP server."
+        "description": "Design/Implement energy management dashboards; add dashboard modes with customized dashboard views."
       },
       {
-        "description": "Integrated 3rd Text editor library."
+        "description": "Design/Implement dashboard elements to be displayed in the dashboard; this involves integrating 3rd party libraries to create text, image, diagram and chart elements."
       },
       {
-        "description": "Improved responsives with breakpoint."
+        "description": "Plan/implement UI for diagram drawing editor; this includes deciding on diagram format, storing diagram on the server, and displaying diagram on a browser."
       },
       {
-        "description": "Designed and implemented table that loads on user's scroll. Enable server-querying."
+        "description": "Develop workflow for creating/updating/deleting a dashboard and its elements."
       },
       {
-        "description": "Integrated 3rd party grid layout library to allow users to create a custom dashboard page."
+        "description": "Write Python scripts for modifying input's data format, and loading data from CSV files."
       },
       {
-        "description": "Configured Webpack to work n the application."
+        "description": "Establish connection between cloud server(Azure) and a FTP server."
       },
       {
-        "description": "Integrated Babel to enable using ES6 JavaScript."
+        "description": "Add/Improve Sass sheets for different screen breakpoints to improve responsiveness."
       },
       {
-        "description": "Designed and implemented schematic editor. From both server and client."
-      },
-      {
-        "description": "Used Git extensively to work with teammates."
+        "description": "Design/Implement reusable table component which loads data on scroll and input-change, ensuring smooth UI transition."
       }
     ],
     "timezone": "America/Vancouver",
@@ -82,6 +94,9 @@
     "roles": [
       {
         "icon": "fas fa-trophy",
+        "iconStyle": {
+          "color": "#FBE491"
+        },
         "description": "Won 1st place at SAP Early Talent Hackathon."
       },
       {
@@ -124,6 +139,9 @@
     "roles": [
       {
         "icon": "fas fa-trophy",
+        "iconStyle": {
+          "color": "#FBE491"
+        },
         "description": "Won 2nd place at Open Data Hack-a-thon #HackOurCity."
       },
       {

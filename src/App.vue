@@ -2,20 +2,20 @@
     <div class="home-page">
         <!-- Navigation bar -->
         <div id="left-nav-bar">
-            <div class="nav-title">
-                PN
-            </div>
+            <!--<div class="nav-title">-->
+            <!--PN-->
+            <!--</div>-->
 
             <!-- Navigation Content -->
             <div class="nav-content">
                 <ul class="nav-menu">
-                    <li class="nav-option">
-                        <el-button type="info"
-                                   class="nav-option-btn"
-                                   round>
-                            <router-link to="/about"><i class="far fa-user"></i> {{ $t('About') }}</router-link>
-                        </el-button>
-                    </li>
+                    <!--<li class="nav-option">-->
+                    <!--<el-button type="info"-->
+                    <!--class="nav-option-btn"-->
+                    <!--round>-->
+                    <!--<router-link to="/about"><i class="far fa-user"></i> {{ $t('About') }}</router-link>-->
+                    <!--</el-button>-->
+                    <!--</li>-->
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn"
@@ -53,29 +53,29 @@
                         </el-button>
                     </li>
                     <!-- Btn -->
-                    <li class="nav-option">
-                        <el-button type="info"
-                                   class="nav-option-btn"
-                                   round>
-                            <router-link to="/contact"><i class="far fa-envelope"></i> {{ $t('Contact') }}
-                            </router-link>
-                        </el-button>
-                    </li>
+                    <!--<li class="nav-option">-->
+                    <!--<el-button type="info"-->
+                    <!--class="nav-option-btn"-->
+                    <!--round>-->
+                    <!--<router-link to="/contact"><i class="far fa-envelope"></i> {{ $t('Contact') }}-->
+                    <!--</router-link>-->
+                    <!--</el-button>-->
+                    <!--</li>-->
                 </ul>
             </div>
 
             <!-- lang edit -->
-            <el-select :value="language"
-                       class="lang-change-btn"
-                       popper-class="language-options"
-                       @change="setLanguage($event)">
-                <el-option class="option"
-                           v-for="langOption in languageOptions"
-                           :key="langOption.value"
-                           :label="langOption.label"
-                           :value="langOption.value">
-                </el-option>
-            </el-select>
+            <!--<el-select :value="language"-->
+            <!--class="lang-change-btn"-->
+            <!--popper-class="language-options"-->
+            <!--@change="setLanguage($event)">-->
+            <!--<el-option class="option"-->
+            <!--v-for="langOption in languageOptions"-->
+            <!--:key="langOption.value"-->
+            <!--:label="langOption.label"-->
+            <!--:value="langOption.value">-->
+            <!--</el-option>-->
+            <!--</el-select>-->
         </div>
 
         <!-- Content -->
@@ -173,6 +173,15 @@
                             text-align: left;
 
                             background-color: $navbar-btn-bg-color;
+
+                            &:hover {
+                                background-color: $black0;
+                                box-shadow: 0px 0px 20px $blue0;
+
+                                a {
+                                    color: $black8;
+                                }
+                            }
 
                             a {
                                 text-decoration: none;
