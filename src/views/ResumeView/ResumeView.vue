@@ -8,7 +8,7 @@
                      key="img-display">
                     <image x="0%" y="0%"
                            width="400" height="400"
-                           href="/assets/about/profilePic.introduction.jpg">
+                           href="assets/about/profilePic.introduction.jpg">
                     </image>
                 </svg>
             </div>
@@ -81,7 +81,7 @@
                                 <span class="title">
                                     <img v-if="skill.name === 'Java'"
                                          class="icon-python icon-java"
-                                         src="/assets/skills/icon/java.svg"/>
+                                         src="assets/skills/icon/java.svg"/>
                                     <i :class="skill.icon" v-else></i>
                                     {{ skill.name }}
                                 </span>
@@ -117,6 +117,44 @@
             <section v-for="exp in expCollection.getExpList()"
                      :key="exp.name"
                      class="experience">
+                <!-- Type -->
+                <div class="exp-type">
+                    <span v-if="exp.eventType === 'work'"
+                          class="display">
+                        <i class=""></i>
+                        {{ exp.eventType | capitalize}}
+                    </span>
+                    <span v-else-if="exp.eventType === 'volunteer'"
+                          class="display">
+                        <i class=""></i>
+                        {{ exp.eventType | capitalize }}
+                    </span>
+                    <span v-else-if="exp.eventType === 'academic'"
+                          class="display">
+                        <i class=""></i>
+                        {{ exp.eventType | capitalize}}
+                    </span>
+                    <span v-else-if="exp.eventType === 'academic'"
+                          class="display">
+                        <i class=""></i>
+                        {{ exp.eventType | capitalize }}
+                    </span>
+                    <span v-else-if="exp.eventType === 'academic'"
+                          class="display">
+                        <i class=""></i>
+                        {{ exp.eventType | capitalize}}
+                    </span>
+                    <span class="display"
+                          v-else>
+                        {{ exp.eventType | capitalize}}
+                    </span>
+                </div>
+
+                <!-- Timeline -->
+                <el-tag class="datetime-display">
+                    <i class="far fa-calendar-alt"></i> {{ exp.getTimeframe() }}
+                </el-tag>
+
                 <!-- illustration -->
                 <div v-if="exp.images && exp.images.length > 0"
                      class="showcases">
@@ -126,17 +164,12 @@
                         <el-carousel-item v-for="img in exp.images"
                                           :key="img.name"
                                           class="slide">
-                            <img :src="'./assets/experiences/' + img.url"
+                            <img :src="'assets/experiences/' + img.url"
                                  :alt="img.name"
                                  class="showcase-img">
                         </el-carousel-item>
                     </el-carousel>
                 </div>
-
-                <!-- Timeline -->
-                <el-tag class="datetime-display">
-                    <i class="far fa-calendar-alt"></i> {{ exp.getTimeframe() }}
-                </el-tag>
 
                 <!-- Description -->
                 <div class="description">
@@ -612,6 +645,33 @@
                     border-bottom: 1px solid $black1;
                 }
 
+                // Type
+                .exp-type {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 3;
+
+                    .display {
+                        background-color: $black0;
+                        color: $black8;
+                        padding: 5px 10px;
+                        border-radius: 25px;
+                    }
+                }
+
+                // Timeline
+                .datetime-display {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    font: {
+                        family: $base-font-family;
+                        size: 18px
+                    }
+                }
+
                 // illustration
                 .showcases {
                     height: 100%;
@@ -639,18 +699,6 @@
 
                     .showcase-img {
                         height: 100%;
-                    }
-                }
-
-                // Timeline
-                .datetime-display {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-
-                    font: {
-                        family: $base-font-family;
-                        size: 18px
                     }
                 }
 

@@ -1,8 +1,14 @@
 // Libraries
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const baseConfig = require('./webpack.common');
+
+// Constants
+const ASSETS = path.join(__dirname, 'assets');
+const SRC = path.join(__dirname, 'src');
+const DIST = path.join(__dirname, 'dist');
 
 module.exports = merge(baseConfig, {
     module: {
@@ -18,11 +24,31 @@ module.exports = merge(baseConfig, {
                         // other preprocessors should work out of the box, no loader config like this necessary.
                         'scss': ExtractTextPlugin.extract({
                             fallback: 'vue-style-loader',
-                            use: ['css-loader', 'postcss-loader', 'sass-loader'], //order run from Right -> Left
+                            use: ['css-loader', 'postcss-loader',
+                                {
+                                    loader: 'sass-loader',
+                                },
+                                {
+                                    loader: 'sass-resources-loader',
+                                    options: {
+                                        // SCSS to be auto-inject into all vue components' style
+                                        resources: path.join(SRC, 'style.scss')
+                                    }
+                                }], //order run from Right -> Left
                         }),
                         'sass': ExtractTextPlugin.extract({
                             fallback: 'vue-style-loader',
-                            use: ['css-loader', 'postcss-loader', 'sass-loader?indentedSyntax']
+                            use: ['css-loader', 'postcss-loader',
+                                {
+                                    loader: 'sass-loader',
+                                },
+                                {
+                                    loader: 'sass-resources-loader',
+                                    options: {
+                                        // SCSS to be auto-inject into all vue components' style
+                                        resources: path.join(SRC, 'style.scss')
+                                    }
+                                }]
                         }),
 
                         // Vue internationalization
@@ -39,13 +65,10 @@ module.exports = merge(baseConfig, {
                     use: [ // Order is Bottom-up
                         {
                             loader: "css-loader", // translates CSS into CommonJS
-                            options: {sourceMap: true}
                         }, {
                             loader: 'postcss-loader', // autoprefixer
-                            options: {sourceMap: true}
                         }, {
                             loader: "sass-loader", // compiles Sass to CSS
-                            options: {sourceMap: true}
                         }
                     ]
                 })

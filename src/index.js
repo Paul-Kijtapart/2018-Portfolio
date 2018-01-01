@@ -67,6 +67,13 @@ const i18n = new VueI18n({
 });
 ElementLocale.i18n((key, value) => i18n.t(key, value));
 
+// Global filters
+Vue.filter('capitalize', function (value) {
+    if (!value) return '';
+    value = value.toString();
+    return value.charAt(0).toUpperCase() + value.slice(1)
+});
+
 new Vue({
     el: '#app',
     store, // Register store at the root to access it anywhere

@@ -197,7 +197,7 @@
     "name": "Shopping Web",
     "roles": [
       {
-        "description": "Built a web app that users can purchase listed items and store orders in MongoDB"
+        "description": "Built a web app that users can purchase listed items and store orders in MongoDB."
       },
       {
         "description": "Established session between client and server using express-session module."
