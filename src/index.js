@@ -7,6 +7,21 @@ import 'babel-polyfill';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
+// Scroll Plugin
+const VueScrollTo = require('vue-scrollto');
+Vue.use(VueScrollTo, {
+    container: "body",
+    duration: 500,
+    easing: "ease",
+    offset: -70,
+    cancelable: true,
+    onDone: false,
+    onCancel: false,
+    x: false,
+    y: true
+});
+
+
 // Set up Element UI, Register Component globally
 import './element-variables.scss';
 import {

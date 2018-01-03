@@ -1,7 +1,8 @@
 <template>
     <div class="resume-view">
         <!-- About section -->
-        <div class="about-section">
+        <div id="about"
+             class="about-section">
             <div class="img-display">
                 <svg class="img-wrapper"
                      width="400px" height="400px"
@@ -15,19 +16,19 @@
             <div class="info">
                 <!-- General info -->
                 <dl class="general-info">
-                    <dt> Name </dt>
+                    <dt class="title"> Name </dt>
                     <dd class="value"> Kijtapart Nawattranakul</dd>
 
 
-                    <dt> Location </dt>
+                    <dt class="title"> Location </dt>
                     <dd class="value"> Vancouver</dd>
 
 
-                    <dt> Occupation </dt>
+                    <dt class="title"> Occupation </dt>
                     <dd class="value"> Software Developer/ Web designer </dd>
 
 
-                    <dt> Status </dt>
+                    <dt class="title"> Status </dt>
                     <dd class="value"> Working as a full-stack developer. </dd>
                 </dl>
 
@@ -49,7 +50,7 @@
         </div>
 
         <!-- Objective -->
-        <div class="objectives-section">
+        <div id="objectives" class="objectives-section">
             <div class="objectives-title">
                 <i class="fas fa-key"></i> {{ $t('Objectives') }}
             </div>
@@ -65,7 +66,8 @@
         </div>
 
         <!-- Skills -->
-        <div class="skills-section">
+        <div id="skills"
+             class="skills-section">
             <div class="skill-title">
                 <i class="fas fa-gem"></i> {{ $t('Skills') }}
             </div>
@@ -108,7 +110,8 @@
         </div>
 
         <!-- Experience section -->
-        <div class="experience-section">
+        <div id="experience"
+             class="experience-section">
             <div class="experience-title">
                 <i class="fas fa-briefcase"></i> {{ $t('Experience') }}
             </div>
@@ -208,7 +211,8 @@
         </div>
 
         <!-- Education section -->
-        <div class="education-section">
+        <div id="education"
+             class="education-section">
             <div class="education-section-title">
                 <i class="fas fa-graduation-cap"></i> {{ $t("Education") }}
             </div>
@@ -489,8 +493,18 @@
                     width: 400px;
                     max-width: 100%;
 
+                    .title {
+                        font: {
+                            size: 16px;
+                        }
+                    }
+
                     .value {
                         font-weight: bold;
+                        margin-bottom: 10px;
+                        font: {
+                            size: 20px;
+                        }
                     }
                 }
 

@@ -8,6 +8,7 @@
 
             <!-- Navigation Content -->
             <div class="nav-content">
+                <!-- Main menu -->
                 <ul class="main-menu">
                     <li class="nav-option">
                         <el-button type="info"
@@ -26,38 +27,38 @@
                     </li>
 
                     <!-- Confirmation -->
-                    <li class="nav-option">
-                        <el-popover ref="nav-github-confirm"
-                                    popper-class="nav-github-confirm"
-                                    placement="bottom"
-                                    trigger="click"
-                                    v-model="showNavGitConfirm"
-                                    width="160">
-                            <p> {{ $t("Go to github page?") }} </p>
-                            <div class="actions">
-                                <el-button size="mini" type="text"
-                                           @click="showNavGitConfirm = false">
-                                    {{ $t("Cancel") }}
-                                </el-button>
-                                <el-button type="primary"
-                                           class="confirm-btn"
-                                           size="mini"
-                                           @click="handleGithubBtn"
-                                           round>
-                                    {{ $t("Confirm") }}
-                                </el-button>
-                            </div>
-                        </el-popover>
-                        <el-button type="info"
-                                   v-popover:nav-github-confirm
-                                   class="nav-option-btn"
-                                   @click.stop.prevent="showNavGitConfirm = true"
-                                   round>
-                            <a href="https://github.com/Paul-Kijtapart" target="_blank">
-                                <i class="fab fa-github-square"></i> {{ $t('Github') }}
-                            </a>
-                        </el-button>
-                    </li>
+                    <!--<li class="nav-option">-->
+                    <!--<el-popover ref="nav-github-confirm"-->
+                    <!--popper-class="nav-github-confirm"-->
+                    <!--placement="bottom"-->
+                    <!--trigger="click"-->
+                    <!--v-model="showNavGitConfirm"-->
+                    <!--width="160">-->
+                    <!--<p> {{ $t("Go to github page?") }} </p>-->
+                    <!--<div class="actions">-->
+                    <!--<el-button size="mini" type="text"-->
+                    <!--@click="showNavGitConfirm = false">-->
+                    <!--{{ $t("Cancel") }}-->
+                    <!--</el-button>-->
+                    <!--<el-button type="primary"-->
+                    <!--class="confirm-btn"-->
+                    <!--size="mini"-->
+                    <!--@click="handleGithubBtn"-->
+                    <!--round>-->
+                    <!--{{ $t("Confirm") }}-->
+                    <!--</el-button>-->
+                    <!--</div>-->
+                    <!--</el-popover>-->
+                    <!--<el-button type="info"-->
+                    <!--v-popover:nav-github-confirm-->
+                    <!--class="nav-option-btn"-->
+                    <!--@click.stop.prevent="showNavGitConfirm = true"-->
+                    <!--round>-->
+                    <!--<a href="https://github.com/Paul-Kijtapart" target="_blank">-->
+                    <!--<i class="fab fa-github-square"></i> {{ $t('Github') }}-->
+                    <!--</a>-->
+                    <!--</el-button>-->
+                    <!--</li>-->
 
 
                     <!-- Btn -->
@@ -71,13 +72,14 @@
                     <!--</li>-->
                 </ul>
 
+                <!-- Resume menu -->
                 <ul class="nav-menu resume-menu">
                     <!-- About -->
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a><i class="far fa-user"></i> {{ $t('About') }}</a>
+                            <a v-scroll-to="'#about'"><i class="far fa-user"></i> {{ $t('About') }}</a>
                         </el-button>
                     </li>
 
@@ -86,7 +88,7 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a><i class="fas fa-key"></i> {{ $t('Objectives') }}</a>
+                            <a v-scroll-to="'#objectives'"><i class="fas fa-key"></i> {{ $t('Objectives') }}</a>
                         </el-button>
                     </li>
 
@@ -95,7 +97,7 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a><i class="far fas fa-gem"></i> {{ $t('Skills') }}</a>
+                            <a v-scroll-to="'#skills'"><i class="far fas fa-gem"></i> {{ $t('Skills') }}</a>
                         </el-button>
                     </li>
 
@@ -104,7 +106,7 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a><i class="fas fa-briefcase"></i> {{ $t('Experience') }}</a>
+                            <a v-scroll-to="'#experience'"><i class="fas fa-briefcase"></i> {{ $t('Experience') }}</a>
                         </el-button>
                     </li>
 
@@ -113,7 +115,7 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a><i class="far fa-calendar-alt"></i> {{ $t('Education') }}</a>
+                            <a v-scroll-to="'#education'"><i class="far fa-calendar-alt"></i> {{ $t('Education') }}</a>
                         </el-button>
                     </li>
 
