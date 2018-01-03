@@ -1,21 +1,22 @@
 <template>
     <div class="home-page">
         <!-- Navigation bar -->
-        <div id="left-nav-bar">
+        <div id="top-nav-bar">
             <!--<div class="nav-title">-->
             <!--PN-->
             <!--</div>-->
 
             <!-- Navigation Content -->
             <div class="nav-content">
-                <ul class="nav-menu">
-                    <!--<li class="nav-option">-->
-                    <!--<el-button type="info"-->
-                    <!--class="nav-option-btn"-->
-                    <!--round>-->
-                    <!--<router-link to="/about"><i class="far fa-user"></i> {{ $t('About') }}</router-link>-->
-                    <!--</el-button>-->
-                    <!--</li>-->
+                <ul class="main-menu">
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn"
+                                   round>
+                            <router-link to="/about"><i class="far fa-user"></i> {{ $t('About') }}</router-link>
+                        </el-button>
+                    </li>
+
                     <li class="nav-option">
                         <el-button type="info"
                                    class="nav-option-btn"
@@ -23,22 +24,27 @@
                             <router-link to="/resume"><i class="far fa-file-alt"></i> {{ $t('Resume') }}</router-link>
                         </el-button>
                     </li>
+
                     <!-- Confirmation -->
                     <li class="nav-option">
                         <el-popover ref="nav-github-confirm"
-                                    placement="right"
-                                    width="160"
-                                    v-model="showNavGitConfirm">
-                            <p> Go to github page? </p>
-                            <div style="text-align: right; margin: 0">
+                                    popper-class="nav-github-confirm"
+                                    placement="bottom"
+                                    trigger="click"
+                                    v-model="showNavGitConfirm"
+                                    width="160">
+                            <p> {{ $t("Go to github page?") }} </p>
+                            <div class="actions">
                                 <el-button size="mini" type="text"
                                            @click="showNavGitConfirm = false">
-                                    cancel
+                                    {{ $t("Cancel") }}
                                 </el-button>
                                 <el-button type="primary"
+                                           class="confirm-btn"
                                            size="mini"
-                                           @click="handleGithubBtn">
-                                    confirm
+                                           @click="handleGithubBtn"
+                                           round>
+                                    {{ $t("Confirm") }}
                                 </el-button>
                             </div>
                         </el-popover>
@@ -52,6 +58,8 @@
                             </a>
                         </el-button>
                     </li>
+
+
                     <!-- Btn -->
                     <!--<li class="nav-option">-->
                     <!--<el-button type="info"-->
@@ -61,6 +69,87 @@
                     <!--</router-link>-->
                     <!--</el-button>-->
                     <!--</li>-->
+                </ul>
+
+                <ul class="nav-menu resume-menu">
+                    <!-- About -->
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn"
+                                   round>
+                            <a><i class="far fa-user"></i> {{ $t('About') }}</a>
+                        </el-button>
+                    </li>
+
+                    <!-- Objectives -->
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn"
+                                   round>
+                            <a><i class="fas fa-key"></i> {{ $t('Objectives') }}</a>
+                        </el-button>
+                    </li>
+
+                    <!-- Skill -->
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn"
+                                   round>
+                            <a><i class="far fas fa-gem"></i> {{ $t('Skills') }}</a>
+                        </el-button>
+                    </li>
+
+                    <!-- Experience -->
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn"
+                                   round>
+                            <a><i class="fas fa-briefcase"></i> {{ $t('Experience') }}</a>
+                        </el-button>
+                    </li>
+
+                    <!-- Education -->
+                    <li class="nav-option">
+                        <el-button type="info"
+                                   class="nav-option-btn"
+                                   round>
+                            <a><i class="far fa-calendar-alt"></i> {{ $t('Education') }}</a>
+                        </el-button>
+                    </li>
+
+                    <!-- Confirmation -->
+                    <li class="nav-option">
+                        <el-popover ref="nav-github-confirm"
+                                    popper-class="nav-github-confirm"
+                                    placement="bottom"
+                                    trigger="click"
+                                    v-model="showNavGitConfirm"
+                                    width="160">
+                            <p> {{ $t("Go to github page?") }} </p>
+                            <div class="actions">
+                                <el-button size="mini" type="text"
+                                           @click="showNavGitConfirm = false">
+                                    {{ $t("Cancel") }}
+                                </el-button>
+                                <el-button type="primary"
+                                           class="confirm-btn"
+                                           size="mini"
+                                           @click="handleGithubBtn"
+                                           round>
+                                    {{ $t("Confirm") }}
+                                </el-button>
+                            </div>
+                        </el-popover>
+                        <el-button type="info"
+                                   v-popover:nav-github-confirm
+                                   class="nav-option-btn"
+                                   @click.stop.prevent="showNavGitConfirm = true"
+                                   round>
+                            <a href="https://github.com/Paul-Kijtapart" target="_blank">
+                                <i class="fab fa-github-square"></i> {{ $t('Github') }}
+                            </a>
+                        </el-button>
+                    </li>
                 </ul>
             </div>
 
@@ -131,46 +220,40 @@
 <style lang="scss">
     .home-page {
         // Navigation
-        #left-nav-bar {
+        #top-nav-bar {
             position: fixed;
-            float: left;
+            margin-left: span(2);
 
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            justify-content: center;
-
-            width: span(1 at 1, $main-content-layout);
-            height: 100%;
+            width: span(8);
+            height: $nav-height;
+            z-index: $nav-z-index;
 
             background: $navbar-bg-color;
+            border-bottom-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            text-align: center;
 
             // Navigation content
             .nav-content {
-                width: span(12);
-
-                text-align: center;
+                height: 100%;
 
                 // Navigation menu
                 .nav-menu {
-                    width: span(12);
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: center;
+                    justify-content: flex-start;
 
-                    text-decoration: none;
+                    height: 100%;
+                    list-style: none;
 
                     .nav-option {
-                        display: flex;
-                        flex-flow: row wrap;
-                        align-items: center;
-                        justify-content: center;
-
-                        width: span(12);
+                        width: span(12) / 5;
 
                         // Nav-btn to activate
                         .nav-option-btn {
-                            margin: 0 gutter(of 4) gutter(of 4) gutter(of 4);
-                            width: span(12);
-
-                            text-align: left;
+                            height: 100%;
+                            width: span(11);
 
                             background-color: $navbar-btn-bg-color;
 
@@ -187,10 +270,20 @@
                                 text-decoration: none;
                                 @include nav-font;
 
-                                margin-left: span(2);
+                                margin-left: span(1);
                             }
                         }
                     }
+                }
+
+                .main-menu {
+                    @extend .nav-menu;
+
+                    display: none;
+                }
+
+                .resume-menu {
+                    @extend .nav-menu;
                 }
             }
 
@@ -213,9 +306,8 @@
 
         // Content
         #main-content {
-            float: right;
-            width: span(12 at 2, $main-content-layout);
-            height: 100%;
+            width: span(12);
+            padding-top: $nav-height;
         }
     }
 
@@ -225,6 +317,27 @@
 
         .option {
             @include nav-input;
+        }
+    }
+
+    .nav-github-confirm {
+        font: {
+            size: 16px
+        }
+
+        .actions {
+            margin-top: 10px;
+            text-align: center;
+
+            btn {
+                font: {
+                    size: 16px
+                }
+            }
+
+            .confirm-btn {
+                color: $black0;
+            }
         }
     }
 </style>

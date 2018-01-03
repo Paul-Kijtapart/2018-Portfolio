@@ -440,7 +440,8 @@
 <style lang="scss">
     .resume-view {
         height: 100%;
-        width: 100%;
+        width: span(9);
+        margin: 0 auto;
 
         // section styles to be shared
         .section {
@@ -664,11 +665,11 @@
                 .datetime-display {
                     position: absolute;
                     top: 0;
-                    right: 0;
+                    right: 0px;
 
                     font: {
                         family: $base-font-family;
-                        size: 18px
+                        size: 16px
                     }
                 }
 
