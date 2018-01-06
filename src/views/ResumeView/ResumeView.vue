@@ -447,6 +447,10 @@
         width: span(9);
         margin: 0 auto;
 
+        @include breakpoint($md-down) {
+            width: span(12);
+        }
+
         // section styles to be shared
         .section {
             @include card;
@@ -549,6 +553,7 @@
 
             .skill-body {
                 display: flex;
+                flex-flow: row wrap;
 
                 .skill-info {
                     width: 50%;
@@ -630,10 +635,18 @@
                             }
                         }
                     }
+
+                    @include breakpoint($md-down) {
+                        width: 100%;
+                    }
                 }
 
                 .focus-skill {
                     width: 50%;
+
+                    @include breakpoint($md-down) {
+                        width: 100%;
+                    }
                 }
             }
         }

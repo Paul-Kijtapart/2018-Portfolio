@@ -9,11 +9,12 @@ $md: screen 960px 1264px; // large tablet to laptop
 $lg: screen 1264px 1904px; // desktop
 $xl: screen 1904px; // 4k and ultra-wides
 
-$xs-down: screen max-width 600px;
+$xs-down: screen max-width 600px;   // 600px and down
+$sm-down: screen max-width 960px;   // 960px and down
+$md-down: screen max-width 1264px;  // 1264px and down
 
-$sm-down: screen max-width 960px;
+
 $sm-up: screen 600px; // Priority on z-index
-
 $md-up: screen 960px;
 $lg-up: screen 1264px;
 

@@ -79,7 +79,9 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a v-scroll-to="'#about'"><i class="far fa-user"></i> {{ $t('About') }}</a>
+                            <a v-scroll-to="'#about'"><i class="far fa-user"></i>
+                                <span class="nav-text"> {{ $t('About')}} </span>
+                            </a>
                         </el-button>
                     </li>
 
@@ -88,7 +90,10 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a v-scroll-to="'#objectives'"><i class="fas fa-key"></i> {{ $t('Objectives') }}</a>
+                            <a v-scroll-to="'#objectives'">
+                                <i class="fas fa-key"></i>
+                                <span class="nav-text"> {{ $t('Objectives') }} </span>
+                            </a>
                         </el-button>
                     </li>
 
@@ -97,7 +102,10 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a v-scroll-to="'#skills'"><i class="far fas fa-gem"></i> {{ $t('Skills') }}</a>
+                            <a v-scroll-to="'#skills'">
+                                <i class="far fas fa-gem"></i>
+                                <span class="nav-text"> {{ $t('Skills') }} </span>
+                            </a>
                         </el-button>
                     </li>
 
@@ -106,7 +114,10 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a v-scroll-to="'#experience'"><i class="fas fa-briefcase"></i> {{ $t('Experience') }}</a>
+                            <a v-scroll-to="'#experience'">
+                                <i class="fas fa-briefcase"></i>
+                                <span class="nav-text"> {{ $t('Experience') }} </span>
+                            </a>
                         </el-button>
                     </li>
 
@@ -115,7 +126,10 @@
                         <el-button type="info"
                                    class="nav-option-btn"
                                    round>
-                            <a v-scroll-to="'#education'"><i class="far fa-calendar-alt"></i> {{ $t('Education') }}</a>
+                            <a v-scroll-to="'#education'">
+                                <i class="far fa-calendar-alt"></i>
+                                <span class="nav-text"> {{ $t('Education') }} </span>
+                            </a>
                         </el-button>
                     </li>
 
@@ -148,7 +162,8 @@
                                    @click.stop.prevent="showNavGitConfirm = true"
                                    round>
                             <a href="https://github.com/Paul-Kijtapart" target="_blank">
-                                <i class="fab fa-github-square"></i> {{ $t('Github') }}
+                                <i class="fab fa-github-square"></i>
+                                <span class="nav-text"> {{ $t('Github') }} </span>
                             </a>
                         </el-button>
                     </li>
@@ -268,11 +283,20 @@
                                 }
                             }
 
+                            // Click link
                             a {
                                 text-decoration: none;
                                 @include nav-font;
 
                                 margin-left: span(1);
+
+                                // Nav-text detail
+                                .nav-text {
+
+                                    @include breakpoint($md-down) {
+                                        display: none;
+                                    }
+                                }
                             }
                         }
                     }
