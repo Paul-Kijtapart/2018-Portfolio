@@ -12,12 +12,12 @@ const VueScrollTo = require('vue-scrollto');
 Vue.use(VueScrollTo, {
     container: "body",
     duration: 500,
-    easing: "ease",
+    easing: "linear",
     offset: -70,
     cancelable: true,
     onDone: false,
     onCancel: false,
-    x: false,
+    x: false, // disable scroll on x axis
     y: true
 });
 

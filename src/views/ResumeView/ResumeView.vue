@@ -122,35 +122,32 @@
                      class="experience">
                 <!-- Type -->
                 <div class="exp-type">
-                    <span v-if="exp.eventType === 'work'"
-                          class="display">
+                    <el-tag v-if="exp.eventType === 'work'"
+                            type="info"
+                            class="work-exp-tag"
+                            round>
                         <i class=""></i>
                         {{ exp.eventType | capitalize}}
-                    </span>
-                    <span v-else-if="exp.eventType === 'volunteer'"
-                          class="display">
+                    </el-tag>
+                    <el-tag v-else-if="exp.eventType === 'volunteer'"
+                            type="info"
+                            class="volunteer-exp-tag"
+                            round>
                         <i class=""></i>
                         {{ exp.eventType | capitalize }}
-                    </span>
-                    <span v-else-if="exp.eventType === 'academic'"
-                          class="display">
+                    </el-tag>
+                    <el-tag v-else-if="exp.eventType === 'academic'"
+                            type="info"
+                            class="academic-exp-tag"
+                            round>
                         <i class=""></i>
                         {{ exp.eventType | capitalize}}
-                    </span>
-                    <span v-else-if="exp.eventType === 'academic'"
-                          class="display">
-                        <i class=""></i>
-                        {{ exp.eventType | capitalize }}
-                    </span>
-                    <span v-else-if="exp.eventType === 'academic'"
-                          class="display">
-                        <i class=""></i>
+                    </el-tag>
+                    <el-tag class="display"
+                            round
+                            v-else>
                         {{ exp.eventType | capitalize}}
-                    </span>
-                    <span class="display"
-                          v-else>
-                        {{ exp.eventType | capitalize}}
-                    </span>
+                    </el-tag>
                 </div>
 
                 <!-- Timeline -->
@@ -657,6 +654,8 @@
 
             .experience-title {
                 @include card-title;
+
+                margin-bottom: 40px;
             }
 
             // individual experience
@@ -667,6 +666,10 @@
 
                 position: relative;
 
+                @include breakpoint($md-down) {
+                    flex-flow: column wrap;
+                }
+
                 &:not(:last-child) {
                     margin-bottom: 40px;
                     padding-bottom: 40px;
@@ -676,23 +679,34 @@
                 // Type
                 .exp-type {
                     position: absolute;
-                    top: 0;
+                    top: -30px;
                     left: 0;
                     z-index: 3;
 
                     .display {
-                        background-color: $black0;
+                        background-color: $blue0;
                         color: $black8;
-                        padding: 5px 10px;
-                        border-radius: 25px;
+                    }
+
+                    .work-exp-tag {
+                        @extend .display;
+                    }
+
+                    .volunteer-exp-tag {
+                        @extend .display;
+                    }
+
+                    .academic-exp-tag {
+                        @extend .display;
                     }
                 }
 
                 // Timeline
                 .datetime-display {
                     position: absolute;
-                    top: 0;
+                    top: -30px;
                     right: 0px;
+                    z-index: 3;
 
                     font: {
                         family: $base-font-family;
@@ -704,6 +718,10 @@
                 .showcases {
                     height: 100%;
                     width: 50%;
+
+                    @include breakpoint($md-down) {
+                        width: 100%;
+                    }
 
                     // Overwrite element ui
                     .el-carousel__item h3 {
@@ -739,6 +757,10 @@
 
                     margin: 10px;
                     width: 45%;
+
+                    @include breakpoint($md-down) {
+                        width: 100%;
+                    }
 
                     // shared style for experience title, body, and footer
                     .sub-section {
