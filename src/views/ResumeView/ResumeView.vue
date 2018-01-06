@@ -451,6 +451,14 @@
         // section styles to be shared
         .section {
             @include card;
+
+            width: span(12);
+            margin-bottom: 20px;
+
+            @include breakpoint($md-down) {
+                width: span(12);
+                margin: 0 0 20px 0;
+            }
         }
 
         .about-section {
@@ -655,11 +663,14 @@
             .experience-title {
                 @include card-title;
 
+                width: span(12);
                 margin-bottom: 40px;
             }
 
             // individual experience
             .experience {
+                width: span(12);
+
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: center;

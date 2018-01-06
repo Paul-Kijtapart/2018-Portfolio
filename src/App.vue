@@ -127,7 +127,7 @@
                                    class="nav-option-btn"
                                    round>
                             <a v-scroll-to="'#education'">
-                                <i class="far fa-calendar-alt"></i>
+                                <i class="fas fa-graduation-cap"></i>
                                 <span class="nav-text"> {{ $t('Education') }} </span>
                             </a>
                         </el-button>
@@ -239,20 +239,22 @@
         // Navigation
         #top-nav-bar {
             position: fixed;
-            margin-left: span(2);
 
-            width: span(8);
+            width: span(12);
             height: $nav-height;
-            z-index: $nav-z-index;
 
-            background: $navbar-bg-color;
-            border-bottom-right-radius: 25px;
-            border-bottom-left-radius: 25px;
-            text-align: center;
+            z-index: $nav-z-index;
 
             // Navigation content
             .nav-content {
+                width: span(9);
                 height: 100%;
+                margin: 0 auto;
+
+                background: $navbar-bg-color;
+                border-bottom-right-radius: 25px;
+                border-bottom-left-radius: 25px;
+                text-align: center;
 
                 // Navigation menu
                 .nav-menu {
@@ -261,7 +263,9 @@
                     align-items: center;
                     justify-content: flex-start;
 
+                    width: span(12);
                     height: 100%;
+
                     list-style: none;
 
                     .nav-option {
@@ -269,8 +273,8 @@
 
                         // Nav-btn to activate
                         .nav-option-btn {
-                            height: 100%;
                             width: span(11);
+                            height: 100%;
 
                             background-color: $navbar-btn-bg-color;
 
@@ -285,6 +289,9 @@
 
                             // Click link
                             a {
+                                width: span(12);
+                                height: 100%;
+
                                 text-decoration: none;
                                 @include nav-font;
 
