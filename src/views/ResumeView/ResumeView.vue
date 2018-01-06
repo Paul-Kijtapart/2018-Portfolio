@@ -143,7 +143,7 @@
                         <i class=""></i>
                         {{ exp.eventType | capitalize}}
                     </el-tag>
-                    <el-tag class="display"
+                    <el-tag class="exp-tag"
                             round
                             v-else>
                         {{ exp.eventType | capitalize}}
@@ -694,21 +694,24 @@
                     left: 0;
                     z-index: 3;
 
-                    .display {
+                    .exp-tag {
                         background-color: $blue0;
                         color: $black8;
+                        font: {
+                            size: 1.1em
+                        }
                     }
 
                     .work-exp-tag {
-                        @extend .display;
+                        @extend .exp-tag;
                     }
 
                     .volunteer-exp-tag {
-                        @extend .display;
+                        @extend .exp-tag;
                     }
 
                     .academic-exp-tag {
-                        @extend .display;
+                        @extend .exp-tag;
                     }
                 }
 
