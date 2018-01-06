@@ -70,3 +70,10 @@
   }
 }
 
+@mixin display-width {
+  width: span(9);
+
+  @include breakpoint($sm-down) {
+    width: span(11);
+  }
+}

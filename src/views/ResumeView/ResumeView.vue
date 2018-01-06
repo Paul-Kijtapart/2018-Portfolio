@@ -441,12 +441,9 @@
 <style lang="scss">
     .resume-view {
         height: 100%;
-        width: span(9);
-        margin: 0 auto;
 
-        @include breakpoint($md-down) {
-            width: span(12);
-        }
+        @include display-width;
+        margin: 0 auto;
 
         // section styles to be shared
         .section {
@@ -468,6 +465,11 @@
             flex-flow: row-reverse wrap;
             justify-content: center;
             align-items: center;
+
+
+            @include breakpoint($sm-down) {
+                flex-flow: column wrap;
+            }
 
             .img-display {
                 .img-wrapper {

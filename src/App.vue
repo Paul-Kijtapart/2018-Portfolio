@@ -247,7 +247,7 @@
 
             // Navigation content
             .nav-content {
-                width: span(9);
+                @include display-width;
                 height: 100%;
                 margin: 0 auto;
 
