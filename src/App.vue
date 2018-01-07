@@ -456,7 +456,7 @@
                                 text-align: left;
 
                                 a {
-                                    margin-left: span(4);
+                                    margin-left: span(4 wider);
                                 }
                             }
                         }
