@@ -5,7 +5,8 @@
              class="about-section">
             <div class="img-display">
                 <svg class="img-wrapper"
-                     width="400px" height="400px"
+                     width="400px"
+                     height="400px"
                      key="img-display">
                     <image x="0%" y="0%"
                            width="400" height="400"

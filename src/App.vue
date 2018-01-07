@@ -72,8 +72,8 @@
                     <!--</li>-->
                 </ul>
 
-                <!-- Resume menu -->
-                <ul class="nav-menu resume-menu">
+                <!-- Resume menu xs up -->
+                <ul class="resume-menu">
                     <!-- About -->
                     <li class="nav-option">
                         <el-button type="info"
@@ -168,6 +168,112 @@
                         </el-button>
                     </li>
                 </ul>
+                <div class="resume-menu-mobile">
+                    <!-- Activate options -->
+                    <div class="toggle"
+                         @click.stop.prevent="showNavOptions = !showNavOptions">
+                        <i style="font-size: 30px; align-self: center" class="fas fa-align-justify"></i>
+                    </div>
+
+                    <!-- Options -->
+                    <ul v-if="showNavOptions"
+                        class="resume-menu-mobile-options">
+                        <!-- About -->
+                        <li class="nav-option">
+                            <el-button type="info"
+                                       class="nav-option-btn"
+                                       round>
+                                <a v-scroll-to="'#about'"><i class="far fa-user"></i>
+                                    <span class="nav-text"> {{ $t('About')}} </span>
+                                </a>
+                            </el-button>
+                        </li>
+
+                        <!-- Objectives -->
+                        <li class="nav-option">
+                            <el-button type="info"
+                                       class="nav-option-btn"
+                                       round>
+                                <a v-scroll-to="'#objectives'">
+                                    <i class="fas fa-key"></i>
+                                    <span class="nav-text"> {{ $t('Objectives') }} </span>
+                                </a>
+                            </el-button>
+                        </li>
+
+                        <!-- Skill -->
+                        <li class="nav-option">
+                            <el-button type="info"
+                                       class="nav-option-btn"
+                                       round>
+                                <a v-scroll-to="'#skills'">
+                                    <i class="far fas fa-gem"></i>
+                                    <span class="nav-text"> {{ $t('Skills') }} </span>
+                                </a>
+                            </el-button>
+                        </li>
+
+                        <!-- Experience -->
+                        <li class="nav-option">
+                            <el-button type="info"
+                                       class="nav-option-btn"
+                                       round>
+                                <a v-scroll-to="'#experience'">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span class="nav-text"> {{ $t('Experience') }} </span>
+                                </a>
+                            </el-button>
+                        </li>
+
+                        <!-- Education -->
+                        <li class="nav-option">
+                            <el-button type="info"
+                                       class="nav-option-btn"
+                                       round>
+                                <a v-scroll-to="'#education'">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span class="nav-text"> {{ $t('Education') }} </span>
+                                </a>
+                            </el-button>
+                        </li>
+
+                        <!-- Confirmation -->
+                        <li class="nav-option">
+                            <el-popover ref="nav-github-confirm"
+                                        popper-class="nav-github-confirm"
+                                        placement="bottom"
+                                        trigger="click"
+                                        v-model="showNavGitConfirm"
+                                        width="160">
+                                <p> {{ $t("Go to github page?") }} </p>
+                                <div class="actions">
+                                    <el-button size="mini" type="text"
+                                               @click="showNavGitConfirm = false">
+                                        {{ $t("Cancel") }}
+                                    </el-button>
+                                    <el-button type="primary"
+                                               class="confirm-btn"
+                                               size="mini"
+                                               @click="handleGithubBtn"
+                                               round>
+                                        {{ $t("Confirm") }}
+                                    </el-button>
+                                </div>
+                            </el-popover>
+                            <el-button type="info"
+                                       v-popover:nav-github-confirm
+                                       class="nav-option-btn"
+                                       @click.stop.prevent="showNavGitConfirm = true"
+                                       round>
+                                <a href="https://github.com/Paul-Kijtapart" target="_blank">
+                                    <i class="fab fa-github-square"></i>
+                                    <span class="nav-text"> {{ $t('Github') }} </span>
+                                </a>
+                            </el-button>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
 
             <!-- lang edit -->
@@ -205,6 +311,8 @@
             return {
                 // toggle states
                 showNavGitConfirm: false,
+
+                showNavOptions: false
             }
         },
         computed: {
@@ -252,8 +360,6 @@
                 margin: 0 auto;
 
                 background: $navbar-bg-color;
-                border-bottom-right-radius: 25px;
-                border-bottom-left-radius: 25px;
                 text-align: center;
 
                 // Navigation menu
@@ -300,10 +406,6 @@
 
                                 // Nav-text detail
                                 .nav-text {
-
-                                    @include breakpoint($md-down) {
-                                        display: none;
-                                    }
                                 }
                             }
                         }
@@ -318,6 +420,52 @@
 
                 .resume-menu {
                     @extend .nav-menu;
+
+                    @include breakpoint($xs) {
+                        display: none;
+                    }
+                }
+
+                .resume-menu-mobile {
+                    @extend .nav-menu;
+
+                    border-radius: 0;
+                    display: none;
+
+                    @include breakpoint($xs) {
+                        display: block;
+                    }
+
+                    .toggle {
+                        width: span(12);
+                        height: 100%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-self: center;
+
+                        border-radius: 0;
+                    }
+
+                    ul.resume-menu-mobile-options {
+                        width: span(12);
+
+                        list-style: none;
+
+                        li.nav-option {
+                            width: span(12);
+
+                            .nav-option-btn {
+                                width: span(12);
+                                border-radius: 0;
+                                text-align: left;
+
+                                a {
+                                    margin-left: span(5);
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
