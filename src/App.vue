@@ -239,16 +239,16 @@
 
                         <!-- Confirmation -->
                         <li class="nav-option">
-                            <el-popover ref="nav-github-confirm"
+                            <el-popover ref="nav-github-confirm-mobile"
                                         popper-class="nav-github-confirm"
                                         placement="bottom"
                                         trigger="click"
-                                        v-model="showNavGitConfirm"
+                                        v-model="showMobileNavGitConfirm"
                                         width="160">
                                 <p> {{ $t("Go to github page?") }} </p>
                                 <div class="actions">
                                     <el-button size="mini" type="text"
-                                               @click="showNavGitConfirm = false">
+                                               @click="showMobileNavGitConfirm = false">
                                         {{ $t("Cancel") }}
                                     </el-button>
                                     <el-button type="primary"
@@ -261,9 +261,9 @@
                                 </div>
                             </el-popover>
                             <el-button type="info"
-                                       v-popover:nav-github-confirm
+                                       v-popover:nav-github-confirm-mobile
                                        class="nav-option-btn"
-                                       @click.stop.prevent="showNavGitConfirm = true"
+                                       @click.stop.prevent="showMobileNavGitConfirm = !showMobileNavGitConfirm"
                                        round>
                                 <a href="https://github.com/Paul-Kijtapart" target="_blank">
                                     <i class="fab fa-github-square"></i>
@@ -311,6 +311,7 @@
             return {
                 // toggle states
                 showNavGitConfirm: false,
+                showMobileNavGitConfirm: false,
 
                 showNavOptions: false
             }
@@ -455,7 +456,7 @@
                                 text-align: left;
 
                                 a {
-                                    margin-left: span(5);
+                                    margin-left: span(4);
                                 }
                             }
                         }
