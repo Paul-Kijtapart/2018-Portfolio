@@ -41923,16 +41923,20 @@ template {
           box-sizing: border-box;
 }
 body {
-  min-height: 100vh;
   background-color: #E6E9EC;
 }
 .resume-view {
   height: 100%;
-  width: 100%;
+  width: 74.57627%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 960px) {
+.resume-view {
+      width: 91.52542%;
+}
 }
 .resume-view .section, .resume-view .about-section, .resume-view .objectives-section, .resume-view .skills-section, .resume-view .experience-section, .resume-view .education-section {
     padding: 20px 10px;
-    margin: 0 10px 20px 10px;
     background-color: white;
     -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
             box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
@@ -41944,6 +41948,14 @@ body {
             transition-duration: .15s;
     font-family: "Georgia, serif";
     font-size: 19px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+@media screen and (max-width: 1264px) {
+.resume-view .section, .resume-view .about-section, .resume-view .objectives-section, .resume-view .skills-section, .resume-view .experience-section, .resume-view .education-section {
+        width: 100%;
+        margin: 0 0 20px 0;
+}
 }
 .resume-view .about-section {
     display: -webkit-box;
@@ -41959,6 +41971,14 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+}
+@media screen and (max-width: 960px) {
+.resume-view .about-section {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: column wrap;
+                flex-flow: column wrap;
+}
 }
 .resume-view .about-section .info .info-section, .resume-view .about-section .info .general-info, .resume-view .about-section .info .social-info {
       font-size: medium;
@@ -41977,15 +41997,27 @@ body {
       width: 400px;
       max-width: 100%;
 }
+.resume-view .about-section .info .general-info .title {
+        font-size: 16px;
+}
 .resume-view .about-section .info .general-info .value {
         font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 20px;
 }
 .resume-view .about-section .info .social-info .social-link {
       font-weight: bold;
 }
 .resume-view .about-section .info .social-info .social-link a {
+        padding: 3px 5px;
         text-decoration: none;
         color: #303336;
+}
+.resume-view .about-section .info .social-info .social-link a:hover {
+          background-color: #E6E9EC;
+          -webkit-box-shadow: 0px 0px 20px #E6E9EC;
+                  box-shadow: 0px 0px 20px #E6E9EC;
+          color: #303336;
 }
 .resume-view .objectives-section .objectives-title {
     position: relative;
@@ -42001,6 +42033,9 @@ body {
 }
 .resume-view .objectives-section .objectives-body ul.objectives {
     margin-left: 20px;
+}
+.resume-view .objectives-section .objectives-body ul.objectives .company {
+      color: #303336;
 }
 .resume-view .skills-section:after {
     content: "";
@@ -42023,6 +42058,10 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
 }
 .resume-view .skills-section .skill-body .skill-info {
       width: 50%;
@@ -42077,8 +42116,18 @@ body {
               padding: 5px;
               z-index: 2;
 }
+@media screen and (max-width: 1264px) {
+.resume-view .skills-section .skill-body .skill-info {
+          width: 100%;
+}
+}
 .resume-view .skills-section .skill-body .focus-skill {
       width: 50%;
+}
+@media screen and (max-width: 1264px) {
+.resume-view .skills-section .skill-body .focus-skill {
+          width: 100%;
+}
 }
 .resume-view .experience-section {
     /*background: susy-svg-grid() no-repeat scroll;*/
@@ -42088,6 +42137,8 @@ body {
       margin-bottom: 20px;
       font-family: "Roboto", sans-serif;
       font-size: 24px;
+      width: 100%;
+      margin-bottom: 40px;
 }
 .resume-view .experience-section .experience-title .card-name {
         font-family: "Roboto", sans-serif;
@@ -42096,6 +42147,7 @@ body {
         text-decoration: none;
 }
 .resume-view .experience-section .experience {
+      width: 100%;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -42108,6 +42160,14 @@ body {
               justify-content: center;
       position: relative;
 }
+@media screen and (max-width: 1264px) {
+.resume-view .experience-section .experience {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-flow: column wrap;
+                  flex-flow: column wrap;
+}
+}
 .resume-view .experience-section .experience:not(:last-child) {
         margin-bottom: 40px;
         padding-bottom: 40px;
@@ -42115,26 +42175,31 @@ body {
 }
 .resume-view .experience-section .experience .exp-type {
         position: absolute;
-        top: 0;
+        top: -30px;
         left: 0;
         z-index: 3;
 }
-.resume-view .experience-section .experience .exp-type .display {
-          background-color: #E6E9EC;
+.resume-view .experience-section .experience .exp-type .exp-tag, .resume-view .experience-section .experience .exp-type .work-exp-tag, .resume-view .experience-section .experience .exp-type .volunteer-exp-tag, .resume-view .experience-section .experience .exp-type .academic-exp-tag {
+          background-color: #CFEDFB;
           color: #303336;
-          padding: 5px 10px;
-          border-radius: 25px;
+          font-size: 1.1em;
 }
 .resume-view .experience-section .experience .datetime-display {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -30px;
+        right: 0px;
+        z-index: 3;
         font-family: "Georgia, serif";
-        font-size: 18px;
+        font-size: 16px;
 }
 .resume-view .experience-section .experience .showcases {
         height: 100%;
         width: 50%;
+}
+@media screen and (max-width: 1264px) {
+.resume-view .experience-section .experience .showcases {
+            width: 100%;
+}
 }
 .resume-view .experience-section .experience .showcases .el-carousel__item h3 {
           color: #475669;
@@ -42171,6 +42236,11 @@ body {
                 justify-content: center;
         margin: 10px;
         width: 45%;
+}
+@media screen and (max-width: 1264px) {
+.resume-view .experience-section .experience .description {
+            width: 100%;
+}
 }
 .resume-view .experience-section .experience .description .sub-section, .resume-view .experience-section .experience .description .experience-title, .resume-view .experience-section .experience .description .experience-body, .resume-view .experience-section .experience .description .experience-languages {
           width: 100%;
@@ -42223,6 +42293,7 @@ body {
 }
 .resume-view .education-section .education .education-body .course-display {
       width: 900px;
+      max-width: 100%;
       height: 600px;
 }
 .skill-label {
@@ -42674,7 +42745,6 @@ template {
           box-sizing: border-box;
 }
 body {
-  min-height: 100vh;
   background-color: #E6E9EC;
 }
 polygon {
@@ -43131,7 +43201,6 @@ template {
           box-sizing: border-box;
 }
 body {
-  min-height: 100vh;
   background-color: #E6E9EC;
 }
 text {
@@ -43585,12 +43654,10 @@ template {
           box-sizing: border-box;
 }
 body {
-  min-height: 100vh;
   background-color: #E6E9EC;
 }
 .about-view .section, .about-view .about-section, .about-view .who-am-i-section {
   padding: 20px 10px;
-  margin: 0 10px 20px 10px;
   background-color: white;
   -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
           box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
@@ -44093,82 +44160,122 @@ template {
           box-sizing: border-box;
 }
 body {
-  min-height: 100vh;
   background-color: #E6E9EC;
 }
-.home-page #left-nav-bar {
+.home-page #top-nav-bar {
   position: fixed;
-  float: left;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 240px;
-  height: 100%;
-  background: #303336;
+  width: 100%;
+  height: 70px;
+  z-index: 10;
 }
-.home-page #left-nav-bar .nav-content {
-    width: 100%;
+.home-page #top-nav-bar .nav-content {
+    width: 74.57627%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #303336;
     text-align: center;
 }
-.home-page #left-nav-bar .nav-content .nav-menu {
+@media screen and (max-width: 960px) {
+.home-page #top-nav-bar .nav-content {
+        width: 91.52542%;
+}
+}
+.home-page #top-nav-bar .nav-content .nav-menu, .home-page #top-nav-bar .nav-content .main-menu, .home-page #top-nav-bar .nav-content .resume-menu, .home-page #top-nav-bar .nav-content .resume-menu-mobile {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
       width: 100%;
-      text-decoration: none;
+      height: 100%;
+      list-style: none;
 }
-.home-page #left-nav-bar .nav-content .nav-menu .nav-option {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-flow: row wrap;
-                flex-flow: row wrap;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        width: 100%;
+.home-page #top-nav-bar .nav-content .nav-menu .nav-option, .home-page #top-nav-bar .nav-content .main-menu .nav-option, .home-page #top-nav-bar .nav-content .resume-menu .nav-option, .home-page #top-nav-bar .nav-content .resume-menu-mobile .nav-option {
+        width: 16.66667%;
 }
-.home-page #left-nav-bar .nav-content .nav-menu .nav-option .nav-option-btn {
-          margin: 0 5.26316% 5.26316% 5.26316%;
-          width: 100%;
-          text-align: left;
+.home-page #top-nav-bar .nav-content .nav-menu .nav-option .nav-option-btn, .home-page #top-nav-bar .nav-content .main-menu .nav-option .nav-option-btn, .home-page #top-nav-bar .nav-content .resume-menu .nav-option .nav-option-btn, .home-page #top-nav-bar .nav-content .resume-menu-mobile .nav-option .nav-option-btn {
+          width: 91.52542%;
+          height: 100%;
           background-color: #A0A3A6;
 }
-.home-page #left-nav-bar .nav-content .nav-menu .nav-option .nav-option-btn:hover {
+.home-page #top-nav-bar .nav-content .nav-menu .nav-option .nav-option-btn:hover, .home-page #top-nav-bar .nav-content .main-menu .nav-option .nav-option-btn:hover, .home-page #top-nav-bar .nav-content .resume-menu .nav-option .nav-option-btn:hover, .home-page #top-nav-bar .nav-content .resume-menu-mobile .nav-option .nav-option-btn:hover {
             background-color: #E6E9EC;
             -webkit-box-shadow: 0px 0px 20px #CFEDFB;
                     box-shadow: 0px 0px 20px #CFEDFB;
 }
-.home-page #left-nav-bar .nav-content .nav-menu .nav-option .nav-option-btn:hover a {
+.home-page #top-nav-bar .nav-content .nav-menu .nav-option .nav-option-btn:hover a, .home-page #top-nav-bar .nav-content .main-menu .nav-option .nav-option-btn:hover a, .home-page #top-nav-bar .nav-content .resume-menu .nav-option .nav-option-btn:hover a, .home-page #top-nav-bar .nav-content .resume-menu-mobile .nav-option .nav-option-btn:hover a {
               color: #303336;
 }
-.home-page #left-nav-bar .nav-content .nav-menu .nav-option .nav-option-btn a {
+.home-page #top-nav-bar .nav-content .nav-menu .nav-option .nav-option-btn a, .home-page #top-nav-bar .nav-content .main-menu .nav-option .nav-option-btn a, .home-page #top-nav-bar .nav-content .resume-menu .nav-option .nav-option-btn a, .home-page #top-nav-bar .nav-content .resume-menu-mobile .nav-option .nav-option-btn a {
+            width: 100%;
+            height: 100%;
             text-decoration: none;
             color: #303336;
             font-family: "Lobster", cursive;
-            font-size: 28px;
-            margin-left: 15.25424%;
+            font-size: 1.5em;
+            margin-left: 6.77966%;
 }
-.home-page #left-nav-bar .lang-change-btn {
+.home-page #top-nav-bar .nav-content .main-menu {
+      display: none;
+}
+@media screen and (max-width: 600px) {
+.home-page #top-nav-bar .nav-content .resume-menu {
+        display: none;
+}
+}
+.home-page #top-nav-bar .nav-content .resume-menu-mobile {
+      border-radius: 0;
+      display: none;
+}
+@media screen and (max-width: 600px) {
+.home-page #top-nav-bar .nav-content .resume-menu-mobile {
+          display: block;
+}
+}
+.home-page #top-nav-bar .nav-content .resume-menu-mobile .toggle {
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -ms-flex-item-align: center;
+            align-self: center;
+        border-radius: 0;
+}
+.home-page #top-nav-bar .nav-content .resume-menu-mobile ul.resume-menu-mobile-options {
+        width: 100%;
+        list-style: none;
+}
+.home-page #top-nav-bar .nav-content .resume-menu-mobile ul.resume-menu-mobile-options li.nav-option {
+          width: 100%;
+}
+.home-page #top-nav-bar .nav-content .resume-menu-mobile ul.resume-menu-mobile-options li.nav-option .nav-option-btn {
+            width: 100%;
+            border-radius: 0;
+            text-align: left;
+}
+.home-page #top-nav-bar .nav-content .resume-menu-mobile ul.resume-menu-mobile-options li.nav-option .nav-option-btn a {
+              margin-left: 40.67797%;
+}
+.home-page #top-nav-bar .lang-change-btn {
     margin: 0 5.26316% 5.26316% 5.26316%;
     width: 32.20339%;
 }
-.home-page #left-nav-bar .lang-change-btn i {
+.home-page #top-nav-bar .lang-change-btn i {
       color: #303336;
 }
-.home-page #left-nav-bar .lang-change-btn .el-input__inner {
+.home-page #top-nav-bar .lang-change-btn .el-input__inner {
       color: #303336;
       background-color: #B6B9BC;
       font-family: "Lobster", cursive;
@@ -44176,9 +44283,8 @@ body {
       border: transparent;
 }
 .home-page #main-content {
-  float: right;
-  width: calc(((100% - 240px) / 15 * 14.75));
-  height: 100%;
+  width: 100%;
+  padding-top: 70px;
 }
 .language-options {
   background-color: #B6B9BC;
@@ -44188,4 +44294,17 @@ body {
     background-color: #B6B9BC;
     font-family: "Lobster", cursive;
     font-size: 20px;
+}
+.nav-github-confirm {
+  font-size: 16px;
+}
+.nav-github-confirm .actions {
+    margin-top: 10px;
+    text-align: center;
+}
+.nav-github-confirm .actions btn {
+      font-size: 16px;
+}
+.nav-github-confirm .actions .confirm-btn {
+      color: #E6E9EC;
 }
