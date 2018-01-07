@@ -222,7 +222,9 @@
                 <!--{{ $t(edu.description) }}-->
                 <!--</div>-->
                 <div class="education-body">
-                    <highcharts :options="edu.highchart" ref="education-chart">
+                    <highcharts :options="edu.highchart"
+                                class="course-display"
+                                ref="education-chart">
                     </highcharts>
                 </div>
             </div>
@@ -851,6 +853,7 @@
 
                     .course-display {
                         width: 900px; // todo: check this on responsive
+                        max-width: 100%;
                         height: 600px;
                     }
                 }

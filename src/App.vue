@@ -269,7 +269,8 @@
                     list-style: none;
 
                     .nav-option {
-                        width: span(12) / 5;
+                        // divide by the number of nav options
+                        width: span(12) / 6;
 
                         // Nav-btn to activate
                         .nav-option-btn {
