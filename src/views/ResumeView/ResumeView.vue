@@ -4,15 +4,16 @@
         <div id="about"
              class="about-section">
             <div class="img-display">
-                <svg class="img-wrapper"
-                     width="400px"
-                     height="400px"
-                     key="img-display">
-                    <image x="0%" y="0%"
-                           width="400" height="400"
-                           href="assets/about/profilePic.introduction.jpg">
-                    </image>
-                </svg>
+                <img class="img-wrapper"
+                     src="assets/about/profilePic.introduction.jpg">
+
+                <!--<svg class="img-wrapper"-->
+                <!--key="img-display">-->
+                <!--<image x="0%" y="0%"-->
+                <!--width="100%" height="100%"-->
+                <!--href="assets/about/profilePic.introduction.jpg">-->
+                <!--</image>-->
+                <!--</svg>-->
             </div>
             <div class="info">
                 <!-- General info -->
@@ -482,11 +483,21 @@
             }
 
             .img-display {
+                width: 400px;
+                max-width: 100%;
+                padding: 10px;
+                border-radius: 50%;
+
                 .img-wrapper {
+                    width: 100%;
+                    height: 400px;
+                    border-radius: 50%;
                 }
             }
 
             .info {
+                max-width: span(12);
+
                 .info-section {
                     dt {
                         font: {
@@ -536,7 +547,7 @@
                         font-weight: bold;
 
                         a {
-                            padding:3px 5px;
+                            padding: 3px 5px;
                             text-decoration: none;
                             color: $black8;
                             //todo color: $about-font-color;
