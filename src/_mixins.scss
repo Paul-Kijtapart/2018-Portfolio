@@ -77,3 +77,14 @@
     width: span(11);
   }
 }
+
+@mixin btn-hover {
+  &:hover {
+    background-color: $black0;
+    box-shadow: 0px 0px 20px $blue0;
+
+    a {
+      color: $black8;
+    }
+  }
+}

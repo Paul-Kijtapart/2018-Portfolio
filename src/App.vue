@@ -359,7 +359,8 @@
                 height: 100%;
                 margin: 0 auto;
 
-                background: $navbar-bg-color;
+                background-color: $navbar-bg-color;
+
                 text-align: center;
 
                 // Navigation menu
@@ -385,14 +386,7 @@
 
                             background-color: $navbar-btn-bg-color;
 
-                            &:hover {
-                                background-color: $black0;
-                                box-shadow: 0px 0px 20px $blue0;
-
-                                a {
-                                    color: $black8;
-                                }
-                            }
+                           @include btn-hover;
 
                             // Click link
                             a {

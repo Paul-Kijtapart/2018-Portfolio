@@ -59,7 +59,12 @@
                 <ul class="objectives">
                     <li class="objtive">
                         I am currently working as a <strong> full-stack developer </strong> at
-                        <a style="text-decoration: none;" href="http://www.panevo.com/" target="_blank">Panevo </a>.
+                        <a class="company"
+                           style="text-decoration: none;"
+                           href="http://www.panevo.com/"
+                           target="_blank">
+                            Panevo
+                        </a>.
                     </li>
                     <li class="objtive"><strong>3+ years </strong> of developing Scalable Web applications.</li>
                 </ul>
@@ -469,6 +474,8 @@
             justify-content: center;
             align-items: center;
 
+            // todo background-color: $about-bg-color;
+            // todo color: $about-font-color;
 
             @include breakpoint($sm-down) {
                 flex-flow: column wrap;
@@ -529,8 +536,16 @@
                         font-weight: bold;
 
                         a {
+                            padding:3px 5px;
                             text-decoration: none;
                             color: $black8;
+                            //todo color: $about-font-color;
+
+                            &:hover {
+                                background-color: $black0;
+                                box-shadow: 0px 0px 20px $black0;
+                                color: $black8;
+                            }
                         }
                     }
                 }
@@ -540,6 +555,9 @@
         .objectives-section {
             @extend .section;
 
+            // todo background-color: $objectives-bg-color;
+            // todo color: $objectives-font-color;
+
             // Section title
             .objectives-title {
                 @include card-title;
@@ -548,6 +566,10 @@
             .objectives-body {
                 ul.objectives {
                     margin-left: 20px;
+
+                    .company {
+                        color: $black8;
+                    }
                 }
             }
         }

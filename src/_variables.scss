@@ -60,12 +60,6 @@ $green8: #295A10;
 // Base
 $base-bg-color: $black0;
 
-// Navigation config
-$navbar-bg-color: $black5;
-$navbar-btn-bg-color: $black3;
-$nav-z-index: 10;
-$nav-height: 70px;
-
 /* Content */
 // Content Header
 $content-header-bg-color: $black0;
@@ -73,3 +67,17 @@ $lang-change-btn-bgcolor: $black2;
 
 /* Resume view */
 $exp-card-bg-color: $black1;
+
+// Navigation config
+$navbar-bg-color: $black8;
+$navbar-btn-bg-color: $black3;
+$nav-z-index: 10;
+$nav-height: 70px;
+
+// About section
+$about-bg-color: $black7;
+$about-font-color: $black0;
+
+// Objective section
+$objectives-bg-color: $black4;
+$objectives-font-color: $black8;
