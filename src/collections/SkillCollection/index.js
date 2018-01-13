@@ -58,41 +58,43 @@ export class Skill {
                 min: 0,
                 max: 100,
             },
-            series: [{
-                data: [100],
-                grouping: false,
-                animation: false,
-                enableMouseTracking: false,
-                showInLegend: false,
-                color: '#CFEDFB', // $blue0
-                pointWidth: 40,
-                borderWidth: 0,
-                borderRadiusTopLeft: '4px',
-                borderRadiusTopRight: '4px',
-                borderRadiusBottomLeft: '4px',
-                borderRadiusBottomRight: '4px',
-            }, {
-                enableMouseTracking: false,
-                data: [this.value],
-                borderRadiusBottomLeft: '4px',
-                borderRadiusBottomRight: '4px',
-                color: '#004471', // $blue8
-                borderWidth: 0,
-                pointWidth: 40,
-                animation: false,
-                dataLabels: {
-                    enabled: true,
-                    inside: true,
-                    align: 'left',
-                    // format: '{point.y}%',
-                    format: this.description,
-                    style: {
-                        color: '#D0D3D6', // $black1
-                        textOutline: false,
-                        fontSize: '16px'
+            series: [
+                {
+                    data: [100],
+                    grouping: false,
+                    animation: false,
+                    enableMouseTracking: false,
+                    showInLegend: false,
+                    color: '#CFEDFB', // $blue0
+                    pointWidth: 40,
+                    borderWidth: 0,
+                    borderRadiusTopLeft: '4px',
+                    borderRadiusTopRight: '4px',
+                    borderRadiusBottomLeft: '4px',
+                    borderRadiusBottomRight: '4px',
+                }, {
+                    enableMouseTracking: false,
+                    data: [this.value],
+                    borderRadiusBottomLeft: '4px',
+                    borderRadiusBottomRight: '4px',
+                    color: '#004471', // $blue8
+                    borderWidth: 0,
+                    pointWidth: 40,
+                    animation: false,
+                    dataLabels: {
+                        enabled: true,
+                        inside: true,
+                        align: 'left',
+                        // format: '{point.y}%',
+                        format: this.description,
+                        style: {
+                            color: '#D0D3D6', // $black1
+                            textOutline: false,
+                            fontSize: '16px'
+                        }
                     }
                 }
-            }]
+            ]
         };
     }
 }

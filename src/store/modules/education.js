@@ -44,6 +44,10 @@ class Education {
             },
             title: {
                 text: this.description,
+                style: {
+                    fontSize: "24px",
+                    color: "#303336" // $black8
+                }
             },
             pane: {
                 size: '80%'
@@ -53,7 +57,12 @@ class Education {
                     return course.name;
                 }),
                 tickmarkPlacement: 'on',
-                lineWidth: 0
+                lineWidth: 0,
+                labels: {
+                    style: {
+                        fontSize: "16px"
+                    }
+                }
             },
             yAxis: {
                 gridLineInterpolation: 'polygon',
@@ -65,7 +74,7 @@ class Education {
                 pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}%</b><br/>'
             },
             legend: {
-               visible: false,
+                visible: false,
                 align: 'right',
                 verticalAlign: 'top',
                 y: 70,
