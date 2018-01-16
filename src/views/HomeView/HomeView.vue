@@ -12,7 +12,7 @@
              class="nav-view">
             <ul ref="home-options"
                 class="home-options">
-                <li class="option"> {{$t("RESUME")}} </li>
+                <li class="option"> <router-link to="/resume">{{ $t('RESUME') }}</router-link></li>
             </ul>
             <!-- Overlay -->
             <div id="home-base-overlay">
@@ -27,8 +27,8 @@
             <ul ref="social-options"
                 class="social-options">
                 <li class="option"> {{ $t("Linkedin") }} </li>
+                <li class="option"> {{ $t("Github") }} </li>
                 <li class="option"> {{ $t("Twitter") }} </li>
-                <li class="option"> {{ $t("Facebook") }} </li>
             </ul>
 
             <!-- Overlay -->
@@ -52,7 +52,7 @@
         name: "HomeView",
         data: function () {
             return {
-                showMenu: false
+                showMenu: true
             };
         }
     };
@@ -97,34 +97,38 @@
                 list-style: none;
 
                 .option {
-                    font-family: fantasy;
-                    font-size: 1.5em;
                     text-align: center;
-                    color: $black8;
                     z-index: 200;
 
-                    &:hover {
-                        cursor: pointer;
-                        color: $black0;
+                    a {
+                        font-family: fantasy;
+                        font-size: 1.5em;
+                        text-decoration: none;
+                        color: $black8;
 
-                        &:before {
-                            content: '';
-                            height: 4px;
-                            width: 15px;
-                            background-color: $black0;
-                            position: absolute;
-                            margin-top: 10px;
-                            margin-left: -20px;
-                        }
+                        &:hover {
+                            cursor: pointer;
+                            color: $black0;
 
-                        &:after {
-                            content: '';
-                            height: 4px;
-                            width: 15px;
-                            background-color: $black0;
-                            position: absolute;
-                            margin-top: 10px;
-                            margin-left: 5px;
+                            &:before {
+                                content: '';
+                                height: 4px;
+                                width: 15px;
+                                background-color: $black0;
+                                position: absolute;
+                                margin-top: 10px;
+                                margin-left: -20px;
+                            }
+
+                            &:after {
+                                content: '';
+                                height: 4px;
+                                width: 15px;
+                                background-color: $black0;
+                                position: absolute;
+                                margin-top: 10px;
+                                margin-left: 5px;
+                            }
                         }
                     }
                 }
@@ -235,7 +239,7 @@
 
         #home-bg {
             width: 100%;
-            height: 100%;
+            height: 100vh;
 
             display: flex;
             justify-content: center;
@@ -244,7 +248,10 @@
             background-color: $black0;
 
             .description {
-
+                font: {
+                    family: 'Lobster', cursive;
+                    size: 5em
+                }
             }
         }
     }

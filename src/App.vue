@@ -1,7 +1,8 @@
 <template>
     <div class="home-page">
         <!-- Navigation bar -->
-        <div id="top-nav-bar">
+        <div v-if="$route.name === 'resume'"
+             id="top-nav-bar">
             <!--<div class="nav-title">-->
             <!--PN-->
             <!--</div>-->
@@ -484,7 +485,6 @@
         // Content
         #main-content {
             width: span(12);
-            padding-top: $nav-height;
         }
     }
 

@@ -450,6 +450,7 @@
 <style lang="scss">
     .resume-view {
         height: 100%;
+        padding-top: $nav-height;
 
         @include display-width;
         margin: 0 auto;
