@@ -8,41 +8,50 @@
                id="home-icon"
                class="fas fa-ellipsis-h"></i>
         </div>
-        <div v-show="showMenu"
-             class="nav-view">
-            <ul ref="home-options"
-                class="home-options">
-                <li class="option"> <router-link to="/resume">{{ $t('RESUME') }}</router-link></li>
-            </ul>
-            <!-- Overlay -->
-            <div id="home-base-overlay">
+        <transition name="bounce">
+            <div v-show="showMenu"
+                 class="nav-view">
+                <ul ref="home-options"
+                    class="home-options">
+                    <li class="option">
+                        <router-link to="/resume">{{ $t('RESUME') }}</router-link>
+                    </li>
+                </ul>
+                <!-- Overlay -->
+                <div id="home-base-overlay">
+                </div>
+                <div id="home-circle-overlay">
+                </div>
             </div>
-            <div id="home-circle-overlay">
-            </div>
-        </div>
+        </transition>
 
         <!-- Top right menu -->
-        <div v-show="showMenu"
-             class="social-media-view">
-            <ul ref="social-options"
-                class="social-options">
-                <li class="option"> {{ $t("Linkedin") }} </li>
-                <li class="option"> {{ $t("Github") }} </li>
-                <li class="option"> {{ $t("Twitter") }} </li>
-            </ul>
+        <transition name="bounce">
+            <div v-show="showMenu"
+                 class="social-media-view">
+                <ul ref="social-options"
+                    class="social-options">
+                    <li class="option"> {{ $t("Linkedin") }} </li>
+                    <li class="option"> {{ $t("Github") }} </li>
+                    <li class="option"> {{ $t("Twitter") }} </li>
+                </ul>
 
-            <!-- Overlay -->
-            <div class="social-base-overlay">
+                <!-- Overlay -->
+                <div class="social-base-overlay">
+                </div>
+                <div class="social-circle-overlay">
+                </div>
             </div>
-            <div class="social-circle-overlay">
-            </div>
-        </div>
+        </transition>
 
         <!-- Main bg -->
         <div id="home-bg">
-            <div class="description">
-                Paul Nawat
-            </div>
+            <transition name="fade">
+                <div class="description"
+                     @click="showMenu = false">
+                    Paul Nawat
+                </div>
+            </transition>
         </div>
     </div>
 </template>
@@ -52,8 +61,11 @@
         name: "HomeView",
         data: function () {
             return {
-                showMenu: true
+                showMenu: false
             };
+        },
+        mounted: function () {
+            this.showMenu = true;
         }
     };
 </script>
@@ -255,4 +267,35 @@
             }
         }
     }
+
+    // Animations
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+    {
+        opacity: 0;
+    }
+
+    .bounce-enter-active {
+        animation: bounce-in .5s;
+    }
+
+    .bounce-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
 </style>
