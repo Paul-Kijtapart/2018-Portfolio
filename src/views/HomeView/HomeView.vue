@@ -31,9 +31,12 @@
                  class="social-media-view">
                 <ul ref="social-options"
                     class="social-options">
-                    <li class="option"> {{ $t("Linkedin") }} </li>
-                    <li class="option"> {{ $t("Github") }} </li>
-                    <li class="option"> {{ $t("Twitter") }} </li>
+                    <li class="option"><a href="https://www.linkedin.com/in/aornawattranakul/" target="_blank">
+                        {{ $t("Linkedin") }} </a></li>
+                    <li class="option"><a href="https://github.com/Paul-Kijtapart" target="_blank"> {{ $t("Github")
+                        }} </a></li>
+                    <li class="option"><a href="https://twitter.com/Paul_Nawat" target="_blank"> {{ $t("Twitter")
+                        }} </a></li>
                 </ul>
 
                 <!-- Overlay -->
@@ -192,34 +195,38 @@
                 line-height: 3em;
 
                 .option {
-                    font-family: fantasy;
-                    font-size: 1.5em;
                     text-align: center;
-                    color: $black8;
                     z-index: 200;
 
-                    &:hover {
-                        cursor: pointer;
-                        color: $black0;
+                    a {
+                        font-family: fantasy;
+                        font-size: 1.5em;
+                        text-decoration: none;
+                        color: $black8;
 
-                        &:before {
-                            content: '';
-                            height: 4px;
-                            width: 15px;
-                            background-color: $black0;
-                            position: absolute;
-                            margin-top: 20px;
-                            margin-left: -20px;
-                        }
+                        &:hover {
+                            cursor: pointer;
+                            color: $black0;
 
-                        &:after {
-                            content: '';
-                            height: 4px;
-                            width: 15px;
-                            background-color: $black0;
-                            position: absolute;
-                            margin-top: 20px;
-                            margin-left: 5px;
+                            &:before {
+                                content: '';
+                                height: 4px;
+                                width: 15px;
+                                background-color: $black0;
+                                position: absolute;
+                                margin-top: 20px;
+                                margin-left: -20px;
+                            }
+
+                            &:after {
+                                content: '';
+                                height: 4px;
+                                width: 15px;
+                                background-color: $black0;
+                                position: absolute;
+                                margin-top: 20px;
+                                margin-left: 5px;
+                            }
                         }
                     }
                 }
