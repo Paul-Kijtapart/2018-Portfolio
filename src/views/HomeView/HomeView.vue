@@ -49,10 +49,16 @@
 
         <!-- Main bg -->
         <div id="home-bg">
-            <transition name="fade">
-                <div class="description"
+            <transition v-on:before-enter="beforeEnter"
+                        v-on:enter="enter"
+                        v-on:after-enter="afterEnter"
+                        v-on:enter-cancelled="enterCancelled"
+                        :css="false">
+                <div v-show="showMenu"
+                     ref="description"
+                     class="description"
                      @click="showMenu = false">
-                    Paul Nawat
+                    {{ name }}
                 </div>
             </transition>
         </div>
@@ -60,15 +66,36 @@
 </template>
 
 <script type="text/babel">
+    import {
+        TweenMax,
+        TimelineMax
+    } from "gsap";
+
     export default {
         name: "HomeView",
         data: function () {
             return {
-                showMenu: false
+                showMenu: false,
+                name: "Paul Nawat"
             };
         },
         mounted: function () {
             this.showMenu = true;
+        },
+        methods: {
+            beforeEnter: function (el) {
+                el.style.opacity = 0;
+            },
+            // the done callback is optional when
+            // used in combination with CSS
+            enter: function (el, done) {
+                el.style.opacity = 1;
+                done()
+            },
+            afterEnter: function (el) {
+            },
+            enterCancelled: function (el) {
+            }
         }
     };
 </script>
@@ -275,16 +302,7 @@
         }
     }
 
-    // Animations
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s;
-    }
-
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-    {
-        opacity: 0;
-    }
-
+    // Animation for Home
     .bounce-enter-active {
         animation: bounce-in .5s;
     }
