@@ -1,5 +1,7 @@
 {
   "en": {
+    "RESUME": "RESUME",
+    "Twitter": "Twitter",
     "Confirm": "Confirm",
     "Cancel": "Cancel",
     "Go to github page?": " Go to github page?",
@@ -18,6 +20,17 @@
     "th": "th"
   },
   "th": {
+    "RESUME": "ประวัติย่อ",
+    "Twitter": "Twitter",
+    "Confirm": "ยืนยัน",
+    "Cancel": "ยกเลิก",
+    "Go to github page?": "ไปที่หน้า github?",
+    "Education": "การศึกษา",
+    "Linkedin": "Linkedin",
+    "Profiles": "โปรไฟล์",
+    "Objectives": "วัตถุประสงค์",
+    "Experience": "ประสบการณ์",
+    "Skills": "ทักษะ",
     "2016 Computer Science University Of British Columbia": "2016 Computer Science University Of British Columbia",
     "hello": "สวัสดี",
     "About": "เกี่ยวกับ",
