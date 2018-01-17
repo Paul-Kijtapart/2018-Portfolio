@@ -27,7 +27,7 @@
         "description": "Full-stack web development with Python(Django, REST framework), JavaScript(Vue, JQuery), MySQL, Sass."
       },
       {
-        "description": "Write JavaScript unit tests (Mocha) and end-to-end tests (Selenium/Nightwatch); write Django unit tests."
+        "description": "Write JavaScript unit tests (Jest) and end-to-end tests (Selenium/Nightwatch); write Django unit tests."
       },
       {
         "description": "Create Webpack scripts for development, testing, and production; utilize Babel/Webpack plugins to enable using ES6 features, better cross-browser compatibility, faster compile, and smaller bundle."

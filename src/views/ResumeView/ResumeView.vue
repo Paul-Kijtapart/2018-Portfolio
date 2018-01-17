@@ -65,7 +65,7 @@
                            href="http://www.panevo.com/"
                            target="_blank">
                             Panevo
-                        </a>.
+                        </a>
                     </li>
                     <li class="objtive"><strong>3+ years </strong> of developing Scalable Web applications.</li>
                 </ul>
