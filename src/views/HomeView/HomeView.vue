@@ -49,15 +49,15 @@
 
         <!-- Main bg -->
         <div id="home-bg">
-            <transition v-on:before-enter="beforeEnter"
-                        v-on:enter="enter"
-                        v-on:after-enter="afterEnter"
-                        v-on:enter-cancelled="enterCancelled"
+            <transition @before-enter="beforeEnter"
+                        @enter="enter"
+                        @after-enter="afterEnter"
+                        @enter-cancelled="enterCancelled"
+                        @leave="leave"
                         :css="false">
                 <div v-show="showMenu"
                      ref="description"
-                     class="description"
-                     @click="showMenu = false">
+                     class="description">
                     {{ name }}
                 </div>
             </transition>
@@ -67,8 +67,8 @@
 
 <script type="text/babel">
     import {
-        TweenMax,
-        TimelineMax
+        TweenLite,
+        TimelineLite
     } from "gsap";
 
     export default {
@@ -76,7 +76,8 @@
         data: function () {
             return {
                 showMenu: false,
-                name: "Paul Nawat"
+                name: "Paul Nawat",
+                tl: new TimelineLite()
             };
         },
         mounted: function () {
@@ -85,12 +86,21 @@
         methods: {
             beforeEnter: function (el) {
                 el.style.opacity = 0;
+                console.log("beforeEnter");
             },
             // the done callback is optional when
             // used in combination with CSS
-            enter: function (el, done) {
-                el.style.opacity = 1;
+            enter: function (element, done) {
+                let tl = this.tl;
+
+                tl.add(TweenLite.to(element,7, {opacity: 1}));
+
                 done()
+            },
+            leave: function (el, done) {
+                let tl = this.tl;
+
+                tl.reverse();
             },
             afterEnter: function (el) {
             },
@@ -294,6 +304,7 @@
             background-color: $black0;
 
             .description {
+
                 font: {
                     family: 'Lobster', cursive;
                     size: 5em
