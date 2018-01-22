@@ -221,15 +221,15 @@
         <transition name="bounce">
             <div v-show="showMenu"
                  class="nav-view">
-                <ul v-if="$route.name === 'home'"
-                    ref="home-options"
-                    class="home-options">
-                    <li class="option">
-                        <router-link to="/resume">{{ $t('RESUME') }}</router-link>
-                    </li>
-                </ul>
-                <ul v-else-if="$route.name === 'resume'"
-                    ref="resume-options"
+                <!--<ul v-if="$route.name === 'home'"-->
+                    <!--ref="home-options"-->
+                    <!--class="home-options">-->
+                    <!--<li class="option">-->
+                        <!--<router-link to="/resume">{{ $t('RESUME') }}</router-link>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--v-else-if="$route.name === 'resume'"-->
+                <ul ref="resume-options"
                     class="resume-options">
 
                     <!-- About -->
@@ -307,9 +307,9 @@
                         </a>
                     </li>
                 </ul>
-                <div v-else>
-                    No handler for route {{ $route.name }}
-                </div>
+                <!--<div v-else>-->
+                    <!--No handler for route {{ $route.name }}-->
+                <!--</div>-->
 
                 <!--lang edit-->
                 <!--<el-select :value="language"-->

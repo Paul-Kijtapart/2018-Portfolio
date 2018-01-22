@@ -17,7 +17,7 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: HomeView
+            component: ResumeView
         },
         {
             path: '/about',
