@@ -95,5 +95,34 @@ new Vue({
     router,
     i18n, // make internationalization to be available to all childs
     template: '<Home></Home>',
-    components: {Home}
+    components: {Home},
+    created: function () {
+        window.addEventListener("resize", this.handleWindowResize);
+        this.handleWindowResize();
+    },
+    methods: {
+        handleWindowResize: function () {
+            const screenType = this.getScreenType();
+            store.commit('setScreenType', {
+                screenType
+            });
+        },
+        getScreenType: function (e) {
+            let screenWidth = window.innerWidth;
+            let screenType = 'desktop';
+
+            // Check bottom up
+            if (screenWidth <= 600) { // $xs-down
+                screenType = 'phone';
+            }
+            else if (screenWidth <= 960) {
+                screenType = 'tablet';
+            }
+            else if (screenType <= 1264) {
+                screenType = "laptop";
+            }
+
+            return screenType;
+        }
+    }
 });

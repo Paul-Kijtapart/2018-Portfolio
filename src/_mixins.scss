@@ -72,6 +72,7 @@
 
 @mixin display-width {
   width: span(9);
+  margin:0 auto;
 
   @include breakpoint($sm-down) {
     width: span(12);
@@ -86,5 +87,13 @@
     a {
       color: $black8;
     }
+  }
+}
+
+@mixin nav-responsive-width {
+  width: span(6);
+
+  @include breakpoint($sm-down) {
+    width: span(11);
   }
 }

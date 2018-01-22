@@ -4,50 +4,38 @@
         <div id="about"
              class="about-section">
             <div class="img-display">
-                <img class="img-wrapper"
-                     src="assets/about/profilePic.introduction.jpg">
-
-                <!--<svg class="img-wrapper"-->
-                <!--key="img-display">-->
-                <!--<image x="0%" y="0%"-->
-                <!--width="100%" height="100%"-->
-                <!--href="assets/about/profilePic.introduction.jpg">-->
-                <!--</image>-->
-                <!--</svg>-->
+                <img class="my-img"
+                     key="my-img"
+                     src="assets/about/profilePic.introduction.jpg"/>
             </div>
             <div class="info">
                 <!-- General info -->
-                <dl class="general-info">
-                    <dt class="title"> Name </dt>
-                    <dd class="value"> Kijtapart Nawattranakul</dd>
-
-
-                    <dt class="title"> Location </dt>
-                    <dd class="value"> Vancouver</dd>
-
-
-                    <dt class="title"> Occupation </dt>
-                    <dd class="value"> Software Developer/ Web designer </dd>
-
-
-                    <dt class="title"> Status </dt>
-                    <dd class="value"> Working as a full-stack developer. </dd>
-                </dl>
+                <div class="general-info">
+                    <div class="name"> {{ $t("Kijtapart Nawattranakul") }} </div>
+                    <div class="position"> {{ $t("Software Developer & Web designer") }} </div>
+                </div>
 
                 <!-- Social contact -->
-                <dl class="social-info">
-                    <dt class="social-title">
-                        {{ $t("Profiles") }}
-                    </dt>
-                    <dd class="social-link">
-                        <a href="https://github.com/Paul-Kijtapart" target="_blank"> <i
-                                class="fab fa-github-square"></i> {{ $t("Github") }} </a>
-                    </dd>
-                    <dd class="social-link">
-                        <a href="https://www.linkedin.com/in/aornawattranakul/" target="_blank"><i
-                                class="fab fa-linkedin"></i> {{ $t("Linkedin") }} </a>
-                    </dd>
-                </dl>
+                <div class="social-info">
+                    <div class="social-link">
+                        <a :title="$t('Github')"
+                           href="https://github.com/Paul-Kijtapart" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <div class="social-link">
+                        <a :title="$t('Linkedin')"
+                           href="https://www.linkedin.com/in/aornawattranakul/" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <div class="social-link">
+                        <a :title="$t('Twitter')"
+                           href="https://twitter.com/Paul_Nawat" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -240,7 +228,6 @@
 </template>
 
 <script>
-
     // Components
     import Radarchart from '@/components/Radarchart';
 
@@ -332,6 +319,7 @@
             ...mapState({
                 'skillInFocus': state => state.skill.skillInFocus,
                 'skillList': state => state.skill.skillList,
+                'screenType': state => state.screenType
             }),
 
             ...mapGetters([
@@ -450,16 +438,16 @@
 <style lang="scss">
     .resume-view {
         height: 100%;
-        padding-top: $nav-height;
+        // padding-top: $nav-height;
 
-        @include display-width;
+        width: span(12);
         margin: 0 auto;
 
         // section styles to be shared
         .section {
             @include card;
 
-            width: span(12);
+            @include display-width;
             margin-bottom: 20px;
 
             @include breakpoint($md-down) {
@@ -471,25 +459,28 @@
         .about-section {
             @extend .section;
 
+            width: span(12);
+            height: 100vh;
+
             display: flex;
             flex-flow: row-reverse wrap;
             justify-content: center;
             align-items: center;
 
-            // todo background-color: $about-bg-color;
-            // todo color: $about-font-color;
+            /*background-image: url("../../../assets/about/main-bg.jpeg");*/
+            /*background-size: cover;*/
+            /*background-position: center;*/
+            background-color: $black8;
 
             @include breakpoint($sm-down) {
-                flex-flow: column wrap;
+                flex-flow: column nowrap;
             }
 
             .img-display {
                 width: 400px;
                 max-width: 100%;
-                padding: 10px;
-                border-radius: 50%;
 
-                .img-wrapper {
+                .my-img {
                     width: 100%;
                     height: 400px;
                     border-radius: 50%;
@@ -497,64 +488,77 @@
             }
 
             .info {
-                max-width: span(12);
+                width: span(6);
+                padding-top: 20px;
+
+                @include breakpoint($xs-down) {
+                    width: span(12);
+                }
 
                 .info-section {
-                    dt {
-                        font: {
-                            size: 1.0em;
-                        }
-                    }
-                    dd {
-                        font: {
-                            family: "Lato,'Helvetica Neue',Arial,Helvetica,sans-serif";
-                            size: 1.2em;
-                        }
-                    }
-                    dd {
-                        margin-left: 40px;
-                    }
-
-                    font: {
-                        size: medium;
-                    }
                 }
 
                 .general-info {
-                    @extend .info-section;
-
-                    width: 400px;
+                    width: span(12);
                     max-width: 100%;
 
-                    .title {
+                    margin-bottom: 40px;
+
+                    .value {
+                        text-align: center;
+                        width: span(12);
                         font: {
-                            size: 16px;
+                            family: Arial, Helvetica, sans-serif;
+                        }
+                        color: $black1;
+                    }
+
+                    .name {
+                        @extend .value;
+                        font: {
+                            size: 3.0em;
+                            weight: bolder;
+                        }
+
+                        @include breakpoint($xs-down) {
+                            font: {
+                                size: 2.0em;
+                            }
                         }
                     }
 
-                    .value {
-                        font-weight: bold;
-                        margin-bottom: 10px;
+                    .position {
+                        @extend .value;
+
                         font: {
-                            size: 20px;
+                            size: 1.5em
                         }
+
                     }
                 }
 
                 .social-info {
-                    @extend .info-section;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: center;
+
+                    padding-bottom: 20px;
 
                     .social-link {
                         font-weight: bold;
+                        margin: 0 10px;
 
                         a {
-                            padding: 3px 5px;
+                            padding: 0 5px;
                             text-decoration: none;
-                            color: $black8;
-                            //todo color: $about-font-color;
+                            color: $black1;
+                            font: {
+                                size: 1.8em
+                            }
 
                             &:hover {
-                                background-color: $black0;
+                                border-radius: 50%;
+                                background-color: $black1;
                                 box-shadow: 0px 0px 20px $black0;
                                 color: $black8;
                             }

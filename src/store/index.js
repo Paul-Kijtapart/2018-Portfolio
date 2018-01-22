@@ -29,6 +29,14 @@ export default new Vuex.Store({
         skill,
         education
     },
+    state: {
+        screenType: ""
+    },
+    mutations: {
+        setScreenType(state, {screenType}) {
+            state.screenType = screenType;
+        }
+    },
     strict: debug,
     plugins: debug ? [createLogger()] : []
 });
