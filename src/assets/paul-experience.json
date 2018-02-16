@@ -24,37 +24,47 @@
     "name": "Panevo",
     "roles": [
       {
-        "description": "Full-stack web development with Python(Django, REST framework), JavaScript(Vue, JQuery), MySQL, Sass."
+        "description": "Full-stack web development with Python(Django, REST framework), JavaScript(Vue, JQuery), MySQL, Sass.",
+        "subDescription": []
       },
       {
-        "description": "Write JavaScript unit tests (Jest) and end-to-end tests (Selenium/Nightwatch); write Django unit tests."
+        "description": "Wrote JavaScript unit tests (Jest) and end-to-end tests (Selenium/Nightwatch); wrote Django unit tests.",
+        "subDescription": []
       },
       {
-        "description": "Create Webpack scripts for development, testing, and production; utilize Babel/Webpack plugins to enable using ES6 features, better cross-browser compatibility, faster compile, and smaller bundle."
+        "description": "Installed and Configured Webpack 2.",
+        "subDescription": [
+          "Setup scripts for development, testing , and production environments.",
+          "Utilized Babel to enable ES6 features and cross-browser compatibility.",
+          "Utilized plugins to improve compile time and reduce bundle size."
+        ]
       },
       {
-        "description": "Design/Implement energy management dashboards; add dashboard modes with customized dashboard views."
+        "description": "Designed and Implemented the Energy Management Dashboard.",
+        "subDescription": [
+          "Created a mobile responsive application with customizable diagrams, widgets, and charts.",
+          "Integrated 3rd part libraries like echart"
+        ]
       },
       {
-        "description": "Design/Implement dashboard elements to be displayed in the dashboard; this involves integrating 3rd party libraries to create text, image, diagram and chart elements."
+        "description": "Designed and implemented a flow chart drawing editor.",
+        "subDescription": [
+          "Created a new MySQL schema for the new flow chart element.",
+          "Implemented the UI using JointJS.",
+          "Implemented the core logic of fetching and and updating between the client and the database."
+        ]
       },
       {
-        "description": "Plan/implement UI for diagram drawing editor; this includes deciding on diagram format, storing diagram on the server, and displaying diagram on a browser."
+        "description": "Incorporated Azure backend server and FTP as part of fetching and storing application data.",
+        "subDescription": []
       },
       {
-        "description": "Develop workflow for creating/updating/deleting a dashboard and its elements."
+        "description": "Implemented SASS/SCSS styling using breakpoints to create a responsive interface for web and mobile.",
+        "subDescription": []
       },
       {
-        "description": "Write Python scripts for modifying input's data format, and loading data from CSV files."
-      },
-      {
-        "description": "Establish connection between cloud server(Azure) and a FTP server."
-      },
-      {
-        "description": "Add/Improve Sass sheets for different screen breakpoints to improve responsiveness."
-      },
-      {
-        "description": "Design/Implement reusable table component which loads data on scroll and input-change, ensuring smooth UI transition."
+        "description": "Designed and implemented reusable infinite scrolling table component.",
+        "subDescription": []
       }
     ],
     "timezone": "America/Vancouver",

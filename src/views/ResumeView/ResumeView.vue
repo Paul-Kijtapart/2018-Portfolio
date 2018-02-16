@@ -185,6 +185,14 @@
                                    v-else>
                                 </i>
                                 {{ role.description }}
+
+                                <ul v-if="role.subDescription"
+                                    class="sub-description">
+                                    <li v-for="subDes in role.subDescription"
+                                        :key="subDes">
+                                        {{ subDes }}
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -812,11 +820,11 @@
                     align-items: start;
                     justify-content: center;
 
-                    margin: 10px;
-                    width: 45%;
+                    margin-top: gutter(of 12);
+                    width: span(10);
 
                     @include breakpoint($md-down) {
-                        width: 100%;
+                        width: span(12);
                     }
 
                     // shared style for experience title, body, and footer
@@ -847,6 +855,11 @@
                                 .role-icon {
                                     width: 20px;
                                     height: 20px;
+                                }
+
+                                .sub-description {
+                                    margin-left: 40px;
+
                                 }
                             }
                         }
