@@ -42275,8 +42275,8 @@ body {
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
-        margin: 10px;
-        width: 45%;
+        margin-top: 1.69492%;
+        width: 83.05085%;
 }
 @media screen and (max-width: 1264px) {
 .resume-view .experience-section .experience .description {
@@ -42301,6 +42301,9 @@ body {
 .resume-view .experience-section .experience .description .experience-body .roles .role .role-icon {
               width: 20px;
               height: 20px;
+}
+.resume-view .experience-section .experience .description .experience-body .roles .role .sub-description {
+              margin-left: 40px;
 }
 .resume-view .experience-section .experience .description .experience-languages .exp-languages {
           margin-left: 40px;
