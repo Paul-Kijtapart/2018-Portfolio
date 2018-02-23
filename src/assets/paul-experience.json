@@ -28,8 +28,12 @@
         "subDescription": []
       },
       {
-        "description": "Wrote JavaScript unit tests (Jest) and end-to-end tests (Selenium/Nightwatch); wrote Django unit tests.",
-        "subDescription": []
+        "description": "Wrote tests for both frontend and backend.",
+        "subDescription": [
+          "Wrote frontend unit tests with Jest.",
+          "Wrote frontend end-to-end tests with Selenium/Nightwatch",
+          "Wrote backend unit tests."
+        ]
       },
       {
         "description": "Installed and Configured Webpack 2.",
@@ -43,7 +47,8 @@
         "description": "Designed and Implemented the Energy Management Dashboard.",
         "subDescription": [
           "Created a mobile responsive application with customizable diagrams, widgets, and charts.",
-          "Integrated 3rd part libraries like echart"
+          "Integrated 3rd part libraries like echart",
+          "Implemented exporting a dashboard as PDF."
         ]
       },
       {
